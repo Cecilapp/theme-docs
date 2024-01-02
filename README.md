@@ -43,3 +43,17 @@ sidebar:
   - <group>
   - <group>
 ```
+
+## Development
+
+### Install deps
+
+```bash
+npm install
+```
+
+### Rebuild CSS
+
+```bash
+npx tailwindcss -c ./tailwind.preset.js -i ./tailwind.css -o ./assets/styles.css
+```
