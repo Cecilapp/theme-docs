@@ -46,7 +46,7 @@ sidebar:
 
 ### Customize Tailwind CSS
 
-Create a file `tailwind.config.js`:
+Create the Tailwind configuration file `tailwind.config.js`:
 
 ```javascript
 // uncomment to define custom primary color
@@ -73,8 +73,10 @@ module.exports = {
 
 Run the following command:
 
+```bash
 npm install -D tailwindcss
 npx tailwindcss -i ./themes/docs/tailwind.css -o ./assets/styles.css
+```
 
 ## Development
 
