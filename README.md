@@ -4,7 +4,7 @@ Documentation theme for [Cecil](https://cecil.app), powered by [Tailwind CSS](ht
 
 ## Features
 
-- Algolia DocSearch integration
+- [Algolia DocSearch](https://docsearch.algolia.com) integration
 - Auto-generated navigation sidebar
 - Localization (i18n)
 - Dark theme
