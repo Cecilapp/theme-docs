@@ -91,3 +91,9 @@ npm install
 ```bash
 npx tailwindcss -c ./tailwind.preset.js -i ./tailwind.css -o ./assets/styles.css
 ```
+
+## License
+
+ _Docs_ is a free software distributed under the terms of the MIT license.
+
+© [Arnaud Ligny](https://arnaudligny.fr)
