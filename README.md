@@ -71,6 +71,11 @@ module.exports = {
 }
 ```
 
+Run the following command:
+
+npm install -D tailwindcss
+npx tailwindcss -i ./themes/docs/tailwind.css -o ./assets/styles.css
+
 ## Development
 
 ### Install deps
