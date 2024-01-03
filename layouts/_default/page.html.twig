@@ -6,6 +6,9 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:300,400|Open+Sans:300,400,700|Poppins:400,600&display=swap" rel="stylesheet" />
     <style>{{ asset('styles.css')|inline }}</style>
     <link rel="manifest" href="{{ url('manifest') }}" />
+    {%- if site.docsearch.enabled ?? false ~%}
+    <link rel="preconnect" href="https://{{ site.docsearch.appId|default }}-dsn.algolia.net" crossorigin />
+    {%- endif ~%}
   </head>
   <body class="font-sans antialiased bg-primary-50 dark:bg-primary-950 text-primary-950 dark:text-slate-100">
     <header class="h-12 md:h-16 fixed top-0 inset-x-0 z-10 bg-primary-700 dark:bg-primary-900 px-4 py-3 shadow-md flex items-center">
