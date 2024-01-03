@@ -65,15 +65,18 @@
       {% trans %}Powered by{% endtrans %} <a href="{{ cecil.url }}">Cecil</a>
     </footer>
     {#- scripts ~#}
-    <script>{% apply minify_js %}
+    <script>
+      {%- apply minify_js ~%}
       function toggleMenu() {
         document.getElementById('sidebar').classList.toggle('hidden');
         document.getElementById('sidebar-svg1').classList.toggle('hidden');
         document.getElementById('sidebar-svg2').classList.toggle('hidden');
       }
-    {% endapply %}</script>
+      {%- endapply ~%}
+    </script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
-    <style>{% apply minify_css %}
+    <style>
+      {%- apply minify_css ~%}
       .hljs {
         background: none;
       }
@@ -83,20 +86,24 @@
       pre code.hljs {
         padding: 0;
       }
-    {% endapply %}</style>
+      {%- endapply ~%}
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js" integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==" crossorigin="anonymous"></script>
-    <script>{% apply minify_js %}
+    <script>
+      {%- apply minify_js ~%}
       $(function () {
         $('article h2, article h3').each(function () {
           var url = document.URL.replace(/#.*$/, "") + '#' + $(this).attr('id');
           $(this).append('<a class="title-anchor" href="' + url + '">#</a>');
         });
       });
-    {% endapply %}</script>
+      {%- endapply ~%}
+    </script>
     {%- if site.docsearch.enabled ?? false ~%}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
     <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-    <script>{% apply minify_js %}
+    <script>
+      {%- apply minify_js ~%}
       docsearch({
         container: '#search-container',
         appId: '{{ site.docsearch.appId|default }}',
@@ -104,7 +111,8 @@
         apiKey: '{{ site.docsearch.apiKey|default }}',
         debug: {{ site.docsearch.debug|default('false') }}
       });
-    {% endapply %}</script>
+      {%- endapply ~%}
+    </script>
     {%- endif ~%}
     {%- include 'partials/regsw.js.twig' ignore missing with {'site': site} only ~%}
   </body>
