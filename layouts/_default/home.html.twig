@@ -6,14 +6,6 @@
         {%- for block in page.blocks|default ~%}
         {{- include('blocks/' ~ block.name ~ '.html.twig', ignore_missing = true) ~}}
         {%- endfor ~%}
-        {#- features ~#}
-        {%- if page.features|default ~%}
-        <div class="flex flex-wrap">
-          {%- for feature in page.features|default ~%}
-            {{- include('partials/feature.html.twig') ~}}
-          {%- endfor ~%}
-        </div>
-        {%- endif ~%}
         {#- content ~#}
         <div class="markdown dark:markdown-invert max-w-2xl mx-auto">
           {{ page.content }}

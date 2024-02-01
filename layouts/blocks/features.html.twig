@@ -1,0 +1,8 @@
+        {#- features ~#}
+        {%- if block.features|default ~%}
+        <div class="flex flex-wrap">
+          {%- for feature in block.features ~%}
+            {{- include('partials/feature.html.twig') ~}}
+          {%- endfor ~%}
+        </div>
+        {%- endif ~%}
