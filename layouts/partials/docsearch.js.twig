@@ -4,6 +4,7 @@
         appId: '{{ site.docsearch.appId|default }}',
         indexName: '{{ site.docsearch.indexName|default }}',
         apiKey: '{{ site.docsearch.apiKey|default }}',
+        insights: '{{ site.docsearch.insights ? 'true' : 'false' }}',
         debug: '{{ site.docsearch.debug|default(site.debug ? 'true' : 'false') }}',
         searchParameters: {
           facetFilters: ['lang:{{ site.language }}'],
