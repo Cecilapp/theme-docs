@@ -19,6 +19,8 @@
               {%- else ~%}
                 {%- set group_title = group ~%}
               {%- endif ~%}
+              {%- set group_pages = site.pages.showable|filter(p => p.folder == 'docs/' ~ group|slugify) ~%}
+              {%- if group_pages|length > 0 ~%}
             <div class="group-title">{{ group_title|trans }}</div>
             <ul>
               {#-{%- for p in site.pages.showable|filter(p => p.path matches '{^docs/' ~ group|slugify ~ '}') ~%}~#}
@@ -28,6 +30,7 @@
               </li>
               {%- endfor ~%}
             </ul>
+              {%- endif ~%}
             {%- endfor ~%}
           </div>
           {%- endif ~%}
