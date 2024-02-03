@@ -2401,6 +2401,10 @@ main details a {
     max-width: 18rem;
   }
 
+  .lg\:max-w-screen-lg {
+    max-width: 1024px;
+  }
+
   .lg\:grow-0 {
     flex-grow: 0;
   }
