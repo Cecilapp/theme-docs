@@ -2,6 +2,7 @@
 
     {%- block content ~%}
       <article class="w-full lg:ml-72 overflow-x-hidden px-4 xl:px-16 py-6">
+        {#- "On this page" ~#}
         <details class="mb-4 xl:hidden rounded-md bg-primary-100 dark:bg-primary-950 px-2 py-1">
           <summary class="cursor-pointer text-sm uppercase text-secondary-500 dark:text-secondary-300">
             {% trans %}On this page{% endtrans ~%}
@@ -37,7 +38,7 @@
         </nav>
         {%- endif ~%}
       </article>
-      {#- "On this page" navigation ~#}
+      {#- "On this page" ToC ~#}
       <div>
         <nav id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-[80px]">
           <div class="mb-2 font-semibold text-sm uppercase tracking-wider">{% trans %}On this page{% endtrans %}</div>
@@ -111,7 +112,7 @@
       $(function () {
         $('article h2, article h3').each(function () {
           var url = document.URL.replace(/#.*$/, "") + '#' + $(this).attr('id');
-          $(this).append('<a class="title-anchor" href="' + url + '">#</a>');
+          $(this).append('<a class="anchor-title" href="' + url + '">#</a>');
         });
       });
       {%- endapply ~%}
