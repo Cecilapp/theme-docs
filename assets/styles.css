@@ -648,18 +648,19 @@ main a,
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
-a:hover {
+main a:hover,
+  footer a:hover {
   text-decoration-line: underline;
 }
 
 /* header */
 
-header * {
+header > *:not(.docSearch) {
   --tw-text-opacity: 1;
   color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
-header *:hover {
+header > *:not(.docSearch):hover {
   --tw-text-opacity: 1;
   color: rgb(239 246 255 / var(--tw-text-opacity));
 }
@@ -743,9 +744,10 @@ main details li {
   margin: 0.5rem;
 }
 
-main details a {
-  color: inherit !important;
-  text-decoration-line: none !important;
+main details a,
+  main details a:hover {
+  color: inherit;
+  text-decoration-line: none;
 }
 
 /* article hx anchor */
@@ -755,7 +757,7 @@ article .anchor-title {
 }
 
 article a.anchor-title {
-  text-decoration: none;
+  text-decoration-line: none;
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
 }
@@ -770,7 +772,7 @@ article a.anchor-title {
 }
 
 article a.anchor-title:hover {
-  text-decoration: none;
+  text-decoration-line: none;
   opacity: 1;
 }
 
@@ -2122,103 +2124,138 @@ article a.anchor-title:hover {
 
 /* DocSearch */
 
+/* should usse variables? https://github.com/algolia/docsearch/blob/df60b8ebe89c80ce3d00b80d94e95b6fd86edd19/packages/docsearch-css/src/_variables.css */
+
 .DocSearch.DocSearch-Button {
-  margin: 0px !important;
-  width: 100% !important;
-  cursor: pointer !important;
-  border-radius: 0.25rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity)) !important;
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05) !important;
-  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color) !important;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+  margin: 0px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .DocSearch.DocSearch-Button:focus {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity)) !important;
-  outline: 2px solid transparent !important;
-  outline-offset: 2px !important;
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 @media (min-width: 1024px) {
   .DocSearch.DocSearch-Button {
-    width: 12rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    width: 12rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 @media not all and (min-width: 1024px) {
   .DocSearch.DocSearch-Button {
-    background-color: transparent !important;
-    --tw-shadow: 0 0 #0000 !important;
-    --tw-shadow-colored: 0 0 #0000 !important;
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+    background-color: transparent;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 }
 
 .DocSearch .DocSearch-Button-Placeholder {
-  font-weight: 300 !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(219 234 254 / var(--tw-text-opacity)) !important;
-  padding-left: 0.75rem !important;
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
+  padding-left: 0.75rem;
 }
 
 .DocSearch-Button-Keys {
-  display: none !important;
+  display: none;
 }
 
+.DocSearch-Button .DocSearch-Search-Icon,
 .DocSearch-Search-Icon {
-  --tw-text-opacity: 1 !important;
-  color: rgb(219 234 254 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
 .DocSearch-Form {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity)) !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(219 234 254 / var(--tw-text-opacity)) !important;
-  --tw-shadow: 0 0 #0000 !important;
-  --tw-shadow-colored: 0 0 #0000 !important;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .DocSearch-Input {
-  --tw-text-opacity: 1 !important;
-  color: rgb(219 234 254 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
 .DocSearch-Input::-moz-placeholder {
-  --tw-text-opacity: 1 !important;
-  color: rgb(219 234 254 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
 .DocSearch-Input::placeholder {
-  --tw-text-opacity: 1 !important;
-  color: rgb(219 234 254 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
 .DocSearch-Cancel {
-  --tw-text-opacity: 1 !important;
-  color: rgb(30 64 175 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
 }
 
 .DocSearch-Hit-source {
-  --tw-text-opacity: 1 !important;
-  color: rgb(30 64 175 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
 }
 
 .DocSearch-Hit[aria-selected=true] a {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity)) !important;
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
 
 .DocSearch-Hits mark {
-  --tw-text-opacity: 1 !important;
-  color: rgb(30 64 175 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+/* highlight code */
+
+.hljs {
+  background-color: transparent;
+}
+
+code.hljs {
+  padding: 0px;
+}
+
+pre code.hljs {
+  padding: 0px;
+}
+
+/* tocbot */
+
+.toc-list {
+  padding-left: 0px;
+}
+
+.toc-list .is-collapsible {
+  padding-left: 10px;
+}
+
+.toc-link::before {
+  display: none;
+}
+
+.is-active-link {
+  font-weight: 600;
 }
 
 :is(.dark .dark\:markdown-invert) {
