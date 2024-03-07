@@ -1,8 +1,8 @@
 {% extends '_default/page.html.twig' %}
 
     {% block styles %}
-    {{ parent() }}
     {{ asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css', {minify: false})|html({title: 'Tocbot'}, {preload: true}) }}
+    {{ parent() }}
     {% endblock styles %}
 
     {% block content %}
