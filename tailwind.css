@@ -163,3 +163,8 @@ pre code.hljs {
 .is-active-link {
   @apply font-semibold;
 }
+
+/* mermaid */
+pre:has(> code.language-mermaid) {
+  background-color: inherit;
+}
