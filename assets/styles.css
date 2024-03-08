@@ -655,12 +655,12 @@ main a:hover,
 
 /* header */
 
-header > *:not(.docSearch) {
+header > *:not([class^="DocSearch"]) {
   --tw-text-opacity: 1;
   color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
-header > *:not(.docSearch):hover {
+header > *:not([class^="DocSearch"]):hover {
   --tw-text-opacity: 1;
   color: rgb(239 246 255 / var(--tw-text-opacity));
 }
