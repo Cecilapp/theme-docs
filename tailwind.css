@@ -15,7 +15,7 @@
     @apply underline;
   }
   /* header */
-  header > *:not(.docSearch) {
+  header > *:not([class^="DocSearch"]) {
     @apply text-primary-100 hover:text-primary-50;
   }
   header a {
