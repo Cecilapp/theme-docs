@@ -1,8 +1,7 @@
 {% extends '_default/page.html.twig' %}
 
     {% block styles %}
-    {{ asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css', {minify: false})|html({title: 'Tocbot'}, {preload: true}) }}
-    {{ parent() }}
+    {% set styles = styles|merge(['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css']) %}
     {% endblock styles %}
 
     {% block content %}
