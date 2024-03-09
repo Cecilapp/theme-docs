@@ -2057,6 +2057,11 @@ article a.anchor-title:hover {
   color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
+.text-secondary-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
 .text-secondary-800 {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
