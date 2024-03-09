@@ -83,10 +83,12 @@
       {%- endapply ~%}
     </script>
     {%- if site.docsearch.enabled ?? false ~%}
-    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@{{ site.docsearch.version }}"></script>
+    <script defer id="docsearch" src="https://cdn.jsdelivr.net/npm/@docsearch/js@{{ site.docsearch.version }}"></script>
     <script>
       {%- apply minify_js ~%}
-      {{- include('partials/docsearch.js.twig') ~}}
+      docsearch.addEventListener('load', function () {
+        {{- include('partials/docsearch.js.twig') ~}}
+      });
       {%- endapply ~%}
     </script>
     {%- endif ~%}
