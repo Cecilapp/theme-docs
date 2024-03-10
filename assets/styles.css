@@ -639,7 +639,7 @@ video {
 main a,
   footer a {
   --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 :is(.dark main a),:is(.dark 
