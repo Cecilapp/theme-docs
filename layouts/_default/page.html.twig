@@ -80,7 +80,7 @@
       {%- endapply ~%}
     </script>
     {%- if site.docsearch.enabled ?? false ~%}
-    <script defer id="docsearch" src="https://cdn.jsdelivr.net/npm/@docsearch/js@{{ site.docsearch.version }}"></script>
+    {{ asset('https://cdn.jsdelivr.net/npm/@docsearch/js@' ~ site.docsearch.version ~ '/dist/umd/index.min.js', {filename: 'docsearch.min.js', minify: false})|html({id: 'docsearch', defer: 'true'}) }}
     <script>
       {%- apply minify_js ~%}
       docsearch.addEventListener('load', function () {
