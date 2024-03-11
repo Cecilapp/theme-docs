@@ -105,11 +105,16 @@
       {%- endapply ~%}
     </script>
     {# mermaid #}
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-      mermaid.initialize({ startOnLoad: false, theme: document.documentElement.dataset.theme == 'dark' ? 'dark' : 'default' });
-      await mermaid.run({
-        querySelector: '.language-mermaid',
+    {{ asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false})|html({id: 'mermaid', defer: 'true'}) }}
+    <script>
+      {%- apply minify_js ~%}
+      mermaid.addEventListener('load', function () {
+        const sheet = new CSSStyleSheet();
+        sheet.replaceSync('pre:has(> code.language-mermaid){background-color: inherit;}');
+        document.adoptedStyleSheets.push(sheet);
+        mermaid.initialize({ startOnLoad: false, theme: document.documentElement.dataset.theme == 'dark' ? 'dark' : 'default' });
+        mermaid.run({querySelector: '.language-mermaid'});
       });
+      {%- endapply ~%}
     </script>
     {% endblock scripts %}

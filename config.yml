@@ -18,6 +18,8 @@ jquery:
   version: '3.7.0'
 tocbot:
   version: '4.18.2'
+mermaid:
+  version: '10'
 
 # Cecil config for Docs
 pagination:

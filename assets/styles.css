@@ -2263,12 +2263,6 @@ pre code.hljs {
   font-weight: 600;
 }
 
-/* mermaid */
-
-pre:has(> code.language-mermaid) {
-  background-color: inherit;
-}
-
 :is(.dark .dark\:markdown-invert) {
   --tw-prose-body: var(--tw-prose-invert-body);
   --tw-prose-headings: var(--tw-prose-invert-headings);
