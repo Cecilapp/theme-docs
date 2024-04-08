@@ -2,6 +2,6 @@
           <div class="w-full md:w-2/4 lg:w-1/4 p-2">
             <article class="px-5 py-6 rounded-xl bg-primary-100 dark:dark:bg-primary-900 h-full">
               <h2 class="font-semibold text-lg mb-2">{{ feature.title }}</h2>
-              <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ feature.description }}</p>
+              <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ feature.description|markdown_to_html }}</p>
             </article>
           </div>
