@@ -1,6 +1,6 @@
         {#- features ~#}
         {%- if block.features|default ~%}
-        <div class="flex flex-wrap">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {%- for feature in block.features ~%}
             {{- include('partials/feature.html.twig') ~}}
           {%- endfor ~%}

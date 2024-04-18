@@ -1585,6 +1585,10 @@ article a.anchor-title:hover {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -1691,16 +1695,16 @@ article a.anchor-title:hover {
   scroll-padding-top: 70px;
 }
 
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .flex-row {
   flex-direction: row;
 }
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
 }
 
 .items-center {
@@ -1713,6 +1717,10 @@ article a.anchor-title:hover {
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .space-x-0 > :not([hidden]) ~ :not([hidden]) {
@@ -1869,10 +1877,6 @@ article a.anchor-title:hover {
 
 .fill-current {
   fill: currentColor;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .p-4 {
@@ -2411,8 +2415,8 @@ pre code.hljs {
     display: inline-block;
   }
 
-  .md\:w-2\/4 {
-    width: 50%;
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:px-8 {
@@ -2451,10 +2455,6 @@ pre code.hljs {
     display: none;
   }
 
-  .lg\:w-1\/4 {
-    width: 25%;
-  }
-
   .lg\:w-3\/4 {
     width: 75%;
   }
@@ -2474,6 +2474,10 @@ pre code.hljs {
   .lg\:translate-x-0 {
     --tw-translate-x: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:justify-start {
