@@ -17,7 +17,6 @@
   <body class="font-sans antialiased bg-primary-50 dark:bg-primary-950 text-primary-950 dark:text-secondary-100">
     {#- sidebar ~#}
     {{- include('partials/sidebar.html.twig') ~}}
-    <div id="cloudy-wrapper" class="hidden lg:hidden fixed top-0 z-40 w-full h-full bg-black opacity-50" onclick="toggleMenu()"></div>
     <header class="fixed top-0 inset-x-0 z-30 flex space-x-3 space-x-reverse items-center h-14 pl-4 pr-1 lg:pr-2 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
       <div class="hidden"></div>
       {{- include('partials/menu-title.html.twig') ~}}
@@ -73,9 +72,9 @@
       {%- apply minify_js ~%}
       function toggleMenu() {
         document.getElementById('sidebar').classList.toggle('-translate-x-full');
-        document.getElementById('cloudy-wrapper').classList.toggle('hidden');
-        document.getElementById('sidebar-svg1').classList.toggle('hidden');
-        document.getElementById('sidebar-svg2').classList.toggle('hidden');
+        document.getElementById('sidebar-cloudywrapper').classList.toggle('hidden');
+        document.getElementById('sidebar-open').classList.toggle('hidden');
+        document.getElementById('sidebar-close').classList.toggle('hidden');
       }
       {%- endapply ~%}
     </script>
