@@ -1,12 +1,12 @@
 {% extends '_default/page.html.twig' %}
 
-    {% block styles %}
-    {% set styles = styles|merge(['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css']) %}
-    {% endblock styles %}
+    {%- block styles ~%}
+    {%- set styles = styles|merge(['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css']) ~%}
+    {%- endblock styles ~%}
 
-    {% block content %}
-      <div id="content" class="flex">
-        <article class="w-full lg:ml-72 overflow-x-hidden px-4 xl:px-16 py-6">
+    {%- block content ~%}
+      <div class="flex">
+        <div class="w-full lg:ml-72 overflow-x-hidden px-4 xl:px-16 py-6">
           {#- "On this page" ~#}
           <details class="mb-4 xl:hidden rounded-md bg-primary-100 dark:bg-primary-950 px-2 py-1">
             <summary class="cursor-pointer text-sm uppercase text-secondary-500 dark:text-secondary-300">
@@ -14,12 +14,11 @@
             </summary>
             {{ page.body|toc }}
           </details>
-          {#- article content ~#}
-          <section id="content" class="markdown markdown-slate markdown-code:max-w-none dark:markdown-invert max-w-none">
+          <article id="content" class="markdown markdown-slate markdown-code:max-w-none dark:markdown-invert max-w-none">
             {%- block article ~%}
             {{ page.content }}
             {%- endblock article ~%}
-          </section>
+          </article>
           <footer class="pt-6">
             {{- include('partials/edit.html.twig') ~}}
           </footer>
@@ -42,29 +41,31 @@
             {%- endif ~%}
           </nav>
           {%- endif ~%}
-        </article>
+        </div>
         {#- "On this page" ToC ~#}
         <div>
-          <nav id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-[80px]">
-            <div class="flex space-x-2 items-center mb-2 font-semibold text-sm uppercase tracking-wider">
-              <span>{% trans %}On this page{% endtrans %}</span>
-              <a href="#main" class="flex items-center text-secondary-500 dark:text-secondary-300" aria-label="{% trans %}Back to top{% endtrans %}" title="{% trans %}Back to top{% endtrans %}">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" /></svg>
-              </a>
-            </div>
-            <div id="on-this-page-toc">
-              {{ page.body|toc }}
-            </div>
+          <aside id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-[80px]">
+            <nav>
+              <div class="flex space-x-2 items-center mb-2 font-semibold text-sm uppercase tracking-wider">
+                <span>{% trans %}On this page{% endtrans %}</span>
+                <a href="#main" class="flex items-center text-secondary-500 dark:text-secondary-300" aria-label="{% trans %}Back to top{% endtrans %}" title="{% trans %}Back to top{% endtrans %}">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" /></svg>
+                </a>
+              </div>
+              <div id="on-this-page-toc">
+                {{ page.body|toc }}
+              </div>
+            </nav>
             <div class="mt-5 border-t border-secondary-400 dark:border-secondary-500">
               {{- include('partials/edit.html.twig') ~}}
             </div>
-          </nav>
+          </aside>
         </div>
       </div>
-    {% endblock content %}
+    {%- endblock content ~%}
 
-    {% block footer %}
-      {{ parent() }}
+    {%- block footer ~%}
+      {{- parent() ~}}
       <div id="button-top" class="fixed bottom-0 mb-4 right-0 mr-4 z-10 opacity-0">
         <a href="#main" class="rounded-full border-0 flex items-center justify-center w-10 h-10 bg-primary-700 dark:bg-primary-900 text-primary-100 hover:text-primary-50 shadow-md" aria-label="{% trans %}Back to top{% endtrans %}" title="{% trans %}Back to top{% endtrans %}">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -72,12 +73,12 @@
           </svg>
         </a>
       </div>
-    {% endblock %}
+    {%- endblock footer ~%}
 
-    {% block scripts %}
-    {{ parent() }}
-    {{ asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})|html }}
-    {{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/' ~ site.jquery.version ~ '/jquery.slim.min.js', {minify: false})|html({integrity: 'sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==', crossorigin: 'anonymous'}) }}
+    {%- block scripts ~%}
+    {{- parent() ~}}
+    {{- asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})|html ~}}
+    {{- asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/' ~ site.jquery.version ~ '/jquery.slim.min.js', {minify: false})|html({integrity: 'sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==', crossorigin: 'anonymous'}) }}
     <script>
       {%- apply minify_js ~%}
       {# toc #}
@@ -107,7 +108,7 @@
       {%- endapply ~%}
     </script>
     {# mermaid #}
-    {{ asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false})|html({id: 'mermaid', defer: 'true'}) }}
+    {{- asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false})|html({id: 'mermaid', defer: 'true'}) ~}}
     <script>
       {%- apply minify_js ~%}
       mermaid.addEventListener('load', function () {
@@ -119,4 +120,4 @@
       });
       {%- endapply ~%}
     </script>
-    {% endblock scripts %}
+    {%- endblock scripts ~%}

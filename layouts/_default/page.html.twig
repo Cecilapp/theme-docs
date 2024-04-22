@@ -51,14 +51,11 @@
     </header>
     <main id="main" class="h-full mt-14">
     {%- block content ~%}
-      <div id="content">
-        <article class="w-full lg:max-w-screen-lg mx-auto overflow-x-hidden px-4 xl:px-16 py-6">
-          {#- article content ~#}
-          <section id="content" class="markdown markdown-slate markdown-code:max-w-none dark:markdown-invert max-w-none">
-            {%- block article ~%}
-            {{ page.content }}
-            {%- endblock article ~%}
-          </section>
+      <div class="w-full lg:max-w-screen-lg mx-auto overflow-x-hidden px-4 xl:px-16 py-6">
+        <article id="content" class="markdown markdown-slate markdown-code:max-w-none dark:markdown-invert max-w-none">
+          {%- block article ~%}
+          {{ page.content }}
+          {%- endblock article ~%}
         </article>
       </div>
     {%- endblock content ~%}
