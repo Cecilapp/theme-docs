@@ -1,0 +1,39 @@
+{# all "showable pages by default #}
+{% set pages = site.pages.showable %}
+{# in case of a list page, take its sub pages #}
+{% if page.pages is defined %}
+  {%- set pages = page.pages -%}
+{% endif %}
+{# in case of a paginated list page, take the paginator list pages #}
+{% if page.paginator.pages is defined %}
+  {%- set pages = page.paginator.pages -%}
+{% endif %}
+
+{% extends ['page.html.twig', '_default/page.html.twig'] %}
+
+    {%- block content ~%}
+      <div class="flex">
+        <div class="w-full lg:ml-72 overflow-x-hidden px-4 xl:px-16 py-6">
+          <section id="content" class="markdown markdown-slate markdown-code:max-w-none dark:markdown-invert max-w-none">
+            {%- block article ~%}
+            <h1>{{ page.title }}</h1>
+            {%- if  page.content %}{{ page.content }}{% endif ~%}
+            {%- endblock article ~%}
+          </section>
+          <div class="py-6">
+            <nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {%- for p in pages ~%}
+              <a href="{{ url(p) }}" class="hover:no-underline text-inherit dark:text-inherit">
+                <section class="px-5 py-5 rounded-xl bg-primary-100 dark:dark:bg-primary-900 h-full">
+                  <h3 class="font-semibold text-lg mb-2">{{ p.title }}</h3>
+                  {%- if p.description is defined ~%}
+                  <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ p.description }}</p>
+                  {%- endif ~%}
+                </section>
+              </a>
+              {%- endfor ~%}
+            </nav>
+          </div>
+        </div>
+      </div>
+    {%- endblock content ~%}
