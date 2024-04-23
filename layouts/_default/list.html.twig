@@ -25,7 +25,7 @@
               {%- for p in pages ~%}
               <a href="{{ url(p) }}" class="hover:no-underline text-inherit dark:text-inherit">
                 <section class="px-5 py-5 rounded-xl bg-primary-100 dark:dark:bg-primary-900 h-full">
-                  <h3 class="font-semibold text-lg mb-2">{{ p.title }}</h3>
+                  <h2 class="font-semibold text-lg mb-2">{{ p.title }}</h2>
                   {%- if p.description is defined ~%}
                   <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ p.description }}</p>
                   {%- endif ~%}
