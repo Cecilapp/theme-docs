@@ -7,11 +7,12 @@
 @layer base {
   /* links */
   main a,
-  footer a :not(main) {
+  footer a {
     @apply text-primary-600 dark:text-primary-400;
   }
   main a:hover,
   footer a:hover {
+    @apply text-primary-900 dark:text-primary-200;
     @apply underline;
   }
   /* header */
@@ -62,19 +63,16 @@
   article a.anchor-title {
     @apply no-underline;
     @apply text-primary-700 dark:text-primary-400;
-    @apply opacity-75;
   }
   article a.anchor-title:hover {
+    @apply text-primary-900 dark:text-primary-200;
     @apply no-underline;
-    @apply opacity-100;
   }
   /* on this page ToC */
   #on-this-page ul {
     @apply list-none;
   }
-  #on-this-page-toc {
-    @apply text-primary-700 dark:text-primary-400;
-  }
+  #on-this-page-toc,
   #on-this-page-toc a {
     @apply text-primary-700 dark:text-primary-400;
   }
