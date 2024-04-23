@@ -7,7 +7,7 @@
 @layer base {
   /* links */
   main a,
-  footer a {
+  footer a :not(main) {
     @apply text-primary-500 dark:text-primary-400;
   }
   main a:hover,
@@ -23,7 +23,7 @@
   }
   /* sidebar */
   #sidebar div.group-title {
-    @apply uppercase font-semibold text-sm text-secondary-500 dark:text-secondary-200;
+    @apply uppercase font-semibold text-sm text-secondary-600 dark:text-secondary-200;
   }
   #sidebar ul {
     @apply list-none p-0 mb-2;
