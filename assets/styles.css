@@ -1539,9 +1539,9 @@ article a.anchor-title:hover {
   z-index: 50;
 }
 
-.mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mx-auto {
@@ -1578,10 +1578,6 @@ article a.anchor-title:hover {
   margin-top: 3.5rem;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1590,8 +1586,8 @@ article a.anchor-title:hover {
   margin-top: 1.25rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .block {
@@ -1884,8 +1880,8 @@ article a.anchor-title:hover {
   fill: currentColor;
 }
 
-.p-3 {
-  padding: 0.75rem;
+.p-4 {
+  padding: 1rem;
 }
 
 .px-2 {

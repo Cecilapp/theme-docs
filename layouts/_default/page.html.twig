@@ -67,7 +67,7 @@
         </a>
       </div>
     </main>
-    <footer id="footer" class="mt-3 mx-3 p-3 text-sm text-center border-t border-t-secondary-300">
+    <footer id="footer" class="mx-4 p-4 text-sm text-center border-t border-t-secondary-300">
       {%- block footer ~%}
       <div>{{ site.footer|replace({'%author%': site.author.name|default('Arnaud Ligny')}) }}</div>
       <div>{% trans with {'%powered_by%': '<a href="' ~ cecil.url ~ '">Cecil</a>'} %}Powered by %powered_by%{% endtrans %}</div>
