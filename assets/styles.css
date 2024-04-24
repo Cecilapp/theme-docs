@@ -665,6 +665,13 @@ main a:hover,
   text-decoration-line: underline;
 }
 
+/* hx */
+
+h1, h2, h3, h4 {
+  --tw-text-opacity: 1;
+  color: rgb(23 37 84 / var(--tw-text-opacity));
+}
+
 /* header */
 
 header > *:not([class^="DocSearch"]) {
@@ -2040,6 +2047,11 @@ article a.anchor-title:hover {
   letter-spacing: 0.05em;
 }
 
+.text-\[\#050505\] {
+  --tw-text-opacity: 1;
+  color: rgb(5 5 5 / var(--tw-text-opacity));
+}
+
 .text-inherit {
   color: inherit;
 }
@@ -2052,11 +2064,6 @@ article a.anchor-title:hover {
 .text-primary-700 {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
-}
-
-.text-primary-950 {
-  --tw-text-opacity: 1;
-  color: rgb(23 37 84 / var(--tw-text-opacity));
 }
 
 .text-secondary-500 {

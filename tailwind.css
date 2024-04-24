@@ -15,6 +15,10 @@
     @apply text-primary-900 dark:text-primary-200;
     @apply underline;
   }
+  /* hx */
+  h1, h2, h3, h4 {
+    @apply text-primary-950;
+  }
   /* header */
   header > *:not([class^="DocSearch"]) {
     @apply text-primary-100 hover:text-primary-50;
