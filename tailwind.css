@@ -18,6 +18,7 @@
   /* hx */
   h1, h2, h3, h4 {
     @apply text-primary-950;
+    @apply dark:text-secondary-100;
   }
   /* header */
   header > *:not([class^="DocSearch"]) {
