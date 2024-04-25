@@ -17,7 +17,11 @@
                 {%- endif ~%}
               <div class="flex flex-row items-center space-x-4 mt-2">
                 {%- if author.avatar is defined ~%}
-                <img class="my-0 w-12 h-12 rounded-full" src="{{ author.avatar }}" alt="{{ 'Avatar of %name%'|trans({'%name%': author.name}) }}" />
+                {%- set avatar = asset(author.avatar)|resize(2 * 48) ~%}
+                <picture class="my-0">
+                  <source srcset="{{ avatar|webp }}" type="image/webp">
+                  <img class="w-12 h-12 rounded-full" src="{{ avatar }}" type="{{ avatar.subtype }}" width="{{ avatar.width }}" height="{{ avatar.height }}" alt="{{ 'Avatar of %name%'|trans({'%name%': author.name}) }}">
+                </picture>
                 {%- endif ~%}
                 <div class="flex flex-col">
                   <div class="font-medium">
