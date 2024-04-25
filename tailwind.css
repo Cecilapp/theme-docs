@@ -60,7 +60,11 @@
   main details a:hover {
     @apply no-underline text-inherit;
   }
-  /* article hx anchor */
+  /* article */
+  article.markdown figcaption,
+  article.markdown .note a {
+    @apply text-inherit;
+  }
   article .anchor-title {
     @apply pl-2;
   }

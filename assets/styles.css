@@ -762,7 +762,12 @@ main details a,
   text-decoration-line: none;
 }
 
-/* article hx anchor */
+/* article */
+
+article.markdown figcaption,
+  article.markdown .note a {
+  color: inherit;
+}
 
 article .anchor-title {
   padding-left: 0.5rem;
