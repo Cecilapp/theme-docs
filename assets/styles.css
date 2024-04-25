@@ -1705,6 +1705,10 @@ article .anchor-title {
   cursor: pointer;
 }
 
+.resize {
+  resize: both;
+}
+
 .scroll-pt-\[70px\] {
   scroll-padding-top: 70px;
 }
