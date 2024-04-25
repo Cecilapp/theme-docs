@@ -14,7 +14,7 @@
             </summary>
             {{ page.body|toc }}
           </details>
-          <article id="content" class="markdown markdown-slate markdown-code:max-w-none dark:markdown-invert max-w-none">
+          <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
             {%- block article ~%}
             {{ page.content }}
             {%- endblock article ~%}
@@ -26,7 +26,7 @@
           {%- if page.next is defined or page.prev is defined ~%}
           <nav class="mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-4">
             {%- if page.prev is defined ~%}
-            <a class="basis-1/2 py-2 px-3 font-medium hover:no-underline text-left border-solid border border-secondary-300 hover:border-primary-900 dark:hover:border-primary-200 rounded-md" href="{{ url(page.prev) }}" title="{{ page.prev.title }}">
+            <a class="basis-1/2 py-3 px-4 font-medium hover:no-underline text-left border-solid border border-secondary-300 hover:border-primary-700 dark:hover:border-primary-400 rounded-md" href="{{ url(page.prev) }}" title="{{ page.prev.title }}">
               <div class="mb-2 text-sm text-secondary-500 dark:text-secondary-400">{% trans %}Previous{% endtrans %}</div>
               <div>← {{ page.prev.title }}</div>
             </a>
@@ -34,7 +34,7 @@
             <div class="grow"></div>
             {%- endif ~%}
             {%- if page.next is defined ~%}
-            <a class="basis-1/2 py-2 px-3 font-medium hover:no-underline text-right border-solid border border-secondary-300 hover:border-primary-900 dark:hover:border-primary-200 rounded-md" href="{{ url(page.next) }}" title="{{ page.next.title }}">
+            <a class="basis-1/2 py-3 px-4 font-medium hover:no-underline text-right border-solid border border-secondary-300 hover:border-primary-700 dark:hover:border-primary-400 rounded-md" href="{{ url(page.next) }}" title="{{ page.next.title }}">
               <div class="mb-2 text-sm text-secondary-500 dark:text-secondary-400">{% trans %}Next{% endtrans %}</div>
               <div>{{ page.next.title }} →</div>
             </a>

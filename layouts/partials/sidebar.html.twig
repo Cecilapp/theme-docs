@@ -3,11 +3,13 @@
       <div class="lg:hidden flex items-center h-14 pl-4 py-3">
         {{- include('partials/menu-title.html.twig') ~}}
       </div>
-      <nav class="px-4 py-3 divide-y divide-secondary-400 lg:divide-y-0">
+      <nav class="px-4 divide-y divide-secondary-400 lg:divide-y-0">
         {%- block navigation ~%}
         {#- navigation menu ~#}
-        <div class="lg:hidden flex flex-col space-y-2 pb-4 font-semibold">
-          {{- include('partials/navigation.html.twig') ~}}
+        <div class="flex lg:hidden mb-4 lg:mb-0">
+          <ol class="w-full">
+            {{- include('partials/navigation.html.twig') ~}}
+          </ol>
         </div>
         {#- docs groups ~#}
         {%- if page.section == 'docs' ~%}
@@ -21,14 +23,14 @@
             {%- set group_pages = site.pages.showable|filter(p => p.folder == 'docs/' ~ group|slugify) ~%}
             {%- if group_pages|length > 0 ~%}
           <div class="group-title">{{ group_title|trans }}</div>
-          <ul>
+          <ol>
             {#-{%- for p in site.pages.showable|filter(p => p.path matches '{^docs/' ~ group|slugify ~ '}') ~%}~#}
             {%- for p in site.pages.showable|filter(p => p.folder == 'docs/' ~ group|slugify) ~%}
             <li>
-              <a href="{{ url(p) }}" class="flex {% if url(p) == url(page) %}active{% endif %}">{{ p.title }}</a>
+              <a href="{{ url(p) }}" class="flex{% if url(p) == url(page) %} active{% endif %}">{{ p.title }}</a>
             </li>
             {%- endfor ~%}
-          </ul>
+          </ol>
             {%- endif ~%}
           {%- endfor ~%}
         </div>

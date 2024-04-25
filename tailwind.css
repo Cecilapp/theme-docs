@@ -8,11 +8,10 @@
   /* links */
   main a,
   footer a {
-    @apply text-primary-600 dark:text-primary-400;
+    @apply text-primary-700 dark:text-primary-400;
   }
   main a:hover,
   footer a:hover {
-    @apply text-primary-900 dark:text-primary-200;
     @apply underline;
   }
   /* hx */
@@ -21,36 +20,36 @@
     @apply dark:text-secondary-100;
   }
   /* header */
-  header > *:not([class^="DocSearch"]) {
-    @apply text-primary-100 hover:text-primary-50;
-  }
   header a {
     @apply hover:no-underline
+  }
+  header .navbar-item {
+    @apply text-primary-100 hover:text-primary-50;
   }
   /* sidebar */
   #sidebar div.group-title {
     @apply uppercase font-semibold text-sm text-secondary-600 dark:text-secondary-200;
   }
-  #sidebar ul {
+  #sidebar ol {
     @apply list-none p-0 mb-2;
   }
-  #sidebar ul:last-child {
+  #sidebar ol:last-child {
     @apply mb-0;
   }
-  #sidebar ul>li {
+  #sidebar li {
     @apply my-1;
   }
-  #sidebar ul>li:last-child {
+  #sidebar li:last-child {
     @apply mb-0;
   }
-  #sidebar ul>li>a {
+  #sidebar li>a {
     @apply text-secondary-800 dark:text-secondary-300 px-2.5 py-1.5 no-underline font-medium;
   }
-  #sidebar ul>li>a.active,
-  #sidebar ul>li>a:hover {
+  #sidebar li>a.active,
+  #sidebar li>a:hover {
     @apply rounded bg-primary-200 dark:text-secondary-800;
   }
-  #sidebar ul>li>a.active {
+  #sidebar li>a.active {
     @apply text-primary-700;
   }
   /* on this page */
@@ -64,14 +63,6 @@
   /* article hx anchor */
   article .anchor-title {
     @apply pl-2;
-  }
-  article a.anchor-title {
-    @apply no-underline;
-    @apply text-primary-700 dark:text-primary-400;
-  }
-  article a.anchor-title:hover {
-    @apply text-primary-900 dark:text-primary-200;
-    @apply no-underline;
   }
   /* on this page ToC */
   #on-this-page ul {
