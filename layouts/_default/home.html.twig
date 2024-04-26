@@ -4,7 +4,7 @@
       <div class="flex-col">
         {#- blocks ~#}
         {%- for block in page.blocks|default ~%}
-        {{- include('blocks/' ~ block.name ~ '.html.twig', ignore_missing = true) ~}}
+        {{- include('partials/blocks/' ~ block.name ~ '.html.twig', ignore_missing = true) ~}}
         {%- endfor ~%}
         {#- content ~#}
         {%- if page.content ~%}

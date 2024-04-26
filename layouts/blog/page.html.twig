@@ -1,13 +1,13 @@
 {% extends ['page.html.twig', '_default/page.html.twig'] %}
 
       {%- block content ~%}
-      <div class="w-full lg:max-w-screen-lg mx-auto overflow-x-hidden px-4 xl:px-16 py-6">
+      <div class="w-full lg:max-w-screen-lg mx-auto px-4 xl:px-16 py-6">
         <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
           {%- block article ~%}
           <header>
             <h1>{{ page.title }}</h1>
             {#- date + read time ~#}
-            <div class="mt-2 text-sm">{{ page.date|format_date('long') }} &#x2022; {{ '%minutes% min of reading'|trans({'%minutes%': readtime(page.content)}) }}</div>
+            <div class="mt-2 text-sm">{{ page.date|format_date('long') }} &#x2022; {% trans with {'%minutes%': readtime(page.content)} %}%minutes% min of reading{% endtrans %}</div>
             {#- author(s) ~#}
             {%- if page.authors is defined ~%}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -42,7 +42,7 @@
           </header>
           {{ page.content }}
           <footer class="mt-6">
-            {{- include('partials/edit.html.twig') ~}}
+            {{- include('partials/github-edit.html.twig') ~}}
           </footer>
           {{- include('partials/nav-prev-next.html.twig') ~}}
           {%- endblock article ~%}

@@ -16,14 +16,16 @@
   </head>
   <body class="font-sans antialiased bg-primary-50 dark:bg-primary-950 text-[#050505] dark:text-secondary-100">
     {#- sidebar ~#}
-    {{- include('partials/sidebar.html.twig') ~}}
+    {%- block sidebar ~%}
+      {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
+    {%- endblock sidebar ~%}
     <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 px-4 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
-      {#- sidebar menu + site ~#}
-      {{- include('partials/menu-title.html.twig') ~}}
-      {#- navigation menu ~#}
+      {#- sidebar menu button + site title ~#}
+      {{- include('partials/title.html.twig') ~}}
+      {#- main menu ~#}
       <div class="hidden lg:flex ml-3 items-center">
         <ol class="flex space-x-6">
-          {{- include('partials/navigation.html.twig') ~}}
+          {{- include('partials/menu.html.twig') ~}}
         </ol>
       </div>
       <div class="grow"></div>
@@ -44,16 +46,16 @@
       {#- selectors ~#}
       <div class="flex justify-end space-x-2 ml-3">
         <div class="navbar-item hidden sm:block">
-          {{- include('partials/theme-selector.html.twig') ~}}
+          {{- include('partials/selector-theme.html.twig') ~}}
         </div>
         <div class="navbar-item">
-          {{- include('partials/language-selector.html.twig') ~}}
+          {{- include('partials/selector-language.html.twig') ~}}
         </div>
       </div>
     </header>
     <main id="main" class="h-full mt-14">
       {%- block content ~%}
-      <div class="w-full lg:max-w-screen-lg mx-auto overflow-x-hidden px-4 xl:px-16 py-6">
+      <div class="w-full lg:max-w-screen-lg mx-auto px-4 xl:px-16 py-6">
         <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
           {%- block article ~%}
           {{ page.content }}

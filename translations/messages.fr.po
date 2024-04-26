@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-04-25 15:27+0200\n"
-"PO-Revision-Date: 2024-04-25 15:29+0200\n"
+"POT-Creation-Date: 2024-04-26 17:56+0200\n"
+"PO-Revision-Date: 2024-04-26 17:56+0200\n"
 "Last-Translator: Arnaud Ligny <arnaud@ligny.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -13,41 +13,41 @@ msgstr ""
 "X-Poedit-Basepath: ../layouts\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: _default/page.html.twig:36 _default/page.html.twig:38
+#: _default/page.html.twig:38 _default/page.html.twig:40
 msgid "%title% on GitHub"
 msgstr "%title% sur GitHub"
 
-#: _default/page.html.twig:65 docs/page.html.twig:33
+#: _default/page.html.twig:67 docs/page.html.twig:61
 msgid "Back to top"
 msgstr "Retour en haut"
 
-#: _default/page.html.twig:75 partials/sidebar.html.twig:46
+#: _default/page.html.twig:77 partials/sidebar.html.twig:23
 msgid "Powered by %powered_by%"
 msgstr "Propulsé par %powered_by%"
-
-#: blocks/cta.html.twig:6
-msgid "Get started"
-msgstr "Mise en route"
-
-#: blocks/cta.html.twig:8
-msgid "View on GitHub"
-msgstr "Voir sur GitHub"
-
-#: blocks/features.html.twig:5
-msgid "Features"
-msgstr "Fonctionnalités"
 
 #: blog/page.html.twig:10
 msgid "%minutes% min of reading"
 msgstr "%minutes% min de lecture"
 
-#: blog/page.html.twig:18
+#: blog/page.html.twig:23
 msgid "Avatar of %name%"
 msgstr "Avatar de %name%"
 
-#: docs/page.html.twig:13 docs/page.html.twig:32
+#: docs/page.html.twig:41 docs/page.html.twig:60
 msgid "On this page"
 msgstr "Sur cette page"
+
+#: partials/blocks/cta.html.twig:6
+msgid "Get started"
+msgstr "Mise en route"
+
+#: partials/blocks/cta.html.twig:8
+msgid "View on GitHub"
+msgstr "Voir sur GitHub"
+
+#: partials/blocks/features.html.twig:5
+msgid "Features"
+msgstr "Fonctionnalités"
 
 #: partials/docsearch.js.twig:12
 msgid "Search docs"
@@ -145,29 +145,13 @@ msgstr "Vous pensez que cette requête devrait renvoyer des résultats ?"
 msgid "Let us know."
 msgstr "Faites-nous savoir."
 
-#: partials/edit.html.twig:2
+#: partials/github-edit.html.twig:2
 msgid "Improve this page"
 msgstr "Améliorer cette page"
 
-#: partials/edit.html.twig:6
+#: partials/github-edit.html.twig:6
 msgid "Edit this page"
 msgstr "Modifier cette page"
-
-#: partials/language-selector.html.twig:4
-msgid "Language:"
-msgstr "Langue :"
-
-#: partials/menu-title.html.twig:4
-msgid "Open menu"
-msgstr "Ouvrir le menu"
-
-#: partials/menu-title.html.twig:7
-msgid "Close menu"
-msgstr "Fermer le menu"
-
-#: partials/menu-title.html.twig:12
-msgid "Home page"
-msgstr "Page d'accueil"
 
 #: partials/nav-prev-next.html.twig:6
 msgid "Previous"
@@ -177,21 +161,37 @@ msgstr "Précédent"
 msgid "Next"
 msgstr "Suivant"
 
-#: partials/theme-selector.html.twig:3
+#: partials/selector-language.html.twig:4
+msgid "Language:"
+msgstr "Langue :"
+
+#: partials/selector-theme.html.twig:3
 msgid "Theme:"
 msgstr "Thème :"
 
-#: partials/theme-selector.html.twig:5
+#: partials/selector-theme.html.twig:5
 msgid "System"
 msgstr "Système"
 
-#: partials/theme-selector.html.twig:6
+#: partials/selector-theme.html.twig:6
 msgid "Dark"
 msgstr "Sombre"
 
-#: partials/theme-selector.html.twig:7
+#: partials/selector-theme.html.twig:7
 msgid "Light"
 msgstr "Clair"
+
+#: partials/title.html.twig:4
+msgid "Open menu"
+msgstr "Ouvrir le menu"
+
+#: partials/title.html.twig:7
+msgid "Close menu"
+msgstr "Fermer le menu"
+
+#: partials/title.html.twig:12
+msgid "Home page"
+msgstr "Page d'accueil"
 
 #~ msgid "Auto"
 #~ msgstr "Auto"
