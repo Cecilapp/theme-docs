@@ -2,7 +2,7 @@
 
 Documentation theme for [Cecil](https://cecil.app), powered by [Tailwind CSS](https://tailwindcss.com) and [Algolia DocSearch](https://docsearch.algolia.com).
 
-![Screenshot](/docs/screenshot.png)
+![Screenshot](./docs/screenshot.png)
 
 ## Features
 
