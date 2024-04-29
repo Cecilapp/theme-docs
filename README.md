@@ -12,7 +12,7 @@ Documentation theme for [Cecil](https://cecil.app), powered by [Tailwind CSS](ht
 - Templates internationalization (i18n)
 - Mobile friendly
 - Dark theme
-- etc.
+- Blog posts templates
 
 ## Installation
 
@@ -54,7 +54,7 @@ docsearch:
 Create the [Tailwind configuration](https://tailwindcss.com/docs/configuration) file `tailwind.config.js`:
 
 ```javascript
-// uncomment to define custom primary color
+// uncomment to define custom colors
 //const colors = require('tailwindcss/colors');
 
 module.exports = {
