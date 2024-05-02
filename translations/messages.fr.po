@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-04-28 03:53+0200\n"
-"PO-Revision-Date: 2024-04-28 03:53+0200\n"
+"POT-Creation-Date: 2024-05-02 12:38+0200\n"
+"PO-Revision-Date: 2024-05-02 12:38+0200\n"
 "Last-Translator: Arnaud Ligny <arnaud@ligny.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -29,7 +29,7 @@ msgstr "Propulsé par %powered_by%"
 msgid "%minutes% min of reading"
 msgstr "%minutes% min de lecture"
 
-#: blog/page.html.twig:23
+#: blog/page.html.twig:30
 msgid "Avatar of %name%"
 msgstr "Avatar de %name%"
 
@@ -40,10 +40,6 @@ msgstr "Sur cette page"
 #: partials/blocks/cta.html.twig:6
 msgid "Get started"
 msgstr "Mise en route"
-
-#: partials/blocks/cta.html.twig:8
-msgid "View on GitHub"
-msgstr "Voir sur GitHub"
 
 #: partials/blocks/features.html.twig:5
 msgid "Features"
@@ -192,6 +188,9 @@ msgstr "Fermer le menu"
 #: partials/title.html.twig:12
 msgid "Home page"
 msgstr "Page d'accueil"
+
+#~ msgid "View on GitHub"
+#~ msgstr "Voir sur GitHub"
 
 #~ msgid "Auto"
 #~ msgstr "Auto"
