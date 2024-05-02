@@ -9,15 +9,22 @@
             {#- date + read time ~#}
             <div class="mt-2 text-sm">{{ page.date|format_date('long') }} &#x2022; {% trans with {'%minutes%': readtime(page.content)} %}%minutes% min of reading{% endtrans %}</div>
             {#- author(s) ~#}
+            {%- set authors = [] ~%}
+            {%- if page.author is defined ~%}
+              {%- set authors = authors|merge([page.author]) ~%}
+            {%- endif ~%}
             {%- if page.authors is defined ~%}
+              {%- set authors = authors|merge(page.authors) ~%}
+            {%- endif ~%}
+            {%- if authors is not empty ~%}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {%- for author in page.authors ~%}
+              {%- for author in authors ~%}
                 {%- if author is not iterable ~%}
                   {%- set author = site.data.authors[author] ~%}
                 {%- endif ~%}
               <div class="flex flex-row items-center space-x-4 mt-2">
-                {%- if author.avatar is defined ~%}
-                {%- set avatar = asset(author.avatar)|resize(2 * 48) ~%}
+                {%- if author.image is defined ~%}
+                {%- set avatar = asset(author.image)|resize(2 * 48) ~%}
                 <picture class="my-0">
                   <source srcset="{{ avatar|webp }}" type="image/webp">
                   <img class="w-12 h-12 rounded-full" src="{{ avatar }}" type="{{ avatar.subtype }}" width="{{ avatar.width }}" height="{{ avatar.height }}" alt="{{ 'Avatar of %name%'|trans({'%name%': author.name}) }}">
@@ -25,14 +32,20 @@
                 {%- endif ~%}
                 <div class="flex flex-col">
                   <div class="font-medium">
-                    {%- if author.url is defined ~%}
-                    <a href="{{ author.url }}">{{ author.name }}</a>
+                    {%- if author.url is defined or author.email is defined -%}
+                      {%- if author.email is defined -%}
+                        {%- set contact = 'mailto:' ~ author.email -%}
+                      {%- endif -%}
+                      {%- if author.url is defined -%}
+                        {%- set contact = url(author.url) -%}
+                      {%- endif -%}
+                      <a href="{{ contact }}">{{ author.name }}</a>
                     {%- else -%}
                     {{ author.name }}
-                    {%- endif ~%}
+                    {%- endif -%}
                   </div>
-                  {%- if author.description is defined ~%}
-                  <div class="text-sm">{{ author.description }}</div>
+                  {%- if author.title is defined ~%}
+                  <div class="text-sm">{{ author.title }}</div>
                   {%- endif ~%}
                 </div>
               </div>
