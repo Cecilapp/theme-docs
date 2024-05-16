@@ -32,7 +32,7 @@
       {%- endembed ~%}
     {%- endblock sidebar ~%}
 
-      {%- block content ~%}
+      {%- block article ~%}
       <div class="flex">
         <div class="w-full lg:ml-72 px-4 xl:px-16 py-6">
           {#- "On this page" ~#}
@@ -43,9 +43,9 @@
             {{ page.body|toc }}
           </details>
           <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
-            {%- block article ~%}
+            {%- block content ~%}
             {{ page.content }}
-            {%- endblock article ~%}
+            {%- endblock content ~%}
           </article>
           <footer class="mt-6">
             {{- include('partials/github-edit.html.twig') ~}}
@@ -72,7 +72,7 @@
           </aside>
         </div>
       </div>
-      {%- endblock content ~%}
+      {%- endblock article ~%}
 
     {%- block scripts ~%}
     {{- parent() ~}}

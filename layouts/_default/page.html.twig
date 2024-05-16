@@ -54,15 +54,15 @@
       </div>
     </header>
     <main id="main" class="h-full mt-14">
-      {%- block content ~%}
+      {%- block article ~%}
       <div class="w-full lg:max-w-screen-lg mx-auto px-4 xl:px-16 py-6">
         <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
-          {%- block article ~%}
+          {%- block content ~%}
           {{ page.content }}
-          {%- endblock article ~%}
+          {%- endblock content ~%}
         </article>
       </div>
-      {%- endblock content ~%}
+      {%- endblock article ~%}
       <div id="button-top" class="fixed bottom-0 mb-4 right-0 mr-4 z-10 opacity-0 duration-150 ease-in-out">
         <a href="#main" class="rounded-full border-0 flex items-center justify-center w-10 h-10 bg-primary-700 dark:bg-primary-900 text-primary-100 hover:text-primary-50 shadow-md" aria-label="{% trans %}Back to top{% endtrans %}" title="{% trans %}Back to top{% endtrans %}">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
