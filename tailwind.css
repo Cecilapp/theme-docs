@@ -87,13 +87,13 @@
     @apply border-none;
   }
   .selector {
-    @apply bg-transparent border-0 text-inherit cursor-pointer;
+    @apply border-0 cursor-pointer bg-inherit text-inherit;
   }
   .selector:hover {
     @apply text-inherit;
   }
   .selector option {
-    @apply text-primary-950;
+    @apply bg-primary-50 dark:bg-primary-950 text-primary-950 dark:text-secondary-100;
   }
 }
 
