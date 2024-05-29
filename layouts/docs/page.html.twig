@@ -77,7 +77,6 @@
     {%- block scripts ~%}
     {{- parent() ~}}
     {{- asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})|html ~}}
-    {{- asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/' ~ site.jquery.version ~ '/jquery.slim.min.js', {minify: false})|html({integrity: 'sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==', crossorigin: 'anonymous'}) }}
     <script>
       {%- apply minify_js ~%}
       {# toc #}
@@ -98,10 +97,14 @@
         }
       });
       {# article anchor #}
-      $(function () {
-        $('article h2, article h3').each(function () {
-          var url = document.URL.replace(/#.*$/, "") + '#' + $(this).attr('id');
-          $(this).append('<a class="anchor-title" href="' + url + '">#</a>');
+      window.addEventListener('load', function (e) {
+        const allHx = document.querySelectorAll('article h2, article h3');
+        allHx.forEach((item) => {
+          let anchor = document.createElement('a');
+          anchor.href = document.URL + '#' + item.getAttribute('id');
+          anchor.innerText = '#';
+          anchor.className = 'anchor-title';
+          item.append(anchor);
         });
       });
       {%- endapply ~%}

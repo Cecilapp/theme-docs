@@ -14,8 +14,6 @@ docsearch:
   version: '3'
 highlightjs:
   version: '11.7.0'
-jquery:
-  version: '3.7.0'
 tocbot:
   version: '4.18.2'
 mermaid:
