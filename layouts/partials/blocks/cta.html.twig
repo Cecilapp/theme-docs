@@ -8,11 +8,7 @@
                 {%- set button_page = site.pages.showable|filter(p => p.section == 'docs' and p.type == 'page')|sort_by_weight|first ~%}
                 {%- set button = {url: button_page, title: button_page.title} ~%}
               {%- endif ~%}
-              <a href="{{ url(button.url) }}" class="text-white dark:text-white hover:text-white hover:dark:text-white hover:no-underline">
-                <div class="px-6 py-2.5 rounded-full bg-primary-700 font-bold text-base transition-colors duration-300 ease-in-out hover:bg-primary-900">
-                  {{ button.title }}
-                </div>
-              </a>
+              <a href="{{ url(button.url) }}" class="button">{{ button.title }}</a>
               <ol class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
               {%- for link in block.links|default([]) ~%}
                 <li>
