@@ -44,11 +44,11 @@
       </a>
       {%- endif ~%}
       {#- selectors ~#}
-      <div class="flex justify-end space-x-2 ml-3">
-        <div class="navbar-item hidden sm:block">
+      <div class="flex justify-end">
+        <div class="navbar-item hidden sm:block sm:ml-3">
           {{- include('partials/selector-theme.html.twig') ~}}
         </div>
-        <div class="navbar-item">
+        <div class="navbar-item{% if page.translations|length >= 1 %} ml-3{% endif %}">
           {{- include('partials/selector-language.html.twig') ~}}
         </div>
       </div>
