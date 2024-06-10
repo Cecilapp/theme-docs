@@ -124,7 +124,7 @@
   @apply text-primary-100 bg-primary-800 shadow-none;
 }
 .DocSearch-Input {
-  @apply text-primary-100;
+  @apply text-primary-100 focus-visible:outline-none;
 }
 .DocSearch-Input::placeholder {
   @apply text-primary-100;
