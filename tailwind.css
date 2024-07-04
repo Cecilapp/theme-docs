@@ -68,6 +68,12 @@
   article .anchor-title {
     @apply pl-2;
   }
+  article.markdown img {
+    @apply mx-auto;
+  }
+  article.markdown figcaption {
+    @apply text-center;
+  }
   /* on this page ToC */
   #on-this-page ul {
     @apply list-none;
