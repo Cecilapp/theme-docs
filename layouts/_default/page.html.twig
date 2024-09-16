@@ -2,9 +2,6 @@
 <html lang="{{ site.language }}" class="scroll-pt-[70px] scroll-smooth lg:overflow-y-scroll">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    {%- if site.baseurl and site.baseurl != '/' ~%}
-    <base href="{{ url(site.baseurl) }}" />
-    {%- endif ~%}
     {{- include('partials/metatags.html.twig') ~}}
     <link rel="manifest" href="{{ url('manifest') }}" />
     {%- set styles = ['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/' ~ site.highlightjs.version ~ '/styles/github-dark.min.css'] ~%}
