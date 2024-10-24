@@ -9,5 +9,15 @@
       </button>
       {#- site title ~#}
       <div class="navbar-item truncate">
-        <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="font-semibold text-inherit hover:text-inherit py-2">{{ site.title }}</a>
+        <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="font-semibold text-inherit hover:text-inherit py-2">
+          {%- if site.logo is defined ~%}
+            {%- if site.logo is iterable ~%}
+          <img src="{{ asset(site.logo.light) }}" class="w-7 h-7 inline dark:hidden mr-1" />
+          <img src="{{ asset(site.logo.dark) }}" class="w-7 h-7 hidden dark:inline mr-1" />
+            {%- else ~%}
+          <img src="{{ asset(site.logo) }}" class="w-7 h-7 inline mr-1" />
+            {%- endif ~%}
+          {%- endif ~%}
+          {{ site.title }}
+        </a>
       </div>

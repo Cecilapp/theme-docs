@@ -21,7 +21,7 @@
   }
   /* header */
   header a {
-    @apply hover:no-underline
+    @apply hover:no-underline hover:opacity-75
   }
   header .navbar-item {
     @apply text-primary-100 hover:text-primary-50;

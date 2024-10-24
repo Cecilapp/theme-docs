@@ -779,6 +779,7 @@ h1:is(.dark *), h2:is(.dark *), h3:is(.dark *), h4:is(.dark *) {
 
 header a:hover {
   text-decoration-line: none;
+  opacity: 0.75;
 }
 
 header .navbar-item {
@@ -1630,6 +1631,10 @@ article.markdown figcaption {
   margin-left: 1rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -2434,6 +2439,14 @@ pre code.hljs {
 
 .markdown-code\:max-w-none :is(:where(code):not(:where([class~="not-markdown"],[class~="not-markdown"] *))) {
   max-width: none;
+}
+
+.dark\:inline:is(.dark *) {
+  display: inline;
+}
+
+.dark\:hidden:is(.dark *) {
+  display: none;
 }
 
 .dark\:border-secondary-500:is(.dark *) {
