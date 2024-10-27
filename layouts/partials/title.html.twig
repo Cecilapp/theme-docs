@@ -12,13 +12,19 @@
         <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="flex items-center font-semibold text-inherit hover:text-inherit py-2 space-x-1">
           {%- if site.logo is defined ~%}
             {%- if site.logo is iterable ~%}
-              {%- set asset_logo_light = asset(site.logo.light)|resize(28) ~%}
-              {%- set asset_logo_dark = asset(site.logo.dark)|resize(28) ~%}
-          <img src="{{ asset_logo_light }}" width="{{ asset_logo_light.width }}" height="{{ asset_logo_light.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline dark:hidden" />
-          <img src="{{ asset_logo_dark }}" width="{{ asset_logo_dark.width }}" height="{{ asset_logo_dark.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 hidden dark:inline" />
+              {%- set asset_logo_light, asset_logo_light_2x = asset(site.logo.light)|resize(28), asset(site.logo.light)|resize(56) ~%}
+              {%- set asset_logo_dark, asset_logo_dark_2x = asset(site.logo.dark)|resize(28), asset(site.logo.dark)|resize(56) ~%}
+          <img src="{{ asset_logo_light }}" width="{{ asset_logo_light.width }}" height="{{ asset_logo_light.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline dark:hidden"
+            srcset="{{ asset_logo_light }} 1x,
+                    {{ asset_logo_light_2x }} 2x" />
+          <img src="{{ asset_logo_dark }}" width="{{ asset_logo_dark.width }}" height="{{ asset_logo_dark.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 hidden dark:inline"
+            srcset="{{ asset_logo_dark }} 1x,
+                    {{ asset_logo_dark_2x }} 2x" />
             {%- else ~%}
-              {%- set asset_logo = asset(site.logo)|resize(28) ~%}
-          <img src="{{ asset_logo }}" width="{{ asset_logo.width }}" height="{{ asset_logo.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline" />
+              {%- set asset_logo, asset_logo_2x = asset(site.logo)|resize(28), asset(site.logo)|resize(56) ~%}
+          <img src="{{ asset_logo }}" width="{{ asset_logo.width }}" height="{{ asset_logo.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline"
+            srcset="{{ asset_logo }} 1x,
+                    {{ asset_logo_2x }} 2x" />
             {%- endif ~%}
           {%- endif ~%}
           <div class="inline">{{ site.title }}</div>
