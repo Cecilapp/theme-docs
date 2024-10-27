@@ -8,16 +8,19 @@
         </svg>
       </button>
       {#- site title ~#}
-      <div class="navbar-item truncate">
-        <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="font-semibold text-inherit hover:text-inherit py-2">
+      <div class="navbar-item flex items-center truncate">
+        <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="flex items-center font-semibold text-inherit hover:text-inherit py-2 space-x-1">
           {%- if site.logo is defined ~%}
             {%- if site.logo is iterable ~%}
-          <img src="{{ asset(site.logo.light) }}" class="w-7 h-7 inline dark:hidden mr-1" />
-          <img src="{{ asset(site.logo.dark) }}" class="w-7 h-7 hidden dark:inline mr-1" />
+              {%- set asset_logo_light = asset(site.logo.light)|resize(28) ~%}
+              {%- set asset_logo_dark = asset(site.logo.dark)|resize(28) ~%}
+          <img src="{{ asset_logo_light }}" width="{{ asset_logo_light.width }}" height="{{ asset_logo_light.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline dark:hidden" />
+          <img src="{{ asset_logo_dark }}" width="{{ asset_logo_dark.width }}" height="{{ asset_logo_dark.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 hidden dark:inline" />
             {%- else ~%}
-          <img src="{{ asset(site.logo) }}" class="w-7 h-7 inline mr-1" />
+              {%- set asset_logo = asset(site.logo)|resize(28) ~%}
+          <img src="{{ asset_logo }}" width="{{ asset_logo.width }}" height="{{ asset_logo.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline" />
             {%- endif ~%}
           {%- endif ~%}
-          {{ site.title }}
+          <div class="inline">{{ site.title }}</div>
         </a>
       </div>
