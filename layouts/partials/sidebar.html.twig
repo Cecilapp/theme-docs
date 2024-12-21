@@ -4,16 +4,16 @@
         {{- include('partials/title.html.twig') ~}}
       </div>
       <nav class="px-4 divide-y divide-secondary-400 lg:divide-y-0">
+        {#- main navigation ~#}
+        {%- block navigation %}{% endblock navigation ~%}
         {#- main menu ~#}
-        <div class="flex lg:hidden mb-4 lg:mb-0">
+        <div class="flex lg:hidden pt-2 mt-2">
           <ol class="w-full">
             {{- include('partials/menu.html.twig') ~}}
           </ol>
         </div>
-        {#- main navigation ~#}
-        {%- block navigation %}{% endblock navigation ~%}
         {#- selectors ~#}
-        <div class="lg:hidden mt-4 pt-4 flex flex-col space-y-1">
+        <div class="lg:hidden pt-2 mt-2 flex flex-col space-y-1">
           {{- include('partials/selector-theme.html.twig', {'id': 'sidebar', 'label': true}) ~}}
           {{- include('partials/selector-language.html.twig', {'id': 'sidebar', 'label': true}) ~}}
         </div>

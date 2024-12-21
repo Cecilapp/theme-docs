@@ -9,8 +9,9 @@
       </button>
       {#- site title ~#}
       <div class="navbar-item flex items-center truncate">
-        <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="flex items-center font-semibold text-inherit hover:text-inherit py-2 space-x-1">
+        <a href="{{ url(site.home) }}" title="{{ 'Home page'|trans }}" class="flex items-center text-inherit hover:text-inherit py-2 space-x-2">
           {%- if site.logo is defined ~%}
+            {#- light and dark logo ~#}
             {%- if site.logo is iterable ~%}
               {%- set asset_logo_light, asset_logo_light_2x = asset(site.logo.light)|resize(28), asset(site.logo.light)|resize(56) ~%}
               {%- set asset_logo_dark, asset_logo_dark_2x = asset(site.logo.dark)|resize(28), asset(site.logo.dark)|resize(56) ~%}
@@ -20,13 +21,14 @@
           <img src="{{ asset_logo_dark }}" width="{{ asset_logo_dark.width }}" height="{{ asset_logo_dark.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 hidden dark:inline"
             srcset="{{ asset_logo_dark }} 1x,
                     {{ asset_logo_dark_2x }} 2x" />
+            {#- single logo ~#}
             {%- else ~%}
-              {%- set asset_logo, asset_logo_2x = asset(site.logo)|resize(28), asset(site.logo)|resize(56) ~%}
-          <img src="{{ asset_logo }}" width="{{ asset_logo.width }}" height="{{ asset_logo.height }}" alt="{{ 'Logo'|trans }}" class="w-7 h-7 inline"
+              {%- set asset_logo, asset_logo_2x = asset(site.logo)|resize(32), asset(site.logo)|resize(64) ~%}
+          <img src="{{ asset_logo }}" width="{{ asset_logo.width }}" height="{{ asset_logo.height }}" alt="{{ 'Logo'|trans }}" class="w-8 h-8 inline"
             srcset="{{ asset_logo }} 1x,
                     {{ asset_logo_2x }} 2x" />
             {%- endif ~%}
           {%- endif ~%}
-          <div class="inline">{{ site.title }}</div>
+          <div class="inline text-xl font-medium">{{ site.title }}</div>
         </a>
       </div>

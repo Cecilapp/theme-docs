@@ -20,20 +20,16 @@
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
     {%- endblock sidebar ~%}
     <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 px-4 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
-      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-[90rem] {% endif %}max-w-full mx-auto flex items-center">
+      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-[90rem] {% endif %}max-w-screen-xl mx-auto flex items-center">
         {#- sidebar menu button + site title ~#}
         {{- include('partials/title.html.twig') ~}}
         <div class="grow"></div>
         {#- main menu ~#}
-        <div class="hidden lg:flex ml-4 items-center">
+        <div class="hidden lg:flex ml-4 mr-4 items-center">
           <ol class="flex space-x-4">
             {{- include('partials/menu.html.twig') ~}}
           </ol>
         </div>
-        {#- DocSearch ~#}
-        {%- if site.docsearch.enabled ?? false ~%}
-        <div id="search-container" class="md:inline-block ml-4 py-2"></div>
-        {%- endif ~%}
         {#- GitHub link -#}
         {%- if site.github.url|default ~%}
         <a href="{{ site.github.url }}" title="{% trans with {'%title%': site.title} %}%title% on GitHub{% endtrans %}" class="navbar-item flex no-underline hover:no-underline ml-4 py-2 items-center">
@@ -44,15 +40,20 @@
           <span class="hidden sm:block sm:ml-2">GitHub</span>
         </a>
         {%- endif ~%}
-        {#- selectors ~#}
-        <div class="flex justify-end">
-          <div class="navbar-item hidden sm:block sm:ml-4">
-            {{- include('partials/selector-theme.html.twig') ~}}
-          </div>
-          <div class="navbar-item{% if page.translations|length >= 1 %} ml-4{% endif %}">
-            {{- include('partials/selector-language.html.twig') ~}}
-          </div>
+        {#- DocSearch ~#}
+        {%- if site.docsearch.enabled ?? false ~%}
+        <div id="search-container" class="md:inline-block ml-4 py-2"></div>
+        {%- endif ~%}
+        {#- theme selector ~#}
+        <div class="navbar-item hidden sm:block ml-4">
+          {{- include('partials/selector-theme.html.twig') ~}}
         </div>
+        {#- language selector ~#}
+        {%- if page.translations|length >= 1 ~%}
+        <div class="navbar-item ml-4">
+          {{- include('partials/selector-language.html.twig') ~}}
+        </div>
+        {%- endif ~%}
       </nav>
     </header>
     <main id="main" class="h-full mt-14">
