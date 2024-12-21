@@ -74,11 +74,19 @@
         </a>
       </div>
     </main>
-    <footer id="footer" class="mx-4 p-4 text-sm text-center border-t border-t-secondary-300">
-      {%- block footer ~%}
+    <footer id="footer" class="mx-4 p-4 text-sm text-center flex flex-col justify-center gap-2">
       <div>{{ site.footer|replace({'%author%': site.author.name|default('Arnaud Ligny')}) }}</div>
-      <div>{% trans with {'%powered_by%': '<a href="' ~ cecil.url ~ '">Cecil</a>'} %}Powered by %powered_by%{% endtrans %}</div>
-      {%- endblock footer ~%}
+      {%- if site.menus.footer is defined ~%}
+      <ul class="flex flex-row gap-2 mx-auto">
+      {%- for entry in site.menus.footer ~%}
+        <li>
+          <a href="{{ url(entry) }}" class="font-semibold">{{ entry.name }}</a>
+        </li>
+      {%- endfor ~%}
+      </ul>
+      {%- endif ~%}
+      {%- block footer ~%}{%- endblock footer ~%}
+      <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ asset('logo-cecil.svg') }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
     </footer>
     {%- block scripts ~%}
     <script>
