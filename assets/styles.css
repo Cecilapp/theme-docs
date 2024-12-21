@@ -1659,10 +1659,6 @@ article.markdown figcaption {
   margin-top: 1.5rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .block {
   display: block;
 }
@@ -1779,10 +1775,6 @@ article.markdown figcaption {
   max-width: 20rem;
 }
 
-.max-w-full {
-  max-width: 100%;
-}
-
 .max-w-max {
   max-width: -moz-max-content;
   max-width: max-content;
@@ -1794,10 +1786,6 @@ article.markdown figcaption {
 
 .max-w-screen-xl {
   max-width: 1280px;
-}
-
-.max-w-screen-lg {
-  max-width: 1024px;
 }
 
 .grow {
@@ -1965,11 +1953,6 @@ article.markdown figcaption {
   border-color: rgb(148 163 184 / var(--tw-border-opacity));
 }
 
-.border-t-secondary-300 {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(203 213 225 / var(--tw-border-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -2043,11 +2026,6 @@ article.markdown figcaption {
   padding-bottom: 1.5rem;
 }
 
-.px-14 {
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
-}
-
 .pl-4 {
   padding-left: 1rem;
 }
@@ -2062,10 +2040,6 @@ article.markdown figcaption {
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
 }
 
 .text-left {
