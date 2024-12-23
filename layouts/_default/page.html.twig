@@ -20,7 +20,7 @@
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
     {%- endblock sidebar ~%}
     <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 px-4 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
-      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-[90rem] {% endif %}max-w-screen-xl mx-auto flex items-center">
+      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-[90rem] max-w-screen-xl{% endif %} mx-auto flex items-center">
         {#- sidebar menu button + site title ~#}
         {{- include('partials/title.html.twig') ~}}
         <div class="grow"></div>
