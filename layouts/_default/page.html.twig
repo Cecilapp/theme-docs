@@ -45,8 +45,13 @@
         <div id="search-container" class="md:inline-block ml-4 py-2"></div>
         {%- endif ~%}
         {#- theme selector ~#}
+        {#-
         <div class="navbar-item hidden sm:block ml-4">
           {{- include('partials/selector-theme.html.twig') ~}}
+        </div>
+        ~#}
+        <div class="navbar-item hidden sm:block ml-4 py-2 pt-3">
+          {{- include('partials/selector-theme-icon.html.twig') ~}}
         </div>
         {#- language selector ~#}
         {%- if page.translations|length >= 1 ~%}
