@@ -20,9 +20,9 @@ mermaid:
   version: '10'
 
 # Cecil config for Docs
-pagination:
-  enabled: false
 pages:
+  pagination:
+    enabled: false
   sortby: weight
   body:
     highlight:
