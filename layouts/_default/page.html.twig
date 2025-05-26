@@ -60,7 +60,7 @@
         {%- endif ~%}
         {#- language selector ~#}
         {%- if page.translations|length >= 1 ~%}
-        <div class="navbar-item ml-4">
+        <div class="navbar-item ml-4 hidden sm:flex">
           {{- include('partials/selector-language.html.twig') ~}}
         </div>
         {%- endif ~%}

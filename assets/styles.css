@@ -2497,6 +2497,10 @@ pre code.hljs {
     display: block;
   }
 
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
