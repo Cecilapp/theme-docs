@@ -1,6 +1,12 @@
     {#- sidebar ~#}
     <div id="sidebar" class="flex flex-col fixed z-50 lg:z-0 top-0 lg:top-auto w-80 lg:max-w-72 h-screen overflow-auto bg-primary-100 dark:bg-primary-900 shadow-md lg:shadow-none -translate-x-full {% if showlarge %}lg:translate-x-0{% endif %} transition-all duration-200 ease-out">
       <div class="lg:hidden flex items-center h-14 pl-4 py-3">
+        {#- sidebar mobile button ~#}
+        <button class="navbar-item flex lg:hidden items-center mr-3" onclick="toggleMenu()">
+          <svg id="sidebar-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+            <title>{% trans %}Close menu{% endtrans %}</title><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
         {{- include('partials/title.html.twig') ~}}
       </div>
       <nav class="px-4 divide-y divide-secondary-400 lg:divide-y-0">
@@ -24,3 +30,11 @@
       </footer>
     </div>
     <div id="sidebar-cloudywrapper" class="hidden lg:hidden fixed top-0 z-40 w-full h-full bg-black opacity-50" onclick="toggleMenu()"></div>
+    <script>
+      {%- apply minify_js ~%}
+      function toggleMenu() {
+        document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        document.getElementById('sidebar-cloudywrapper').classList.toggle('hidden');
+      }
+      {%- endapply ~%}
+    </script>

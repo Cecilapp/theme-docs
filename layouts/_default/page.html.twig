@@ -21,7 +21,12 @@
     {%- endblock sidebar ~%}
     <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 px-4 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
       <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-[90rem] max-w-screen-xl{% endif %} mx-auto flex items-center">
-        {#- sidebar menu button + site title ~#}
+        {#- sidebar mobile button ~#}
+        <button class="navbar-item flex lg:hidden items-center mr-3" onclick="toggleMenu()">
+          <svg id="sidebar-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+            <title>{% trans %}Open menu{% endtrans %}</title><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+          </svg>
+        </button>
         {{- include('partials/title.html.twig') ~}}
         <div class="grow"></div>
         {#- main menu ~#}
@@ -94,16 +99,6 @@
       <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ asset('logo-cecil.svg') }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
     </footer>
     {%- block scripts ~%}
-    <script>
-      {%- apply minify_js ~%}
-      function toggleMenu() {
-        document.getElementById('sidebar').classList.toggle('-translate-x-full');
-        document.getElementById('sidebar-cloudywrapper').classList.toggle('hidden');
-        document.getElementById('sidebar-open').classList.toggle('hidden');
-        document.getElementById('sidebar-close').classList.toggle('hidden');
-      }
-      {%- endapply ~%}
-    </script>
     {%- if site.docsearch.enabled ?? false ~%}
     {{ asset('https://cdn.jsdelivr.net/npm/@docsearch/js@' ~ site.docsearch.version ~ '/dist/umd/index.min.js', {filename: 'docsearch.min.js', minify: false})|html({id: 'docsearch', defer: 'true'}) }}
     <script>
