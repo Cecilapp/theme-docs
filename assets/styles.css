@@ -2493,10 +2493,6 @@ pre code.hljs {
 }
 
 @media (min-width: 640px) {
-  .sm\:ml-2 {
-    margin-left: 0.5rem;
-  }
-
   .sm\:block {
     display: block;
   }
