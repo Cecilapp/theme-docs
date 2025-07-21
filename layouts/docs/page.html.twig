@@ -76,7 +76,7 @@
 
     {%- block scripts ~%}
     {{- parent() ~}}
-    {{- asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})|html ~}}
+    {{- html(asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})) ~}}
     <script>
       {%- apply minify_js ~%}
       {# toc #}
@@ -110,7 +110,7 @@
       {%- endapply ~%}
     </script>
     {# mermaid #}
-    {{- asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false})|html({id: 'mermaid', defer: 'true'}) ~}}
+    {{- html(asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false}), {id: 'mermaid', defer: 'true'}) ~}}
     <script>
       {%- apply minify_js ~%}
       mermaid.addEventListener('load', function () {

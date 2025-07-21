@@ -100,7 +100,7 @@
     </footer>
     {%- block scripts ~%}
     {%- if site.docsearch.enabled ?? false ~%}
-    {{ asset('https://cdn.jsdelivr.net/npm/@docsearch/js@' ~ site.docsearch.version ~ '/dist/umd/index.min.js', {filename: 'docsearch.min.js', minify: false})|html({id: 'docsearch', defer: 'true'}) }}
+    {{ html(asset('https://cdn.jsdelivr.net/npm/@docsearch/js@' ~ site.docsearch.version ~ '/dist/umd/index.min.js', {filename: 'docsearch.min.js', minify: false}), {id: 'docsearch', defer: 'true'}) }}
     <script>
       {%- apply minify_js ~%}
       docsearch.addEventListener('load', function () {
