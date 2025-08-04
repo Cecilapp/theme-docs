@@ -1,4 +1,3 @@
-@import './tailwind-notes.css' layer(base);
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -34,6 +33,8 @@
 @plugin '@tailwindcss/typography' {
   className: markdown;
 }
+
+@import './tailwind-notes.css' layer(base);
 
 @utility button {
   /* buttons */
