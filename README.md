@@ -49,42 +49,6 @@ docsearch:
   debug: false|true
 ```
 
-### Customize styles
-
-Create the [Tailwind configuration](https://tailwindcss.com/docs/configuration) file `tailwind.config.js`:
-
-```javascript
-// uncomment to define custom colors
-//const colors = require('tailwindcss/colors');
-
-module.exports = {
-  presets: [
-    require('./themes/docs/tailwind.preset.js')
-  ],
-  content: [
-    './layouts/**/*.html.twig',
-    './themes/**/layouts/**/*.html.twig',
-  ],
-  // uncomment to define custom colors
-  /*theme: {
-    extend: {
-      // https://tailwindcss.com/docs/customizing-colors
-      colors: {
-        primary: colors.blue,
-        secondary: colors.slate,
-      },
-    },
-  }*/
-}
-```
-
-Run the following command:
-
-```bash
-npm install -D tailwindcss
-npx tailwindcss -i ./themes/docs/tailwind.css -o ./assets/styles.css
-```
-
 ## Development
 
 ### Install deps
@@ -96,11 +60,11 @@ npm install
 ### Rebuild CSS
 
 ```bash
-npx tailwindcss -c ./tailwind.preset.js -i ./tailwind.css -o ./assets/styles.css
+npx @tailwindcss/cli -i ./tailwind.css -o ./assets/styles.css
 ```
 
 ## License
 
- _Docs_ theme is a free software distributed under the terms of the MIT license.
+_Docs_ theme is a free software distributed under the terms of the MIT license.
 
 © [Arnaud Ligny](https://arnaudligny.fr)
