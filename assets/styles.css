@@ -1020,49 +1020,6 @@
       border-style: none;
     }
   }
-  .button {
-    border-radius: calc(infinity * 1px);
-    padding-inline: calc(var(--spacing) * 6);
-    padding-block: calc(var(--spacing) * 2.5);
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-    --tw-ease: var(--ease-in-out);
-    transition-timing-function: var(--ease-in-out);
-    &:hover {
-      @media (hover: hover) {
-        text-decoration-line: none;
-      }
-    }
-    background-color: var(--color-primary-700);
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-white);
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-primary-900);
-      }
-    }
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-white);
-      }
-    }
-    &:where(.dark, .dark *) {
-      color: var(--color-white);
-    }
-    &:where(.dark, .dark *) {
-      &:hover {
-        @media (hover: hover) {
-          color: var(--color-white);
-        }
-      }
-    }
-  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -1771,7 +1728,107 @@
     }
   }
 }
-@layer base {
+.DocSearch.DocSearch-Button {
+  margin: calc(var(--spacing) * 0);
+  width: 100%;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-800);
+  padding-block: calc(var(--spacing) * 2);
+  --tw-shadow: inset 0 2px 4px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  &:focus {
+    background-color: var(--color-primary-700);
+  }
+  &:focus {
+    --tw-outline-style: none;
+    outline-style: none;
+    @media (forced-colors: active) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+  @media (width >= 64rem) {
+    width: calc(var(--spacing) * 48);
+  }
+  @media (width >= 64rem) {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  @media (width < 64rem) {
+    background-color: transparent;
+  }
+  @media (width < 64rem) {
+    --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+}
+.DocSearch .DocSearch-Button-Placeholder {
+  --tw-font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-light);
+  color: var(--color-primary-100);
+  padding-left: calc(var(--spacing) * 3);
+}
+.DocSearch-Button-Keys {
+  display: none;
+}
+.DocSearch-Button .DocSearch-Search-Icon, .DocSearch-Search-Icon {
+  color: var(--color-primary-100);
+}
+.DocSearch-Form {
+  background-color: var(--color-primary-800);
+  color: var(--color-primary-100);
+  --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.DocSearch-Input {
+  color: var(--color-primary-100);
+  &:focus-visible {
+    --tw-outline-style: none;
+    outline-style: none;
+    @media (forced-colors: active) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+}
+.DocSearch-Input::placeholder {
+  color: var(--color-primary-100);
+}
+.DocSearch-Cancel {
+  color: var(--color-primary-800);
+}
+.DocSearch-Hit-source {
+  color: var(--color-primary-800);
+}
+.DocSearch-Hit[aria-selected=true] a {
+  background-color: var(--color-primary-800);
+}
+.DocSearch-Hits mark {
+  color: var(--color-primary-800);
+}
+.hljs {
+  background-color: transparent;
+}
+code.hljs {
+  padding: calc(var(--spacing) * 0);
+}
+pre code.hljs {
+  padding: calc(var(--spacing) * 0);
+}
+.toc-list {
+  padding-left: calc(var(--spacing) * 0);
+}
+.toc-list .is-collapsible {
+  padding-left: 10px;
+}
+.toc-link::before {
+  display: none;
+}
+.is-active-link {
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+}
+@layer components {
   .note {
     position: relative;
     padding: 1rem;
@@ -2026,105 +2083,50 @@
     }
   }
 }
-.DocSearch.DocSearch-Button {
-  margin: calc(var(--spacing) * 0);
-  width: 100%;
-  cursor: pointer;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-primary-800);
-  padding-block: calc(var(--spacing) * 2);
-  --tw-shadow: inset 0 2px 4px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
-  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  &:focus {
+@layer components {
+  .button {
+    border-radius: calc(infinity * 1px);
+    padding-inline: calc(var(--spacing) * 6);
+    padding-block: calc(var(--spacing) * 2.5);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: none;
+      }
+    }
     background-color: var(--color-primary-700);
-  }
-  &:focus {
-    --tw-outline-style: none;
-    outline-style: none;
-    @media (forced-colors: active) {
-      outline: 2px solid transparent;
-      outline-offset: 2px;
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-primary-900);
+      }
+    }
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+    &:where(.dark, .dark *) {
+      color: var(--color-white);
+    }
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-white);
+        }
+      }
     }
   }
-  @media (width >= 64rem) {
-    width: calc(var(--spacing) * 48);
-  }
-  @media (width >= 64rem) {
-    padding-inline: calc(var(--spacing) * 4);
-  }
-  @media (width < 64rem) {
-    background-color: transparent;
-  }
-  @media (width < 64rem) {
-    --tw-shadow: 0 0 #0000;
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-}
-.DocSearch .DocSearch-Button-Placeholder {
-  --tw-font-weight: var(--font-weight-light);
-  font-weight: var(--font-weight-light);
-  color: var(--color-primary-100);
-  padding-left: calc(var(--spacing) * 3);
-}
-.DocSearch-Button-Keys {
-  display: none;
-}
-.DocSearch-Button .DocSearch-Search-Icon, .DocSearch-Search-Icon {
-  color: var(--color-primary-100);
-}
-.DocSearch-Form {
-  background-color: var(--color-primary-800);
-  color: var(--color-primary-100);
-  --tw-shadow: 0 0 #0000;
-  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-}
-.DocSearch-Input {
-  color: var(--color-primary-100);
-  &:focus-visible {
-    --tw-outline-style: none;
-    outline-style: none;
-    @media (forced-colors: active) {
-      outline: 2px solid transparent;
-      outline-offset: 2px;
-    }
-  }
-}
-.DocSearch-Input::placeholder {
-  color: var(--color-primary-100);
-}
-.DocSearch-Cancel {
-  color: var(--color-primary-800);
-}
-.DocSearch-Hit-source {
-  color: var(--color-primary-800);
-}
-.DocSearch-Hit[aria-selected=true] a {
-  background-color: var(--color-primary-800);
-}
-.DocSearch-Hits mark {
-  color: var(--color-primary-800);
-}
-.hljs {
-  background-color: transparent;
-}
-code.hljs {
-  padding: calc(var(--spacing) * 0);
-}
-pre code.hljs {
-  padding: calc(var(--spacing) * 0);
-}
-.toc-list {
-  padding-left: calc(var(--spacing) * 0);
-}
-.toc-list .is-collapsible {
-  padding-left: 10px;
-}
-.toc-link::before {
-  display: none;
-}
-.is-active-link {
-  --tw-font-weight: var(--font-weight-semibold);
-  font-weight: var(--font-weight-semibold);
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -2180,14 +2182,6 @@ pre code.hljs {
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-duration {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-ease {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -2315,6 +2309,14 @@ pre code.hljs {
   syntax: "*";
   inherits: false;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -2330,8 +2332,6 @@ pre code.hljs {
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-divide-y-reverse: 0;
-      --tw-duration: initial;
-      --tw-ease: initial;
       --tw-font-weight: initial;
       --tw-tracking: initial;
       --tw-shadow: 0 0 #0000;
@@ -2361,6 +2361,8 @@ pre code.hljs {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
+      --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }

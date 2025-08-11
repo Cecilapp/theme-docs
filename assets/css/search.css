@@ -1,0 +1,39 @@
+/* DocSearch */
+/* should usse variables? https://github.com/algolia/docsearch/blob/df60b8ebe89c80ce3d00b80d94e95b6fd86edd19/packages/docsearch-css/src/_variables.css */
+.DocSearch.DocSearch-Button {
+  @apply w-full lg:w-48 rounded-sm m-0 lg:px-4 py-2 bg-primary-800 focus:outline-hidden focus:bg-primary-700 shadow-inner cursor-pointer;
+  @apply max-lg:bg-transparent;
+  @apply max-lg:shadow-none;
+}
+.DocSearch .DocSearch-Button-Placeholder {
+  @apply text-primary-100 font-light;
+  @apply pl-3;
+}
+.DocSearch-Button-Keys {
+  display: none;
+}
+.DocSearch-Button .DocSearch-Search-Icon,
+.DocSearch-Search-Icon {
+  @apply text-primary-100;
+}
+.DocSearch-Form {
+  @apply text-primary-100 bg-primary-800 shadow-none;
+}
+.DocSearch-Input {
+  @apply text-primary-100 focus-visible:outline-hidden;
+}
+.DocSearch-Input::placeholder {
+  @apply text-primary-100;
+}
+.DocSearch-Cancel {
+  @apply text-primary-800;
+}
+.DocSearch-Hit-source {
+  @apply text-primary-800;
+}
+.DocSearch-Hit[aria-selected=true] a {
+  @apply bg-primary-800;
+}
+.DocSearch-Hits mark {
+  @apply text-primary-800;
+}

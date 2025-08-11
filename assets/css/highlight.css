@@ -1,0 +1,10 @@
+/* highlight code */
+.hljs {
+  @apply bg-transparent;
+}
+code.hljs {
+  @apply p-0;
+}
+pre code.hljs {
+  @apply p-0;
+}

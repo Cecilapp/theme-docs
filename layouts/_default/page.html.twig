@@ -12,7 +12,11 @@
     {%- endif ~%}
     {%- block styles %}{% endblock ~%}
     {%- set styles = styles|merge(['styles.css']) ~%}
+    {%- if getenv('CECIL_ENV') == 'production' ~%}
     <style>{{ asset(styles)|inline }}</style>
+    {%- else ~%}
+    {{ html(asset(styles)) }}
+    {%- endif ~%}
   </head>
   <body class="font-sans antialiased bg-primary-50 dark:bg-primary-950 text-[#050505] dark:text-secondary-100">
     {#- sidebar ~#}

@@ -1,0 +1,13 @@
+/* tocbot */
+.toc-list {
+  @apply pl-0;
+}
+.toc-list .is-collapsible {
+  @apply pl-[10px];
+}
+.toc-link::before {
+  @apply hidden;
+}
+.is-active-link {
+  @apply font-semibold;
+}

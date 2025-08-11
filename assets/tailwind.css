@@ -1,9 +1,8 @@
 @import 'tailwindcss';
-
-@custom-variant dark (&:where(.dark, .dark *));
-
 @source './layouts/**/*.html.twig';
 @source inline('dark:brightness-90');
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary-50: var(--color-blue-50);
@@ -34,16 +33,12 @@
   className: markdown;
 }
 
-@import './tailwind-notes.css' layer(base);
-
-@utility button {
-  /* buttons */
-  @apply px-6 py-2.5 rounded-full hover:no-underline transition-colors duration-300 ease-in-out;
-  @apply bg-primary-700 hover:bg-primary-900 text-white dark:text-white hover:text-white dark:hover:text-white text-base font-bold;
-}
+@import './css/search.css';
+@import './css/highlight.css';
+@import './css/tocbot.css';
+@import './css/notes.css' layer(components);
 
 @utility formselect {
-  /* selectors */
   @apply p-1 border rounded-xs border-primary-50 border-black/25;
   #sidebar & {
     @apply border-none;
@@ -140,67 +135,9 @@
   }
 }
 
-/* DocSearch */
-/* should usse variables? https://github.com/algolia/docsearch/blob/df60b8ebe89c80ce3d00b80d94e95b6fd86edd19/packages/docsearch-css/src/_variables.css */
-.DocSearch.DocSearch-Button {
-  @apply w-full lg:w-48 rounded-sm m-0 lg:px-4 py-2 bg-primary-800 focus:outline-hidden focus:bg-primary-700 shadow-inner cursor-pointer;
-  @apply max-lg:bg-transparent;
-  @apply max-lg:shadow-none;
-}
-.DocSearch .DocSearch-Button-Placeholder {
-  @apply text-primary-100 font-light;
-  @apply pl-3;
-}
-.DocSearch-Button-Keys {
-  display: none;
-}
-.DocSearch-Button .DocSearch-Search-Icon,
-.DocSearch-Search-Icon {
-  @apply text-primary-100;
-}
-.DocSearch-Form {
-  @apply text-primary-100 bg-primary-800 shadow-none;
-}
-.DocSearch-Input {
-  @apply text-primary-100 focus-visible:outline-hidden;
-}
-.DocSearch-Input::placeholder {
-  @apply text-primary-100;
-}
-.DocSearch-Cancel {
-  @apply text-primary-800;
-}
-.DocSearch-Hit-source {
-  @apply text-primary-800;
-}
-.DocSearch-Hit[aria-selected=true] a {
-  @apply bg-primary-800;
-}
-.DocSearch-Hits mark {
-  @apply text-primary-800;
-}
-
-/* highlight code */
-.hljs {
-  @apply bg-transparent;
-}
-code.hljs {
-  @apply p-0;
-}
-pre code.hljs {
-  @apply p-0;
-}
-
-/* tocbot */
-.toc-list {
-  @apply pl-0;
-}
-.toc-list .is-collapsible {
-  @apply pl-[10px];
-}
-.toc-link::before {
-  @apply hidden;
-}
-.is-active-link {
-  @apply font-semibold;
+@layer components {
+  .button {
+    @apply px-6 py-2.5 rounded-full hover:no-underline transition-colors duration-300 ease-in-out;
+    @apply bg-primary-700 hover:bg-primary-900 text-white dark:text-white hover:text-white dark:hover:text-white text-base font-bold;
+  }
 }

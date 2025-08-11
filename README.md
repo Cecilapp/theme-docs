@@ -60,7 +60,7 @@ npm install
 ### Rebuild CSS
 
 ```bash
-npx @tailwindcss/cli -i ./tailwind.css -o ./assets/styles.css
+npm run css:build
 ```
 
 ## License
