@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{- include('partials/metatags.html.twig') ~}}
-    <link rel="manifest" href="{{ url('manifest') }}">
     {%- set styles = ['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/' ~ site.highlightjs.version ~ '/styles/github-dark.min.css'] ~%}
     {%- if site.docsearch.enabled ?? false ~%}
     <meta name="docsearch:language" content="{{ site.language }}">
@@ -17,6 +16,7 @@
     {%- else ~%}
     {{ html(asset(styles)) }}
     {%- endif ~%}
+    {{- include('partials/pwa.html.twig', {site}, with_context = false) ~}}
   </head>
   <body class="font-sans antialiased bg-primary-50 dark:bg-primary-950 text-[#050505] dark:text-secondary-100">
     {#- sidebar ~#}
@@ -113,7 +113,6 @@
       {%- endapply ~%}
     </script>
     {%- endif ~%}
-    {{- include('partials/regsw.js.twig', ignore_missing = true) ~}}
     {%- endblock scripts ~%}
   </body>
 </html>
