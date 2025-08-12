@@ -7,6 +7,7 @@ footer: Copyright © %author%
 manifest:
   background_color: '#1C4ED8'
   theme_color: '#1C4ED8'
+  theme_color_dark: '#1C398E'
 serviceworker:
   enabled: false
 docsearch:
