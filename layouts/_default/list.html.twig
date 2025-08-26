@@ -28,7 +28,7 @@
                   {%- set group_id = p.folder|split('/')[1] ~%}
                   {%- set group_name = p.folder|split('/')[1]|replace({'-': ' '})|title ~%}
                   {%- if group_name is not empty ~%}
-                  <span>{{ site.page(group_id).title ?? group_name }}</span>
+                  <div class="text-sm">{{ site.page(group_id).title ?? group_name }}</div>
                   {%- endif ~%}
                   <h2 class="font-semibold text-lg mb-2">{{ p.title }}</h2>
                   {%- if p.description is defined ~%}
