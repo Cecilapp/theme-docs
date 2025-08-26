@@ -25,6 +25,7 @@
               {%- for p in pages ~%}
               <a href="{{ url(p) }}" class="hover:no-underline text-inherit dark:text-inherit">
                 <section class="px-6 py-6 rounded-xl border border-secondary-200 shadow-md hover:border-primary-700 dark:hover:border-primary-400 h-full">
+                  <span>{{ site.page(p.group).title ?? p.group }}</span>
                   <h2 class="font-semibold text-lg mb-2">{{ p.title }}</h2>
                   {%- if p.description is defined ~%}
                   <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ p.description }}</p>
