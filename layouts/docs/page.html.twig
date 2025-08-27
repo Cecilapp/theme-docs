@@ -42,7 +42,7 @@
             </summary>
             {{ page.body|toc }}
           </details>
-          {%- set group_id, group_name = page.folder|split('/')[1], page.folder|split('/')[1]|replace({'-': ' '})|title ~%}
+          {%- set group_id, group_name = page.folder|split('/')[1] ?? null, (page.folder|split('/')[1] ?? null)|replace({'-': ' '})|title ~%}
           {%- if group_name|default is not empty ~%}
           <div class="text-sm mb-2"><a href="{{ url(site.page(page.section)) }}">{{ site.page(page.section).title }}</a> › {{ site.page(group_id).title ?? group_name }}</div>
           {%- endif ~%}
