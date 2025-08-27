@@ -100,7 +100,7 @@
       </ul>
       {%- endif ~%}
       {%- block footer ~%}{%- endblock footer ~%}
-      <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ asset('logo-cecil.svg') }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
+      <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ url(asset('logo-cecil.svg')) }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
     </footer>
     {%- block scripts ~%}
     {%- if site.docsearch.enabled ?? false ~%}
