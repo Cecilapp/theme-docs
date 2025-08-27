@@ -17,7 +17,13 @@
             {%- endif ~%}
             {%- set group_pages = site.pages.showable|filter(p => p.folder == 'docs/' ~ group|slugify) ~%}
             {%- if group_pages|length > 0 ~%}
-          <div class="group-title"><a href="{{ group_url|default }}#{{ group|slugify }}">{{ group_title|trans }}</a></div>
+          <div class="group-title">
+            {%- if group_url|default is not empty ~%}
+            <a href="{{ group_url }}">{{ group_title|trans }}</a>
+            {%- else ~%}
+            {{ group_title|trans }}
+            {%- endif ~%}
+          </div>
           <ol>
             {#-{%- for p in site.pages.showable|filter(p => p.path matches '{^docs/' ~ group|slugify ~ '}') ~%}~#}
             {%- for p in site.pages.showable|filter(p => p.folder == 'docs/' ~ group|slugify) ~%}
@@ -43,10 +49,12 @@
             </summary>
             {{ page.body|toc }}
           </details>
+          {#- Breadcrumb ~#}
           {%- set group_id, group_name = page.folder|split('/')[1] ?? null, (page.folder|split('/')[1] ?? null)|replace({'-': ' '})|title ~%}
-          {%- if group_name|default is not empty ~%}
-          <div class="text-sm mb-2"><a href="{{ url(site.page(page.section)) }}">{{ site.page(page.section).title }}</a> › {{ site.page(group_id).title ?? group_name }}</div>
-          {%- endif ~%}
+          <div class="text-sm mb-2"><a href="{{ url(site.page(page.section)) }}">
+            {{ site.page(page.section).title }}</a>{% if group_name|default is not empty %} › {{ site.page(group_id).title ?? group_name }}{% endif ~%}
+          </div>
+          {#- Content ~#}
           <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal md:markdown-code:max-w-none lg:markdown-code:max-w-[700px] xl:markdown-code:max-w-screen-md 2xl:markdown-code:max-w-none dark:markdown-invert md:max-w-none lg:max-w-[700px] xl:max-w-screen-md 2xl:max-w-none">
             {%- block content ~%}
             {{ page.content }}
