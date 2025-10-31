@@ -5,8 +5,8 @@ github:
   branch: main
 footer: Copyright © %author%
 manifest:
-  background_color: '#1C4ED8'
-  theme_color: '#1C4ED8'
+  background_color: '#1447E6'
+  theme_color: '#1447E6'
   theme_color_dark: '#1C398E'
 serviceworker:
   enabled: false
