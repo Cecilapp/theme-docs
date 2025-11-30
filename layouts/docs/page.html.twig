@@ -55,7 +55,7 @@
             {{ site.page(page.section).title }}</a>{% if group_name|default is not empty %} › {{ site.page(group_id).title ?? group_name }}{% endif ~%}
           </div>
           {#- Content ~#}
-          <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal md:markdown-code:max-w-none lg:markdown-code:max-w-[700px] xl:markdown-code:max-w-screen-md 2xl:markdown-code:max-w-none dark:markdown-invert md:max-w-none lg:max-w-[700px] xl:max-w-screen-md 2xl:max-w-none">
+          <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal md:markdown-code:max-w-none lg:markdown-code:max-w-[700px] xl:markdown-code:max-w-3xl 2xl:markdown-code:max-w-none dark:markdown-invert md:max-w-none lg:max-w-[700px] xl:max-w-3xl 2xl:max-w-none">
             {%- block content ~%}
             {{ page.content }}
             {%- endblock content ~%}
@@ -67,7 +67,7 @@
         </div>
         {#- "On this page" ToC ~#}
         <div>
-          <aside id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-[80px]">
+          <aside id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-20">
             <nav>
               <div class="flex space-x-2 items-center mb-2 font-semibold text-sm uppercase tracking-wider">
                 <span>{% trans %}On this page{% endtrans %}</span>
@@ -90,8 +90,7 @@
     {%- block scripts ~%}
     {{- parent() ~}}
     {{- html(asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})) ~}}
-    <script>
-      {%- apply minify_js ~%}
+    <script>{% apply minify_js ~%}
       {# toc #}
       tocbot.init({
         tocSelector: '#on-this-page-toc',
@@ -120,12 +119,10 @@
           item.append(anchor);
         });
       });
-      {%- endapply ~%}
-    </script>
+    {% endapply %}</script>
     {# mermaid #}
     {{- html(asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false}), {id: 'mermaid', defer: 'true'}) ~}}
-    <script>
-      {%- apply minify_js ~%}
+    <script>{% apply minify_js ~%}
       mermaid.addEventListener('load', function () {
         const sheet = new CSSStyleSheet();
         sheet.replaceSync('pre:has(> code.language-mermaid){background-color: inherit;}');
@@ -133,6 +130,5 @@
         mermaid.initialize({ startOnLoad: false, theme: document.documentElement.dataset.theme == 'dark' ? 'dark' : 'default' });
         mermaid.run({querySelector: '.language-mermaid'});
       });
-      {%- endapply ~%}
-    </script>
+    {% endapply %}</script>
     {%- endblock scripts ~%}

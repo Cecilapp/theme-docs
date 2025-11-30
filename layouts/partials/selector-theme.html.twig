@@ -7,8 +7,7 @@
               <option value="light">{% trans %}Light{% endtrans %}</option>
             </select>
           </form>
-          <script>
-            {%- apply minify_js ~%}
+          <script>{% apply minify_js ~%}
             function switchTheme(theme) {
               switch (theme) {
                 case 'dark':
@@ -58,5 +57,4 @@
               .addEventListener('change', ({matches:isDark}) => {
                 updateTheme();
               })
-            {%- endapply ~%}
-          </script>
+          {% endapply %}</script>

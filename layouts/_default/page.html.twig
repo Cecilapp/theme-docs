@@ -24,11 +24,11 @@
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
     {%- endblock sidebar ~%}
     <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 px-4 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
-      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-[90rem] max-w-screen-xl{% endif %} mx-auto flex items-center">
+      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-360 max-w-7xl{% endif %} mx-auto flex items-center">
         {#- sidebar mobile button ~#}
         <button class="navbar-item flex lg:hidden items-center mr-3" onclick="toggleMenu()">
           <svg id="sidebar-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
-            <title>{% trans %}Open menu{% endtrans %}</title><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+            <title>{% trans %}Open menu{% endtrans %}</title><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
         {#- logo ~#}
@@ -72,7 +72,7 @@
     </header>
     <main id="main" class="h-full mt-14">
       {%- block article ~%}
-      <div class="w-full lg:max-w-screen-lg mx-auto px-4 xl:px-16 py-6">
+      <div class="w-full lg:max-w-5xl mx-auto px-4 xl:px-16 py-6">
         <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
           {%- block content ~%}
           {{ page.content }}
@@ -105,13 +105,11 @@
     {%- block scripts ~%}
     {%- if site.docsearch.enabled ?? false ~%}
     {{ html(asset('https://cdn.jsdelivr.net/npm/@docsearch/js@' ~ site.docsearch.version ~ '/dist/umd/index.min.js', {filename: 'docsearch.min.js', minify: false}), {id: 'docsearch', defer: 'true'}) }}
-    <script>
-      {%- apply minify_js ~%}
+    <script>{% apply minify_js ~%}
       docsearch.addEventListener('load', function () {
         {{- include('partials/docsearch.js.twig') ~}}
       });
-      {%- endapply ~%}
-    </script>
+    {% endapply %}</script>
     {%- endif ~%}
     {%- endblock scripts ~%}
   </body>
