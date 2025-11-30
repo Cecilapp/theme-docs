@@ -33,10 +33,10 @@
   className: markdown;
 }
 
-@import './css/search.css';
-@import './css/highlight.css';
-@import './css/tocbot.css';
-@import './css/notes.css' layer(components);
+@import './search.css';
+@import './highlight.css';
+@import './tocbot.css';
+@import './notes.css' layer(components);
 
 @utility formselect {
   @apply p-1 border rounded-xs border-primary-50 border-black/25;
