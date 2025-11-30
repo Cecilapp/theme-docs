@@ -1855,7 +1855,7 @@ pre code.hljs {
     mask-repeat: no-repeat;
     mask-image: var(--svg);
     position: absolute;
-    top: calc(var(--spacing) * 5);
+    top: calc(var(--spacing) * 7);
     left: calc(var(--spacing) * 3);
     display: block;
     height: calc(var(--spacing) * 4);
