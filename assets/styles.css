@@ -1831,7 +1831,7 @@ pre code.hljs {
   --tw-font-weight: var(--font-weight-semibold);
   font-weight: var(--font-weight-semibold);
 }
-@layer components {
+@layer utilities {
   .note {
     position: relative;
     margin-bottom: calc(var(--spacing) * 4);
@@ -1839,11 +1839,18 @@ pre code.hljs {
     border-width: 1px;
     border-left-style: var(--tw-border-style);
     border-left-width: 4px;
-    border-color: var(--color-blue-700);
     padding-inline: calc(var(--spacing) * 4);
+    border-color: var(--color-blue-700);
     &:where(.dark, .dark *) {
       border-color: var(--color-white);
     }
+  }
+  .note a {
+    color: inherit;
+    &:where(.dark, .dark *) {
+      color: inherit;
+    }
+    text-decoration-line: underline;
   }
   [class*="note-"] {
     padding-left: calc(var(--spacing) * 10);
