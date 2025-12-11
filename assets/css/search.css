@@ -1,7 +1,8 @@
 /* DocSearch */
 /* should usse variables? https://github.com/algolia/docsearch/blob/df60b8ebe89c80ce3d00b80d94e95b6fd86edd19/packages/docsearch-css/src/_variables.css */
 .DocSearch.DocSearch-Button {
-  @apply w-full lg:w-48 rounded-sm m-0 lg:px-4 py-2 bg-primary-800 focus:outline-hidden focus:bg-primary-700 shadow-inner cursor-pointer;
+  @apply w-full lg:w-48 m-0 lg:px-4 p-0;
+  @apply rounded-sm bg-primary-800 focus:bg-primary-700 focus:outline-hidden shadow-inner cursor-pointer;
   @apply max-lg:bg-transparent;
   @apply max-lg:shadow-none;
 }
