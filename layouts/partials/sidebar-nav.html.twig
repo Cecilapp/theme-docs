@@ -1,0 +1,27 @@
+{#- Recursive documentation navigation built from nested sections ~#}
+{%- set children = [] ~%}
+{%- for s in section.sections ~%}
+  {%- set children = children|merge([s]) ~%}
+{%- endfor ~%}
+{%- for p in section.pages.showable ~%}
+  {%- if p.type != 'section' and p.parent and p.parent.id == section.id ~%}
+  {%- set children = children|merge([p]) ~%}
+  {%- endif ~%}
+{%- endfor ~%}
+{%- set children = children|sort_by_weight ~%}
+{%- if children|length > 0 ~%}
+<ol>
+  {%- for child in children ~%}
+  <li>
+    {%- if child.type == 'section' ~%}
+    <div class="group-title">
+      <a href="{{ url(child) }}"{% if url(child) == url(page) %} class="active"{% endif %}>{{ child.title|trans }}</a>
+    </div>
+    {{- include('partials/sidebar-nav.html.twig', {'section': child}) ~}}
+    {%- else ~%}
+    <a href="{{ url(child) }}" class="flex{% if url(child) == url(page) %} active{% endif %}">{{ child.title }}</a>
+    {%- endif ~%}
+  </li>
+  {%- endfor ~%}
+</ol>
+{%- endif ~%}

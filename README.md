@@ -6,7 +6,7 @@ Documentation theme for [Cecil](https://cecil.app), powered by [Tailwind CSS](ht
 
 ## Features
 
-- Auto-generated navigation sidebar
+- Auto-generated navigation sidebar (based on nested sections)
 - [Algolia DocSearch](https://docsearch.algolia.com) integration
 - Ready for content localization (l10n)
 - Templates internationalization (i18n)
@@ -33,10 +33,13 @@ theme:
 
 ### Configuration
 
+The navigation sidebar is generated automatically from the folders structure of
+`pages/docs/`, based on [nested sections](https://cecil.app/documentation/content/#sub-section):
+each sub-folder containing an `index.md` file becomes a (collapsible) group, at
+any depth. Ordering is based on pages `weight` (e.g. a `1-` filename prefix or a
+`weight` front matter variable).
+
 ```yaml
-sidebar:
-  - <group>
-  - <group>
 footer: Copyright © %author%
 github:
   repo: https://github.com/<org>/<repo>

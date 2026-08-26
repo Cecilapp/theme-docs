@@ -87,6 +87,9 @@
   #sidebar ol:last-child {
     @apply mb-0;
   }
+  #sidebar li ol {
+    @apply pl-3 ml-1 border-l border-secondary-300 dark:border-secondary-700;
+  }
   #sidebar li {
     @apply my-1;
   }
