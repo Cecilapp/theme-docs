@@ -54,14 +54,17 @@ docsearch:
 ### Install deps
 
 ```bash
-npm install
+composer install
 ```
 
 ### Rebuild CSS
 
 ```bash
-npm run css:build
+composer css:build
 ```
+
+CSS is compiled with [tailwind-builder](https://github.com/ArnaudLigny/tailwind-builder),
+which uses the [Tailwind](https://tailwindcss.com) standalone binary (no Node.js required).
 
 ## License
 
