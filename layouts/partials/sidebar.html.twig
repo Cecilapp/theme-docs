@@ -14,13 +14,13 @@
         {#- main navigation ~#}
         {%- block navigation %}{% endblock navigation ~%}
         {#- main menu ~#}
-        <div class="flex lg:hidden pt-2 mt-2">
+        <div class="flex lg:hidden py-2">
           <ol class="w-full">
             {{- include('partials/menu.html.twig') ~}}
           </ol>
         </div>
         {#- selectors ~#}
-        <div class="lg:hidden pt-2 mt-2 flex flex-col space-y-1">
+        <div class="lg:hidden py-2 flex flex-col space-y-1">
           {#-{{- include('partials/selector-theme.html.twig', {'id': 'sidebar', 'label': true}) ~}}~#}
           {{- include('partials/selector-language.html.twig', {'id': 'sidebar', 'label': true}) ~}}
         </div>
