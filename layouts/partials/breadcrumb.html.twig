@@ -1,0 +1,6 @@
+        {#- Breadcrumb ~#}
+        <div class="text-sm mb-2">
+          {%- for section in page.ancestors|reverse ~%}
+          <a href="{{ url(section) }}">{{ section.title }}</a>{% if not loop.last %} › {% endif ~%}
+          {%- endfor ~%}
+        </div>

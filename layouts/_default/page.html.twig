@@ -23,8 +23,8 @@
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
     {%- endblock sidebar ~%}
-    <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 px-4 py-3 bg-primary-700 dark:bg-primary-900 shadow-md">
-      <nav class="{% if page.section == 'docs' and page.type == 'page' %}w-full {% else %}w-360 max-w-7xl{% endif %} mx-auto flex items-center">
+    <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 bg-primary-700 dark:bg-primary-900 shadow-md">
+      <nav class="flex items-center w-full px-4">
         {#- sidebar mobile button ~#}
         <button class="navbar-item flex lg:hidden items-center mr-3" onclick="toggleMenu()">
           <svg id="sidebar-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
@@ -72,7 +72,8 @@
     </header>
     <main id="main" class="h-full mt-14">
       {%- block article ~%}
-      <div class="w-full lg:max-w-5xl mx-auto px-4 xl:px-16 py-6">
+      <div class="container mx-auto px-4 py-6">
+        {{- include('partials/breadcrumb.html.twig') ~}}
         <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
           {%- block content ~%}
           {{ page.content }}
@@ -89,18 +90,20 @@
       </div>
     </main>
     <footer id="footer" class="mx-4 p-4 text-sm text-center flex flex-col justify-center gap-2">
-      <div>{{ site.footer|replace({'%author%': site.author.name|default('Arnaud Ligny')}) }}</div>
-      {%- if site.menus.footer is defined ~%}
-      <ul class="flex flex-row gap-2 mx-auto">
-      {%- for entry in site.menus.footer ~%}
-        <li>
-          <a href="{{ url(entry) }}" class="font-semibold">{{ entry.name }}</a>
-        </li>
-      {%- endfor ~%}
-      </ul>
-      {%- endif ~%}
-      {%- block footer ~%}{%- endblock footer ~%}
-      <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ url(asset('logo-cecil.svg')) }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
+      <div class="container mx-auto">
+        <div>{{ site.footer|replace({'%author%': site.author.name|default('Arnaud Ligny')}) }}</div>
+        {%- if site.menus.footer is defined ~%}
+        <ul class="flex flex-row gap-2 mx-auto">
+        {%- for entry in site.menus.footer ~%}
+          <li>
+            <a href="{{ url(entry) }}" class="font-semibold">{{ entry.name }}</a>
+          </li>
+        {%- endfor ~%}
+        </ul>
+        {%- endif ~%}
+        {%- block footer ~%}{%- endblock footer ~%}
+        <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ url(asset('logo-cecil.svg')) }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
+      </div>
     </footer>
     {%- block scripts ~%}
     {%- if site.docsearch.enabled ?? false ~%}
