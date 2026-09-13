@@ -14,6 +14,7 @@
     {%- block article ~%}
       <div class="flex">
         <div class="container mx-auto px-4 py-6">
+          {{- include('partials/breadcrumb.html.twig') ~}}
           <section id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
             {%- block content ~%}
             <h1>{{ page.title }}</h1>
