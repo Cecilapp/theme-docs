@@ -19,6 +19,13 @@
     {{- include('partials/pwa.html.twig', {site}, with_context = false, ignore_missing: true) ~}}
   </head>
   <body class="font-sans antialiased bg-primary-50 dark:bg-primary-950 text-[#050505] dark:text-secondary-100">
+    {#- AI agents info ~#}
+    {%- if 'llms' in site.output.pagetypeformats.homepage ?? [] ~%}
+    <div class="hidden" aria-hidden="true">
+      For AI agents: visit {{ url('llms.txt', {canonical: true}) }} for an index of all pages formatted in Markdown and endpoints in OpenAPI.
+      {%- if 'markdown' in site.output.pagetypeformats.page ?? [] %} Append .md to any documentation page URL to get its markdown version.{%- endif ~%}
+    </div>
+    {%- endif ~%}
     {#- sidebar ~#}
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
