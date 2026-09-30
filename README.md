@@ -1,6 +1,6 @@
 # _Docs_ theme
 
-Documentation theme for [Cecil](https://cecil.app), powered by [Tailwind CSS](https://tailwindcss.com) and [Algolia DocSearch](https://docsearch.algolia.com).
+_Docs_ is a documentation theme for [Cecil](https://cecil.app), designed to provide a modern and responsive interface for your project's documentation, powered by [Tailwind CSS](https://tailwindcss.com) and [Algolia DocSearch](https://docsearch.algolia.com).
 
 ![Screenshot](./docs/screenshot.png)
 
