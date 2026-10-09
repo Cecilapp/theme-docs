@@ -8,7 +8,7 @@
     "cecil/theme-installer": "^1.0||^2.0"
   },
   "require-dev": {
-    "aligny/tailwind-builder": "^1.0"
+    "aligny/tailwind-builder": "^1.2"
   },
   "scripts": {
     "css:build": "tailwind-builder ./assets/css/tailwind.css --output=./assets/styles.css --minify",
