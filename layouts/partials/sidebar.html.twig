@@ -19,9 +19,8 @@
             {{- include('partials/menu.html.twig') ~}}
           </ol>
         </div>
-        {#- selectors ~#}
+        {#- language selector ~#}
         <div class="lg:hidden py-2 flex flex-col space-y-1">
-          {#-{{- include('partials/selector-theme.html.twig', {'id': 'sidebar', 'label': true}) ~}}~#}
           {{- include('partials/selector-language.html.twig', {'id': 'sidebar', 'label': true}) ~}}
         </div>
       </nav>

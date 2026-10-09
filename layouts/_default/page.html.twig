@@ -71,11 +71,6 @@
         </div>
         {%- endif ~%}
         {#- theme selector ~#}
-        {#-
-        <div class="navbar-item hidden sm:block ml-4">
-          {{- include('partials/selector-theme.html.twig') ~}}
-        </div>
-        ~#}
         <div class="navbar-item ml-4 py-2 pt-3.5">
           {{- include('partials/selector-theme-icon.html.twig') ~}}
         </div>
@@ -100,7 +95,7 @@
       {%- block article ~%}
       <div class="container mx-auto px-4 py-6">
         {{- include('partials/breadcrumb.html.twig') ~}}
-        <article id="content" class="markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert max-w-none">
+        <article id="content" class="markdown markdown-theme max-w-none">
           {%- block content ~%}
           {{ page.content }}
           {%- endblock content ~%}
