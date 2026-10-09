@@ -88,7 +88,8 @@
         });
       });
     {% endapply %}</script>
-    {# mermaid #}
+    {#- mermaid (loaded only if the page contains a diagram) ~#}
+    {%- if 'language-mermaid' in page.content ~%}
     {{- html(asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false}), {id: 'mermaid', defer: 'true'}) ~}}
     <script>{% apply minify_js ~%}
       mermaid.addEventListener('load', function () {
@@ -114,4 +115,5 @@
         new MutationObserver(renderMermaid).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       });
     {% endapply %}</script>
+    {%- endif ~%}
     {%- endblock scripts ~%}
