@@ -21,7 +21,7 @@ theme:
 
 ## Text formatting
 
-Some **bold**, _italic_, ~~strikethrough~~ and `inline code` text, with a [link to the guides](/docs/guides/) and an [external link](https://cecil.app).
+Some **bold**, _italic_, ~~strikethrough~~ and `inline code` text, with a [link to the guides](../guides/) and an [external link](https://cecil.app).
 
 > A blockquote, to quote something important.
 
