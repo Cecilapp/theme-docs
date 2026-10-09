@@ -1,0 +1,27 @@
+{% extends '_default/page.html.twig' %}
+
+      {%- block article ~%}
+      <div class="container mx-auto px-4 py-16 md:py-24 text-center">
+        <p class="text-7xl md:text-9xl font-bold tracking-tight text-primary-700 dark:text-primary-400" aria-hidden="true">404</p>
+        <article id="content" class="mt-4 mx-auto max-w-xl markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal dark:markdown-invert">
+          {%- block content ~%}
+          {%- if page.content is not empty ~%}
+          {{ page.content }}
+          {%- else ~%}
+          <h1>{% trans %}Page not found{% endtrans %}</h1>
+          <p>{% trans %}Looks like you've followed a broken link or entered a URL that doesn't exist on this site.{% endtrans %}</p>
+          {%- endif ~%}
+          {%- endblock content ~%}
+        </article>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+          <a href="{{ url(site.home) }}" class="button">{% trans %}Back to home page{% endtrans %}</a>
+          {%- set docs = site.page('docs') ?? null ~%}
+          {%- if docs ~%}
+          <a href="{{ url(docs) }}" class="font-bold">{{ docs.title }} →</a>
+          {%- endif ~%}
+          {%- if not (site.docsearch.enabled ?? false) and (site.flexsearch.enabled ?? false) ~%}
+          <button type="button" class="font-bold text-primary-700 dark:text-primary-400 hover:underline cursor-pointer" data-flexsearch-open>{% trans %}Search the site{% endtrans %}</button>
+          {%- endif ~%}
+        </div>
+      </div>
+      {%- endblock article ~%}

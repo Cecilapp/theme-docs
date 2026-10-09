@@ -65,5 +65,13 @@
         });
         large.addEventListener('change', updateInert);
         updateInert();
+        {# scroll the sidebar to the current page link #}
+        const active = sidebar.querySelector('a[aria-current="page"]');
+        if (active) {
+          const offset = active.getBoundingClientRect().top - sidebar.getBoundingClientRect().top;
+          if (offset > sidebar.clientHeight - 50) {
+            sidebar.scrollTop = offset - sidebar.clientHeight / 2;
+          }
+        }
       })();
     {% endapply %}</script>

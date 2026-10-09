@@ -9,15 +9,21 @@
   {%- endif ~%}
 {%- endfor ~%}
 {%- set children = children|sort_by_weight ~%}
+{%- set ancestors_ids = page.ancestors|default([])|map(a => a.id) ~%}
 {%- if children|length > 0 ~%}
 <ol>
   {%- for child in children ~%}
   <li>
     {%- if child.type == 'section' ~%}
-    <div class="group-title">
-      <a href="{{ url(child) }}"{% if url(child) == url(page) %} class="active" aria-current="page"{% endif %}>{{ child.title|trans }}</a>
-    </div>
-    {{- include('partials/sidebar-nav.html.twig', {'section': child}) ~}}
+    {#- groups are open, unless collapsed (`collapsed` front matter variable or `sidebar.collapsed` option), except the one of the current page ~#}
+    {%- set group_open = child.id == page.id or child.id in ancestors_ids or not (child.collapsed ?? site.sidebar.collapsed ?? false) ~%}
+    <details{% if group_open %} open{% endif %}>
+      <summary class="group-title">
+        <a href="{{ url(child) }}"{% if url(child) == url(page) %} class="active" aria-current="page"{% endif %}>{{ child.title|trans }}</a>
+        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+      </summary>
+      {{- include('partials/sidebar-nav.html.twig', {'section': child}) ~}}
+    </details>
     {%- else ~%}
     <a href="{{ url(child) }}" class="flex{% if url(child) == url(page) %} active{% endif %}"{% if url(child) == url(page) %} aria-current="page"{% endif %}>{{ child.title }}</a>
     {%- endif ~%}

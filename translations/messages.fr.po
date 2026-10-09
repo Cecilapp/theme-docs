@@ -219,3 +219,31 @@ msgstr "Navigation"
 #: docs/page.html.twig
 msgid "Permalink to this section"
 msgstr "Lien permanent vers cette section"
+
+#: _default/page.html.twig
+msgid "Copy code"
+msgstr "Copier le code"
+
+#: _default/page.html.twig
+msgid "Copied!"
+msgstr "Copié !"
+
+#: partials/last-updated.html.twig
+msgid "Last updated on"
+msgstr "Mis à jour le"
+
+#: _default/404.html.twig
+msgid "Page not found"
+msgstr "Page introuvable"
+
+#: _default/404.html.twig
+msgid "Looks like you've followed a broken link or entered a URL that doesn't exist on this site."
+msgstr "Il semble que vous ayez suivi un lien cassé ou saisi une URL qui n'existe pas sur ce site."
+
+#: _default/404.html.twig
+msgid "Back to home page"
+msgstr "Retour à la page d'accueil"
+
+#: _default/404.html.twig
+msgid "Search the site"
+msgstr "Rechercher sur le site"

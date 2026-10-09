@@ -78,8 +78,20 @@
     @apply text-primary-100 hover:text-primary-50;
   }
   /* sidebar */
-  #sidebar div.group-title {
-    @apply font-semibold text-secondary-600 dark:text-secondary-200;
+  #sidebar .group-title {
+    @apply flex items-center justify-between gap-2 cursor-pointer list-none font-semibold text-secondary-600 dark:text-secondary-200;
+  }
+  #sidebar .group-title::-webkit-details-marker {
+    @apply hidden;
+  }
+  #sidebar .group-title a.active {
+    @apply text-primary-700 dark:text-primary-400;
+  }
+  #sidebar .group-title .chevron {
+    @apply w-4 h-4 shrink-0 mr-1 transition-transform duration-150;
+  }
+  #sidebar details[open] > .group-title .chevron {
+    @apply rotate-90;
   }
   #sidebar ol {
     @apply list-none p-0 mb-2;
@@ -142,5 +154,23 @@
   .button {
     @apply px-6 py-2.5 rounded-full hover:no-underline transition-colors duration-300 ease-in-out;
     @apply bg-primary-700 hover:bg-primary-900 text-white dark:text-white hover:text-white dark:hover:text-white text-base font-bold;
+  }
+  /* copy code button */
+  .code-block {
+    @apply relative;
+  }
+  .copy-code {
+    @apply absolute top-2 right-2 px-2 py-1 rounded-md text-xs font-medium cursor-pointer;
+    @apply bg-secondary-700/90 text-secondary-100 hover:bg-secondary-600 focus-visible:outline-2 focus-visible:outline-primary-400;
+    @apply opacity-0 transition-opacity duration-150;
+  }
+  .code-block:hover .copy-code,
+  .copy-code:focus-visible {
+    @apply opacity-100;
+  }
+  @media (hover: none) {
+    .copy-code {
+      @apply opacity-100;
+    }
   }
 }

@@ -38,3 +38,56 @@
 .DocSearch-Hits mark {
   @apply text-primary-800;
 }
+
+/* FlexSearch (component theme) */
+/* colors follow the `dark` class of the theme, not the system preference */
+:root {
+  --flexsearch-color: var(--color-secondary-800);
+  --flexsearch-bg: var(--color-primary-50);
+  --flexsearch-heading-color: var(--color-primary-950);
+  --flexsearch-muted: var(--color-secondary-500);
+  --flexsearch-subtle: var(--color-secondary-400);
+  --flexsearch-border: var(--color-secondary-300);
+  --flexsearch-divider: var(--color-secondary-200);
+  --flexsearch-surface: var(--color-primary-100);
+  --flexsearch-surface-color: var(--color-secondary-600);
+  --flexsearch-surface-border: var(--color-secondary-300);
+  --flexsearch-accent: var(--color-primary-700);
+  --flexsearch-mark-color: var(--color-primary-700);
+  --flexsearch-selected-bg: var(--color-primary-100);
+  --flexsearch-selected-color: var(--color-primary-800);
+  --flexsearch-backdrop: rgb(15 23 42 / .6);
+}
+:root.dark {
+  --flexsearch-color: var(--color-secondary-200);
+  --flexsearch-bg: var(--color-primary-950);
+  --flexsearch-heading-color: var(--color-secondary-50);
+  --flexsearch-muted: var(--color-secondary-400);
+  --flexsearch-subtle: var(--color-secondary-500);
+  --flexsearch-border: var(--color-secondary-700);
+  --flexsearch-divider: var(--color-primary-900);
+  --flexsearch-surface: var(--color-primary-900);
+  --flexsearch-surface-color: var(--color-secondary-300);
+  --flexsearch-surface-border: var(--color-secondary-600);
+  --flexsearch-accent: var(--color-primary-400);
+  --flexsearch-mark-color: var(--color-primary-400);
+  --flexsearch-selected-bg: var(--color-primary-900);
+  --flexsearch-selected-color: var(--color-secondary-50);
+  --flexsearch-backdrop: rgb(0 0 0 / .7);
+}
+/* trigger button in the header (same look as the DocSearch button) */
+header button.flexsearch-trigger {
+  @apply bg-primary-800 text-primary-100 border-transparent shadow-inner;
+  @apply hover:border-primary-300 focus-visible:border-primary-300;
+}
+header .flexsearch-trigger .flexsearch-trigger-icon {
+  @apply text-primary-100;
+}
+header .flexsearch-trigger .flexsearch-kbd {
+  @apply bg-primary-700 text-primary-100 border-primary-600;
+}
+@media (max-width: 639px) {
+  header button.flexsearch-trigger:not(.flexsearch-trigger-full) {
+    @apply bg-transparent shadow-none;
+  }
+}

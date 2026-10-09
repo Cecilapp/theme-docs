@@ -1,6 +1,7 @@
 ---
 title: FAQ
 description: Frequently asked questions.
+updated: 2026-10-01
 ---
 # FAQ
 

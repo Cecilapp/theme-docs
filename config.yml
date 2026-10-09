@@ -3,6 +3,9 @@ github:
   branch: main
   path: pages
 footer: Copyright © %author%
+sidebar:
+  collapsed: false # collapse the groups of the navigation, except the current one
+lastupdated: false # display the page date as "Last updated on" (the `updated` front matter variable is always displayed)
 manifest:
   background_color: '#1447E6'
   theme_color: '#1447E6'

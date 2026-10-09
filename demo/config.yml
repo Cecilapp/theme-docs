@@ -9,6 +9,15 @@ author:
 # `themes/docs` links to the root of this repository (see `link.php`)
 theme:
   - docs
+  - flexsearch # search (installed by `link.php`)
+flexsearch:
+  sections:
+    docs:
+      limit: 5
+    blog:
+      limit: 3
+      split: false
+      date: true
 language: en
 languages:
   - code: en
