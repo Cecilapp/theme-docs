@@ -71,6 +71,17 @@ composer css:build
 CSS is compiled with [tailwind-builder](https://github.com/ArnaudLigny/tailwind-builder),
 which uses the [Tailwind](https://tailwindcss.com) standalone binary (no Node.js required).
 
+### Demo site
+
+The `demo/` folder contains a site using this theme (nested sections, notes,
+code, Mermaid diagrams, blog, French translation), to test changes locally with
+[Cecil](https://cecil.app/download/):
+
+```bash
+php demo/link.php # links the repository as `demo/themes/docs` (once)
+cecil serve demo
+```
+
 ## License
 
 _Docs_ theme is a free software distributed under the terms of the MIT license.
