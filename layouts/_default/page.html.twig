@@ -149,17 +149,19 @@
       {% endapply %}</script>
     </main>
     <footer id="footer" class="mx-4 p-4 text-sm text-center flex flex-col justify-center gap-2">
-      <div class="container mx-auto">
-        <div>{{ site.footer|replace({'%author%': site.author.name|default(site.title)}) }}</div>
+      <div class="container mx-auto flex flex-col items-center gap-2">
         {%- if site.menus.footer is defined ~%}
-        <ul class="flex flex-row gap-2 mx-auto">
-        {%- for entry in site.menus.footer ~%}
-          <li>
-            <a href="{{ url(entry) }}" class="font-semibold">{{ entry.name }}</a>
-          </li>
-        {%- endfor ~%}
-        </ul>
+        <nav aria-label="{% trans %}Footer{% endtrans %}">
+          <ul class="flex flex-row flex-wrap justify-center gap-x-4 gap-y-1">
+          {%- for entry in site.menus.footer|sort_by_weight ~%}
+            <li>
+              <a href="{{ url(entry) }}" class="font-semibold">{{ entry.name }}</a>
+            </li>
+          {%- endfor ~%}
+          </ul>
+        </nav>
         {%- endif ~%}
+        <div>{{ site.footer|replace({'%author%': site.author.name|default(site.title)}) }}</div>
         {%- block footer ~%}{%- endblock footer ~%}
         <a href="{{ cecil.url }}" title="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}"><img src="{{ url(asset('logo-cecil.svg')) }}" class="w-8 h-8 mx-auto" alt="{% trans with {'%powered_by%': 'Cecil'} %}Powered by %powered_by%{% endtrans %}" /></a>
       </div>

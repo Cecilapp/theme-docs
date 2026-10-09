@@ -247,3 +247,7 @@ msgstr "Retour à la page d'accueil"
 #: _default/404.html.twig
 msgid "Search the site"
 msgstr "Rechercher sur le site"
+
+#: _default/page.html.twig
+msgid "Footer"
+msgstr "Pied de page"
