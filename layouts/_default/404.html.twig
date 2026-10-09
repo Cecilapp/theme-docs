@@ -3,7 +3,7 @@
       {%- block article ~%}
       <div class="container mx-auto px-4 py-16 md:py-24 text-center">
         <p class="text-7xl md:text-9xl font-bold tracking-tight text-primary-700 dark:text-primary-400" aria-hidden="true">404</p>
-        <article id="content" class="mt-4 mx-auto max-w-xl markdown markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal dark:markdown-invert">
+        <article id="content" class="mt-4 mx-auto max-w-xl markdown markdown-theme">
           {%- block content ~%}
           {%- if page.content is not empty ~%}
           {{ page.content }}

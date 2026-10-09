@@ -174,3 +174,8 @@
     }
   }
 }
+
+/* Markdown content (used with the `markdown` class) */
+@utility markdown-theme {
+  @apply markdown-slate markdown-a:text-primary-700 dark:markdown-a:text-primary-400 markdown-a:no-underline markdown-a:font-normal markdown-code:max-w-none dark:markdown-invert;
+}
