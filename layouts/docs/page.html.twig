@@ -78,10 +78,10 @@
       });
       {# article anchor #}
       window.addEventListener('load', function (e) {
-        const allHx = document.querySelectorAll('article h2, article h3');
+        const allHx = document.querySelectorAll('article h2[id], article h3[id]');
         allHx.forEach((item) => {
           let anchor = document.createElement('a');
-          anchor.href = document.URL + '#' + item.getAttribute('id');
+          anchor.href = '#' + item.getAttribute('id');
           anchor.innerText = '#';
           anchor.className = 'anchor-title';
           item.append(anchor);
