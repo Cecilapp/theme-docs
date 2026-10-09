@@ -3,3 +3,4 @@
 
 # Exclude from Composer package archives
 /demo export-ignore
+/.github export-ignore
