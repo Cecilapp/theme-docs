@@ -1,0 +1,41 @@
+# Demo site of the "Docs" theme
+title: Docs theme
+baseline: A documentation theme for Cecil
+description: Demo site of the Docs theme for Cecil.
+baseurl: http://localhost:8000/
+author:
+  name: Cecil
+  url: https://cecil.app
+# `themes/docs` links to the root of this repository (see `link.php`)
+theme:
+  - docs
+language: en
+languages:
+  - code: en
+    name: English
+    locale: en_US
+  - code: fr
+    name: Français
+    locale: fr_FR
+menus:
+  main:
+    - id: docs
+      name: Documentation
+      url: /docs/
+      weight: 10
+    - id: blog
+      name: Blog
+      url: /blog/
+      weight: 20
+  footer:
+    - id: cecil
+      name: Cecil
+      url: https://cecil.app
+      weight: 10
+github:
+  url: https://github.com/Cecilapp/theme-docs
+  repo: https://github.com/Cecilapp/theme-docs
+  branch: main
+  path: demo/pages
+docsearch:
+  enabled: false
