@@ -113,10 +113,10 @@
   }
   #sidebar li>a.active,
   #sidebar li>a:hover {
-    @apply rounded-sm bg-primary-200 dark:text-secondary-800;
+    @apply rounded-sm bg-primary-200 dark:bg-primary-800 dark:text-secondary-100;
   }
   #sidebar li>a.active {
-    @apply text-primary-700 font-medium;
+    @apply text-primary-700 dark:text-primary-200 font-medium;
   }
   /* on this page */
   main details li {
