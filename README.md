@@ -42,8 +42,10 @@ any depth. Ordering is based on pages `weight` (e.g. a `1-` filename prefix or a
 ```yaml
 footer: Copyright © %author%
 github:
-  repo: https://github.com/<org>/<repo>
+  url: https://github.com/<org>/<repo> # GitHub link in header
+  repo: https://github.com/<org>/<repo> # "Edit this page" link
   branch: <main|master>
+  path: pages # pages directory path in the repository (default: pages)
 docsearch:
   enabled: true|false
   appId: <YOUR_APP_ID>
