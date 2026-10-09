@@ -15,11 +15,11 @@
   <li>
     {%- if child.type == 'section' ~%}
     <div class="group-title">
-      <a href="{{ url(child) }}"{% if url(child) == url(page) %} class="active"{% endif %}>{{ child.title|trans }}</a>
+      <a href="{{ url(child) }}"{% if url(child) == url(page) %} class="active" aria-current="page"{% endif %}>{{ child.title|trans }}</a>
     </div>
     {{- include('partials/sidebar-nav.html.twig', {'section': child}) ~}}
     {%- else ~%}
-    <a href="{{ url(child) }}" class="flex{% if url(child) == url(page) %} active{% endif %}">{{ child.title }}</a>
+    <a href="{{ url(child) }}" class="flex{% if url(child) == url(page) %} active{% endif %}"{% if url(child) == url(page) %} aria-current="page"{% endif %}>{{ child.title }}</a>
     {%- endif ~%}
   </li>
   {%- endfor ~%}

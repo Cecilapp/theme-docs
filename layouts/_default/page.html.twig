@@ -35,6 +35,8 @@
       {%- if 'markdown' in site.output.pagetypeformats.page ?? [] %} Append .md to any documentation page URL to get its markdown version.{%- endif ~%}
     </div>
     {%- endif ~%}
+    {#- skip link ~#}
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-60 focus:px-4 focus:py-2 focus:rounded-md focus:bg-primary-50 dark:focus:bg-primary-950 focus:text-primary-700 dark:focus:text-primary-400 focus:font-semibold focus:shadow-md">{% trans %}Skip to content{% endtrans %}</a>
     {#- sidebar ~#}
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
@@ -42,9 +44,9 @@
     <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 bg-primary-700 dark:bg-primary-900 shadow-md">
       <nav class="flex items-center w-full px-4">
         {#- sidebar mobile button ~#}
-        <button class="navbar-item flex lg:hidden items-center mr-3" onclick="toggleMenu()">
-          <svg id="sidebar-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
-            <title>{% trans %}Open menu{% endtrans %}</title><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        <button id="sidebar-open-button" type="button" class="navbar-item flex lg:hidden items-center mr-3 cursor-pointer" onclick="toggleMenu()" aria-controls="sidebar" aria-expanded="false" aria-label="{% trans %}Open menu{% endtrans %}" title="{% trans %}Open menu{% endtrans %}">
+          <svg id="sidebar-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
         {#- logo ~#}
@@ -86,7 +88,7 @@
         {%- endif ~%}
       </nav>
     </header>
-    <main id="main" class="h-full mt-14">
+    <main id="main" tabindex="-1" class="h-full mt-14 focus:outline-none">
       {%- block article ~%}
       <div class="container mx-auto px-4 py-6">
         {{- include('partials/breadcrumb.html.twig') ~}}

@@ -203,3 +203,19 @@ msgstr "Logo"
 
 #~ msgid "Auto"
 #~ msgstr "Auto"
+
+#: _default/page.html.twig
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: partials/breadcrumb.html.twig
+msgid "Breadcrumb"
+msgstr "Fil d'Ariane"
+
+#: partials/sidebar.html.twig
+msgid "Navigation"
+msgstr "Navigation"
+
+#: docs/page.html.twig
+msgid "Permalink to this section"
+msgstr "Lien permanent vers cette section"

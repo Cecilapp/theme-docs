@@ -1,6 +1,12 @@
         {#- Breadcrumb ~#}
-        <div class="text-sm mb-2">
+        {%- if page.ancestors is not empty ~%}
+        <nav class="text-sm mb-2" aria-label="{% trans %}Breadcrumb{% endtrans %}">
+          <ol class="flex flex-wrap gap-1">
           {%- for section in page.ancestors|reverse ~%}
-          <a href="{{ url(section) }}">{{ section.title }}</a>{% if not loop.last %} › {% endif ~%}
+            <li><a href="{{ url(section) }}">{{ section.title }}</a>{% if not loop.last %} <span aria-hidden="true">›</span>{% endif %}</li>
           {%- endfor ~%}
-        </div>
+          </ol>
+        </nav>
+        {%- else ~%}
+        <div class="mb-2"></div>
+        {%- endif ~%}

@@ -84,6 +84,8 @@
           anchor.href = '#' + item.getAttribute('id');
           anchor.innerText = '#';
           anchor.className = 'anchor-title';
+          anchor.setAttribute('aria-label', '{{ 'Permalink to this section'|trans|e('js') }}');
+          anchor.title = anchor.getAttribute('aria-label');
           item.append(anchor);
         });
       });
