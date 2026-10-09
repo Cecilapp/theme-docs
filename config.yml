@@ -5,6 +5,7 @@ github:
 footer: Copyright © %author%
 sidebar:
   collapsed: false # collapse the groups of the navigation, except the current one
+language_cookie: false # name of a cookie storing the language chosen with the selector (e.g. `nf_lang` for Netlify redirects)
 lastupdated: false # display the page date as "Last updated on" (the `updated` front matter variable is always displayed)
 manifest:
   background_color: '#1447E6'

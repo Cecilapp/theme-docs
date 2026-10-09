@@ -65,6 +65,7 @@ github:
 sidebar:
   collapsed: false|true # collapse the navigation groups, except the current one (default: false)
 lastupdated: false|true # display the page date as "Last updated" date (default: false)
+language_cookie: <name> # cookie storing the language chosen with the selector, e.g. `nf_lang` for Netlify (default: false)
 docsearch:
   enabled: true|false
   appId: <YOUR_APP_ID>
@@ -85,6 +86,80 @@ theme:
 ```
 
 The search button is displayed in the header (DocSearch takes precedence if both are enabled).
+
+### Logo
+
+The site title is displayed in the header, with an optional logo (an image of
+the `assets/` folder), single or one per color theme:
+
+```yaml
+logo: logo.png
+# or
+logo:
+  light: logo-light.png
+  dark: logo-dark.png
+```
+
+### Menus
+
+The `main` menu is displayed in the header (and in the sidebar on mobile), the
+optional `footer` menu in the footer:
+
+```yaml
+menus:
+  main:
+    - id: docs
+      name: Documentation
+      url: /docs/
+      weight: 10
+  footer:
+    - id: cecil
+      name: Cecil
+      url: https://cecil.app
+```
+
+### Homepage blocks
+
+The homepage is built from blocks, listed in its front matter (`pages/index.md`),
+followed by its content:
+
+```yaml
+---
+title: Home
+blocks:
+  - name: hero # site title and baseline
+    description: A **Markdown** text.
+    image: hero.svg # optional
+  - name: cta # call to action
+    button: # optional: first page of the documentation by default
+      title: Get started
+      url: /docs/
+    links:
+      - title: GitHub
+        url: https://github.com/<org>/<repo>
+  - name: features
+    features:
+      - title: Feature 1
+        description: A **Markdown** text.
+---
+```
+
+### Notes
+
+Notes (callouts) are written with [Cecil's notes syntax](https://cecil.app/documentation/content/),
+with the `info`, `tip`, `important`, `warning` and `caution` types:
+
+```markdown
+:::tip
+**Tip:** helpful advice for doing things better.
+:::
+```
+
+### Blog
+
+Posts of the `blog` section display their date, reading time and author(s):
+`author` (or `authors`) front matter variable, as an object (`name`, `title`,
+`url`, `email`, `image`) or as a key of `data/authors.yml`.
 
 ## Development
 
