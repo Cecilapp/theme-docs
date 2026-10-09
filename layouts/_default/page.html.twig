@@ -2,6 +2,15 @@
 <html lang="{{ site.language }}" class="scroll-pt-[70px] scroll-smooth lg:overflow-y-scroll">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {#- apply dark theme before first paint (avoids flash of light theme) ~#}
+    <script>{% apply minify_js ~%}
+      try {
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch (e) {}
+    {% endapply %}</script>
     {{- include('partials/metatags.html.twig') ~}}
     {%- set styles = ['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/' ~ site.highlightjs.version ~ '/styles/github-dark.min.css'] ~%}
     {%- if site.docsearch.enabled ?? false ~%}
@@ -88,17 +97,30 @@
         </article>
       </div>
       {%- endblock article ~%}
-      <div id="button-top" class="fixed bottom-0 mb-4 right-0 mr-4 z-10 opacity-0 duration-150 ease-in-out">
+      <div id="button-top" class="fixed bottom-0 mb-4 right-0 mr-4 z-10 opacity-0 invisible transition-all duration-150 ease-in-out">
         <a href="#main" class="rounded-full border-0 flex items-center justify-center w-10 h-10 bg-primary-700 dark:bg-primary-900 text-primary-100 hover:text-primary-50 shadow-md" aria-label="{% trans %}Back to top{% endtrans %}" title="{% trans %}Back to top{% endtrans %}">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
           </svg>
         </a>
       </div>
+      <script>{% apply minify_js ~%}
+        {# scroll top #}
+        (function () {
+          const buttonTop = document.getElementById('button-top');
+          function toggleButtonTop() {
+            const hide = window.scrollY <= 300;
+            buttonTop.classList.toggle('opacity-0', hide);
+            buttonTop.classList.toggle('invisible', hide);
+          }
+          window.addEventListener('scroll', toggleButtonTop, {passive: true});
+          toggleButtonTop();
+        })();
+      {% endapply %}</script>
     </main>
     <footer id="footer" class="mx-4 p-4 text-sm text-center flex flex-col justify-center gap-2">
       <div class="container mx-auto">
-        <div>{{ site.footer|replace({'%author%': site.author.name|default('Arnaud Ligny')}) }}</div>
+        <div>{{ site.footer|replace({'%author%': site.author.name|default(site.title)}) }}</div>
         {%- if site.menus.footer is defined ~%}
         <ul class="flex flex-row gap-2 mx-auto">
         {%- for entry in site.menus.footer ~%}
