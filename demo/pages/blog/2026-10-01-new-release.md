@@ -34,7 +34,7 @@ Section pages also got their own template: they now display the sidebar, cards l
 
 ## Search without a service
 
-[Algolia DocSearch](https://docsearch.algolia.com) is still supported, but you can now use the [FlexSearch component theme](https://github.com/Cecilapp/theme-flexsearch) instead: the search index is generated at build time, and the search runs entirely in the browser.
+[Algolia DocSearch](https://docsearch.algolia.com) is still supported (with the [DocSearch component theme](https://github.com/Cecilapp/theme-docsearch)), but you can now use the [FlexSearch component theme](https://github.com/Cecilapp/theme-flexsearch) instead: the search index is generated at build time, and the search runs entirely in the browser.
 
 ```yaml
 theme:

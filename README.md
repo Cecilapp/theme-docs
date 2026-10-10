@@ -66,15 +66,39 @@ sidebar:
   collapsed: false|true # collapse the navigation groups, except the current one (default: false)
 lastupdated: false|true # display the page date as "Last updated" date (default: false)
 language_cookie: <name> # cookie storing the language chosen with the selector, e.g. `nf_lang` for Netlify (default: false)
+```
+
+### Search
+
+The search button is displayed in the header, with one of the following
+component themes (DocSearch takes precedence if both are enabled).
+
+#### Algolia DocSearch
+
+Install the [DocSearch component theme](https://github.com/Cecilapp/theme-docsearch),
+add it after `docs` and provide your Algolia credentials:
+
+```bash
+composer require cecil/theme-docsearch
+```
+
+```yaml
+theme:
+  - docs
+  - docsearch
 docsearch:
-  enabled: true|false
   appId: <YOUR_APP_ID>
   indexName: <YOUR_INDEX_NAME>
   apiKey: <YOUR_SEARCH_API_KEY>
-  debug: false|true
 ```
 
-### Search with FlexSearch
+See the [DocSearch component theme](https://github.com/Cecilapp/theme-docsearch#configuration) for other options.
+
+> [!NOTE]
+> DocSearch used to be built into the theme: the `docsearch` configuration is
+> unchanged, but the `docsearch` component theme must now be installed.
+
+#### FlexSearch
 
 As an alternative to DocSearch (no external service), install the
 [FlexSearch component theme](https://github.com/Cecilapp/theme-flexsearch) and add it after `docs`:
@@ -84,8 +108,6 @@ theme:
   - docs
   - flexsearch
 ```
-
-The search button is displayed in the header (DocSearch takes precedence if both are enabled).
 
 ### Logo
 

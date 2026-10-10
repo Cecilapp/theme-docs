@@ -13,10 +13,10 @@
     {% endapply %}</script>
     {{- include('partials/metatags.html.twig') ~}}
     {%- set styles = ['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/' ~ site.highlightjs.version ~ '/styles/github-dark.min.css'] ~%}
-    {%- if site.docsearch.enabled ?? false ~%}
-    <meta name="docsearch:language" content="{{ site.language }}">
-    <link rel="preconnect" href="https://{{ site.docsearch.appId|default }}-dsn.algolia.net" crossorigin>
-    {%- set styles = styles|merge(['https://cdn.jsdelivr.net/npm/@docsearch/css@' ~ site.docsearch.version ~ '/dist/style.min.css']) ~%}
+    {#- DocSearch component theme (https://github.com/Cecilapp/theme-docsearch) ~#}
+    {%- set docsearch = (site.docsearch.enabled ?? false) and site.docsearch.appId|default ~%}
+    {%- if docsearch ~%}
+    {{- include('partials/docsearch/head.html.twig', ignore_missing = true) ~}}
     {%- elseif site.flexsearch.enabled ?? false ~%}
     {#- FlexSearch component theme (https://github.com/Cecilapp/theme-flexsearch) ~#}
     {%- set styles = styles|merge(['flexsearch/flexsearch.css']) ~%}
@@ -61,9 +61,11 @@
             {{- include('partials/menu.html.twig') ~}}
           </ol>
         </div>
-        {#- DocSearch input ~#}
-        {%- if site.docsearch.enabled ?? false ~%}
-        <div id="search-container" class="md:inline-block ml-4 py-2"></div>
+        {#- DocSearch button ~#}
+        {%- if docsearch ~%}
+        <div class="md:inline-block ml-4 py-2">
+          {{- include('partials/docsearch/button.html.twig', ignore_missing = true) ~}}
+        </div>
         {#- FlexSearch trigger ~#}
         {%- elseif site.flexsearch.enabled ?? false ~%}
         <div class="ml-4 py-2 flex items-center">
@@ -167,13 +169,8 @@
       </div>
     </footer>
     {%- block scripts ~%}
-    {%- if site.docsearch.enabled ?? false ~%}
-    {{ html(asset('https://cdn.jsdelivr.net/npm/@docsearch/js@' ~ site.docsearch.version ~ '/dist/umd/index.min.js', {filename: 'docsearch.min.js', minify: false}), {id: 'docsearch', defer: 'true'}) }}
-    <script>{% apply minify_js ~%}
-      docsearch.addEventListener('load', function () {
-        {{- include('partials/docsearch.js.twig') ~}}
-      });
-    {% endapply %}</script>
+    {%- if docsearch ~%}
+    {{ include('partials/docsearch/script.html.twig', ignore_missing = true) }}
     {%- elseif site.flexsearch.enabled ?? false ~%}
     {{ include('partials/flexsearch/dialog.html.twig') }}
     {%- endif ~%}

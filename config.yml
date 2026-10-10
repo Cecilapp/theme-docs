@@ -13,9 +13,6 @@ manifest:
   theme_color_dark: '#1C398E'
 serviceworker:
   enabled: false
-docsearch:
-  enabled: false
-  version: '3'
 highlightjs:
   version: '11.12.0'
 tocbot:

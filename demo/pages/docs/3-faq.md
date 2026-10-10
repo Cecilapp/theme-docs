@@ -11,4 +11,4 @@ No: CSS is compiled with the Tailwind standalone binary.
 
 ## How to enable search?
 
-Set `docsearch.enabled` to `true` and provide your Algolia credentials.
+Install the [DocSearch](https://github.com/Cecilapp/theme-docsearch) or [FlexSearch](https://github.com/Cecilapp/theme-flexsearch) component theme.

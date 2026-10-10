@@ -46,5 +46,3 @@ github:
   repo: https://github.com/Cecilapp/theme-docs
   branch: main
   path: demo/pages
-docsearch:
-  enabled: false

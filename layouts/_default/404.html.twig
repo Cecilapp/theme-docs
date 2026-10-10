@@ -19,7 +19,7 @@
           {%- if docs ~%}
           <a href="{{ url(docs) }}" class="font-bold">{{ docs.title }} →</a>
           {%- endif ~%}
-          {%- if not (site.docsearch.enabled ?? false) and (site.flexsearch.enabled ?? false) ~%}
+          {%- if not docsearch and (site.flexsearch.enabled ?? false) ~%}
           <button type="button" class="font-bold text-primary-700 dark:text-primary-400 hover:underline cursor-pointer" data-flexsearch-open>{% trans %}Search the site{% endtrans %}</button>
           {%- endif ~%}
         </div>
