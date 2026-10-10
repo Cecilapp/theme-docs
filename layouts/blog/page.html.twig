@@ -6,9 +6,9 @@
         <article id="content" class="markdown markdown-theme max-w-none">
           {%- block content ~%}
           <header>
-            <h1>{{ page.title }}</h1>
+            <h1 class="mb-2!">{{ page.title }}</h1>
             {#- date + read time ~#}
-            <div class="mt-2 text-sm">{{ page.date|format_date('long') }} &#x2022; {% trans with {'%minutes%': readtime(page.content)} %}%minutes% min of reading{% endtrans %}</div>
+            <div class="text-sm">{{ page.date|format_date('long') }} &#x2022; {% trans with {'%minutes%': readtime(page.content)} %}%minutes% min of reading{% endtrans %}</div>
             {#- author(s) ~#}
             {%- set authors = [] ~%}
             {%- if page.author is defined ~%}
