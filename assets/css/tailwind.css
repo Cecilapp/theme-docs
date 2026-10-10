@@ -79,7 +79,7 @@
   }
   /* sidebar */
   #sidebar .group-title {
-    @apply flex items-center justify-between gap-2 cursor-pointer list-none font-semibold text-secondary-600 dark:text-secondary-200;
+    @apply flex items-center justify-between gap-2 pl-2 cursor-pointer list-none font-semibold text-secondary-600 dark:text-secondary-200;
   }
   #sidebar .group-title::-webkit-details-marker {
     @apply hidden;
