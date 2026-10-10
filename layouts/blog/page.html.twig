@@ -26,7 +26,7 @@
               <div class="flex flex-row items-center space-x-4 mt-2">
                 {%- if author.image is defined ~%}
                 {%- set avatar = asset(author.image)|resize(2 * 48) ~%}
-                <picture class="my-0">
+                <picture class="my-0!">
                   <source srcset="{{ avatar|webp }}" type="image/webp">
                   <img class="w-12 h-12 rounded-full shadow-md" src="{{ avatar }}" type="{{ avatar.subtype }}" width="{{ avatar.width }}" height="{{ avatar.height }}" alt="{{ 'Avatar of %name%'|trans({'%name%': author.name}) }}">
                 </picture>
