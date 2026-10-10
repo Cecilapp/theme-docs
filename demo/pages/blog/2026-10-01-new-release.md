@@ -7,6 +7,7 @@ authors:
   - name: Jane Doe
     title: Contributor
     url: https://example.com
+    image: images/authors/jane-doe.png
 ---
 A new version of the _Docs_ theme is available! It brings a better navigation, a search that works without any external service, and many accessibility and maintainability improvements. Here is a tour of what's new.
 
