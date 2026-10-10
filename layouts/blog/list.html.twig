@@ -17,7 +17,8 @@
                 <section class="px-6 py-6 rounded-xl border border-secondary-200 shadow-md hover:border-primary-700 dark:hover:border-primary-400 h-full">
                   <div class="text-sm">{{ p.date|format_date('long') }}</div>
                   <h2 class="mt-1 font-semibold text-lg">{{ p.title }}</h2>
-                  <div class="mt-2 text-secondary-600 dark:text-secondary-400 font-normal">{{ p.content|excerpt_html }}</div>
+                  {#- description from front matter, or excerpt of the content ~#}
+                  <div class="mt-2 text-secondary-600 dark:text-secondary-400 font-normal">{{ p.description is defined and p.description is not empty ? p.description : p.content|excerpt_html }}</div>
                 </section>
               </a>
               {%- endfor ~%}
