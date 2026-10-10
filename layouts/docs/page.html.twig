@@ -19,9 +19,10 @@
         <div class="container mx-auto lg:ml-72 px-4 py-6">
           <div class="xl:flex xl:flex-row xl:gap-6">
             <div class="grow mx-auto max-w-3xl">
+              {{- include('partials/breadcrumb.html.twig') ~}}
+              {#- "On this page" ~#}
               {%- set toc = page.body|toc ~%}
               {%- set has_toc = toc|striptags|trim is not empty ~%}
-              {#- "On this page" ~#}
               {%- if has_toc ~%}
               <details class="mb-4 xl:hidden rounded-md bg-primary-100 dark:bg-primary-900 px-2 py-1">
                 <summary class="cursor-pointer text-sm uppercase text-secondary-600 dark:text-secondary-300">
@@ -30,7 +31,6 @@
                 {{ toc }}
               </details>
               {%- endif ~%}
-              {{- include('partials/breadcrumb.html.twig') ~}}
               {#- Content ~#}
               <article id="content" class="markdown markdown-theme max-w-none">
                 {%- block content ~%}
