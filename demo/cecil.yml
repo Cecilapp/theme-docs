@@ -6,6 +6,12 @@ baseurl: http://localhost:8000/
 author:
   name: Cecil
   url: https://cecil.app
+# documentation versions (selector in the header)
+versions:
+  - name: main
+    url: /
+  - name: '5.0'
+    url: https://github.com/Cecilapp/theme-docs/tree/5.0.0
 # `themes/docs` links to the root of this repository (see `link.php`)
 theme:
   - docs

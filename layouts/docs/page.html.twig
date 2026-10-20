@@ -9,8 +9,13 @@
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': true} ~%}
         {%- block navigation ~%}
+        {%- set docs = site.page('docs') ~%}
         <div class="py-2 mt-2">
-          {{- include('partials/sidebar-nav.html.twig', {'section': site.page('docs')}) ~}}
+          {#- home page of the documentation ~#}
+          <ol>
+            <li><a href="{{ url(docs) }}" class="flex{% if docs.id == page.id %} active{% endif %}"{% if docs.id == page.id %} aria-current="page"{% endif %}>{{ docs.title }}</a></li>
+          </ol>
+          {{- include('partials/sidebar-nav.html.twig', {'section': docs}) ~}}
         </div>
         {%- endblock navigation ~%}
       {%- endembed ~%}

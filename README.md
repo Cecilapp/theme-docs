@@ -70,6 +70,21 @@ inline_styles: true|false # inline the stylesheets in production: no extra reque
 ```
 
 ### Search
+### Versions
+
+To publish several versions of the documentation (e.g. one deployment per
+version), list them in the `versions` option: they are displayed in a selector,
+next to the site title.
+
+```yaml
+versions:
+  - name: '2.x'
+    url: https://docs.example.com/
+  - name: '1.x'
+    url: https://v1.docs.example.com/
+version: '2.x' # name of the current version (default: the first one)
+```
+
 
 The search button is displayed in the header, with one of the following
 component themes (DocSearch takes precedence if both are enabled).

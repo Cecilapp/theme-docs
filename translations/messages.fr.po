@@ -155,3 +155,7 @@ msgstr "Rechercher sur le site"
 #: _default/page.html.twig
 msgid "Footer"
 msgstr "Pied de page"
+
+#: partials/selector-version.html.twig
+msgid "Version:"
+msgstr "Version :"

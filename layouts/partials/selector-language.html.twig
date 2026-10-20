@@ -1,7 +1,7 @@
           {#- language selector: a disclosure of links (navigating on a `<select>` change is not accessible) ~#}
           {%- if page.translations|length >= 1 ~%}
           {%- set languages = [page]|merge(page.translations|filter(p => p.language is defined))|sort((a, b) => a.language <=> b.language) ~%}
-          <details class="lang-menu{% if label ?? false %} lang-menu-inline{% endif %}">
+          <details class="dropdown{% if label ?? false %} dropdown-inline{% endif %}">
             <summary>
               <span{% if (label ?? false) != true %} class="sr-only"{% endif %}>{% trans %}Language:{% endtrans %}</span>
               <span>{{ page.language|language_name(site.language.locale(page.language))|capitalize }}</span>
@@ -13,34 +13,19 @@
             {%- endfor ~%}
             </ul>
           </details>
+          {%- if site.language_cookie ?? false ~%}
           <script>{% apply minify_js ~%}
             (function () {
-              if (window.langMenuInit) return;
-              window.langMenuInit = true;
-              {%- if site.language_cookie ?? false %}
+              if (window.languageCookieInit) return;
+              window.languageCookieInit = true;
               {# stores the selected language (e.g. for Netlify `nf_lang` redirects) #}
               document.addEventListener('click', function (e) {
-                const link = e.target.closest('.lang-menu a[data-language]');
+                const link = e.target.closest('.dropdown a[data-language]');
                 if (link) {
                   document.cookie = '{{ site.language_cookie|e('js') }}=' + link.dataset.language + '; path=/; max-age=31536000; SameSite=Lax';
                 }
               });
-              {%- endif %}
-              {# closes the menus on outside click or Escape key #}
-              function closeMenus(except) {
-                document.querySelectorAll('.lang-menu[open]').forEach(function (menu) {
-                  if (menu !== except) menu.open = false;
-                });
-              }
-              document.addEventListener('click', function (e) {
-                closeMenus(e.target.closest('.lang-menu'));
-              });
-              document.addEventListener('keydown', function (e) {
-                if (e.key !== 'Escape') return;
-                const menu = document.activeElement && document.activeElement.closest('.lang-menu[open]');
-                closeMenus();
-                if (menu) menu.querySelector('summary').focus();
-              });
             })();
           {% endapply %}</script>
+          {%- endif ~%}
           {%- endif ~%}

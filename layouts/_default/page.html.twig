@@ -74,6 +74,12 @@
         </button>
         {#- logo ~#}
         {{- include('partials/logo.html.twig') ~}}
+        {#- version selector ~#}
+        {%- if site.versions|default ~%}
+        <div class="navbar-item ml-3 hidden sm:flex">
+          {{- include('partials/selector-version.html.twig') ~}}
+        </div>
+        {%- endif ~%}
         <div class="grow"></div>
         {#- main menu ~#}
         <div class="hidden lg:flex ml-4 items-center">
@@ -132,6 +138,23 @@
         </a>
       </div>
       <script>{% apply minify_js ~%}
+        {# dropdowns (language and version selectors): closed on outside click or Escape key #}
+        (function () {
+          function closeDropdowns(except) {
+            document.querySelectorAll('.dropdown[open]').forEach(function (dropdown) {
+              if (dropdown !== except) dropdown.open = false;
+            });
+          }
+          document.addEventListener('click', function (e) {
+            closeDropdowns(e.target.closest('.dropdown'));
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            const dropdown = document.activeElement && document.activeElement.closest('.dropdown[open]');
+            closeDropdowns();
+            if (dropdown) dropdown.querySelector('summary').focus();
+          });
+        })();
         {# scroll top #}
         (function () {
           const buttonTop = document.getElementById('button-top');

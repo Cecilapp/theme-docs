@@ -19,6 +19,12 @@
             {{- include('partials/menu.html.twig') ~}}
           </ol>
         </div>
+        {#- version selector ~#}
+        {%- if site.versions|default ~%}
+        <div class="lg:hidden py-2">
+          {{- include('partials/selector-version.html.twig', {'label': true}) ~}}
+        </div>
+        {%- endif ~%}
         {#- language selector ~#}
         <div class="lg:hidden py-2">
           {{- include('partials/selector-language.html.twig', {'label': true}) ~}}
