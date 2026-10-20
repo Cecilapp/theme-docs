@@ -53,6 +53,11 @@
             {%- endfor ~%}
             </div>
             {%- endif ~%}
+            {%- if page.tags|default ~%}
+            <div class="mt-3 not-markdown">
+              {{- include('partials/tags.html.twig') ~}}
+            </div>
+            {%- endif ~%}
           </header>
           {{ page.content }}
           <footer class="mt-6">

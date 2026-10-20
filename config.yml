@@ -29,9 +29,11 @@ mermaid:
   version: '11.17.2'
 
 # Cecil config for Docs
+taxonomies:
+  tags: tag # `tags` front matter variable (e.g. blog posts), listed in `/tags/`
 pages:
   pagination:
-    enabled: false
+    enabled: false # enable it in the front matter of a list page (e.g. the blog): `pagination: {enabled: true}`
   sortby: weight
   body:
     highlight:

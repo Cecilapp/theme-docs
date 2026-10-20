@@ -159,3 +159,23 @@ msgstr "Pied de page"
 #: partials/selector-version.html.twig
 msgid "Version:"
 msgstr "Version :"
+
+#: partials/tags.html.twig
+msgid "Tags"
+msgstr "Étiquettes"
+
+#: _default/term.html.twig
+msgid "All tags"
+msgstr "Toutes les étiquettes"
+
+#: partials/paginator.html.twig
+msgid "Pagination"
+msgstr "Pagination"
+
+#: partials/paginator.html.twig
+msgid "Page %current% of %count%"
+msgstr "Page %current% sur %count%"
+
+#: blog/list.html.twig
+msgid "Subscribe to the feed"
+msgstr "S'abonner au flux"

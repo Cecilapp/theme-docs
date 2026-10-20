@@ -16,7 +16,8 @@ _Docs_ is a documentation theme for [Cecil](https://cecil.app), designed to prov
 - Templates internationalization (i18n)
 - Mobile friendly
 - Dark theme
-- Blog posts templates
+- Blog posts templates, with tags, pagination and feed link
+- Documentation versions selector
 
 ## Installation
 
@@ -69,7 +70,6 @@ language_cookie: <name> # cookie storing the language chosen with the selector, 
 inline_styles: true|false # inline the stylesheets in production: no extra request, but not cached by the browser across pages (default: true)
 ```
 
-### Search
 ### Versions
 
 To publish several versions of the documentation (e.g. one deployment per
@@ -85,6 +85,7 @@ versions:
 version: '2.x' # name of the current version (default: the first one)
 ```
 
+### Search
 
 The search button is displayed in the header, with one of the following
 component themes (DocSearch takes precedence if both are enabled).
@@ -198,6 +199,32 @@ with the `info`, `tip`, `important`, `warning` and `caution` types:
 Posts of the `blog` section display their date, reading time and author(s):
 `author` (or `authors`) front matter variable, as an object (`name`, `title`,
 `url`, `email`, `image`) or as a key of `data/authors.yml`.
+
+Posts can be tagged with the `tags` front matter variable: tags are linked to
+their page (e.g. `/tags/release/`), and all of them are listed in `/tags/`.
+
+```yaml
+---
+title: My post
+tags: [release, blog]
+---
+```
+
+The list of posts links to its feed, and can be paginated: pagination is
+disabled by default, enable it in the front matter of the blog section
+(`pages/blog/index.md`).
+
+```yaml
+---
+title: Blog
+pagination:
+  enabled: true
+  max: 5 # number of posts by page
+---
+```
+
+> [!NOTE]
+> Enabling the pagination of a single section requires Cecil X.Y or later.
 
 ### Stylesheets
 

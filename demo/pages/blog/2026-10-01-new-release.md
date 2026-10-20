@@ -2,6 +2,7 @@
 title: New release
 description: "Collapsible navigation, search without a service, copy buttons and accessibility improvements: a tour of the new version of the theme."
 date: 2026-10-01
+tags: [release, accessibility]
 authors:
   - cecil
   - name: Jane Doe

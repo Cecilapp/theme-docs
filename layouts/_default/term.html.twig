@@ -1,0 +1,10 @@
+{#- pages of a term (e.g. a tag), listed like blog posts ~#}
+{% extends 'blog/list.html.twig' %}
+
+            {%- block content ~%}
+            <h1>{% if page.plural == 'tags' %}#{% endif %}{{ page.title }}</h1>
+            {%- set vocabulary = site.page(page.plural) ~%}
+            {%- if vocabulary ~%}
+            <p><a href="{{ url(vocabulary) }}">{% trans %}All tags{% endtrans %}</a></p>
+            {%- endif ~%}
+            {%- endblock content ~%}

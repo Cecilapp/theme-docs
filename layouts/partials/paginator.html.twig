@@ -1,0 +1,17 @@
+{#- pagination of a list page (`pagination` front matter variable) ~#}
+{%- if page.paginator.count|default(0) > 1 ~%}
+{%- set links = page.paginator.links ~%}
+<nav class="mt-6 flex items-center justify-between gap-4" aria-label="{% trans %}Pagination{% endtrans %}">
+  {%- if links.prev is defined ~%}
+  <a href="{{ url(links.prev) }}" rel="prev" class="py-2 px-4 font-medium hover:no-underline border border-secondary-300 hover:border-primary-700 dark:hover:border-primary-400 rounded-md">← {% trans %}Previous{% endtrans %}</a>
+  {%- else ~%}
+  <span></span>
+  {%- endif ~%}
+  <span class="text-sm text-secondary-600 dark:text-secondary-300">{% trans with {'%current%': page.paginator.current, '%count%': page.paginator.count} %}Page %current% of %count%{% endtrans %}</span>
+  {%- if links.next is defined ~%}
+  <a href="{{ url(links.next) }}" rel="next" class="py-2 px-4 font-medium hover:no-underline border border-secondary-300 hover:border-primary-700 dark:hover:border-primary-400 rounded-md">{% trans %}Next{% endtrans %} →</a>
+  {%- else ~%}
+  <span></span>
+  {%- endif ~%}
+</nav>
+{%- endif ~%}

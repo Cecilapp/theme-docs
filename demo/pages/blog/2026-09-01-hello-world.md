@@ -3,6 +3,7 @@ title: Hello world
 description: "Welcome to the blog of the _Docs_ theme! This first post introduces the theme, explains why it exists, and shows how a blog can live next to your documentation in the same Cecil website."
 date: 2026-09-01
 author: cecil
+tags: [announcement, blog]
 ---
 Welcome to the blog of the _Docs_ theme! This first post introduces the theme, explains why it exists, and shows how a blog can live next to your documentation in the same Cecil website.
 

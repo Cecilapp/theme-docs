@@ -1,0 +1,11 @@
+{#- terms of a vocabulary (e.g. all tags), with their number of pages ~#}
+{% extends '_default/page.html.twig' %}
+
+          {%- block content ~%}
+          <h1>{{ page.title }}</h1>
+          <ul class="not-markdown flex flex-wrap gap-2 list-none p-0">
+            {%- for term in page.terms ~%}
+            <li><a href="{{ url(term.id, {language: site.language}) }}" class="tag">{% if page.plural == 'tags' %}#{% endif %}{{ term.name }} <span class="opacity-75">({{ term|length }})</span></a></li>
+            {%- endfor ~%}
+          </ul>
+          {%- endblock content ~%}
