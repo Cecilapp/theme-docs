@@ -224,7 +224,7 @@ pagination:
 ```
 
 > [!NOTE]
-> Enabling the pagination of a single section requires Cecil X.Y or later.
+> Enabling the pagination of a single section requires Cecil 9.21.0 or later.
 
 ### Stylesheets
 
