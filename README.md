@@ -213,6 +213,7 @@ composer css:build
 
 CSS is compiled with [tailwind-builder](https://github.com/ArnaudLigny/tailwind-builder),
 which uses the [Tailwind](https://tailwindcss.com) standalone binary (no Node.js required).
+The compiled `assets/styles.css` is committed: the CI checks it is up to date with its sources.
 
 ### Demo site
 
