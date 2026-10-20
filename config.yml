@@ -8,6 +8,12 @@ sidebar:
 language_cookie: false # name of a cookie storing the language chosen with the selector (e.g. `nf_lang` for Netlify redirects)
 lastupdated: false # display the page date as "Last updated on" (the `updated` front matter variable is always displayed)
 inline_styles: true # inline the stylesheets in production (no extra request, but not cached by the browser across pages)
+#versions: # documentation versions, displayed in a selector of the header (e.g. other deployments)
+#  - name: '2.x'
+#    url: https://example.com/
+#  - name: '1.x'
+#    url: https://v1.example.com/
+#version: '2.x' # name of the current version (default: the first one)
 pwa: # PWA component theme options (`theme_color` and `theme_color_dark` are also used without it)
   manifest:
     background_color: '#1447E6'
@@ -23,9 +29,11 @@ mermaid:
   version: '11.17.2'
 
 # Cecil config for Docs
+taxonomies:
+  tags: tag # `tags` front matter variable (e.g. blog posts), listed in `/tags/`
 pages:
   pagination:
-    enabled: false
+    enabled: false # enable it in the front matter of a list page (e.g. the blog): `pagination: {enabled: true}`
   sortby: weight
   body:
     highlight:

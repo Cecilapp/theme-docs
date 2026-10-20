@@ -1,0 +1,10 @@
+{#- tags of a page (`tags` front matter variable), linked to their term page (`p` parameter, the current page by default) ~#}
+{%- set p = p ?? page ~%}
+{%- if p.tags|default is iterable and p.tags|default is not empty ~%}
+<ul class="relative z-10 flex flex-wrap gap-2 list-none p-0 m-0" aria-label="{% trans %}Tags{% endtrans %}">
+  {%- for tag in p.tags ~%}
+  {%- set term = site.page('tags/' ~ tag|slugify) ~%}
+  <li class="m-0 p-0">{% if term %}<a href="{{ url(term) }}" class="tag">#{{ tag }}</a>{% else %}<span class="tag">#{{ tag }}</span>{% endif %}</li>
+  {%- endfor ~%}
+</ul>
+{%- endif ~%}

@@ -41,8 +41,8 @@
 @import './tocbot.css';
 @import './notes.css' layer(utilities);
 
-/* language selector (dropdown in the header, inline list in the sidebar) */
-@utility lang-menu {
+/* dropdown of links: language and version selectors (in the header, or inline list in the sidebar) */
+@utility dropdown {
   @apply relative;
   & summary {
     @apply flex items-center gap-1 px-2 py-1 border rounded-xs border-primary-50 cursor-pointer list-none;
@@ -68,7 +68,7 @@
     @apply font-semibold text-primary-700 dark:text-primary-400;
   }
 }
-@utility lang-menu-inline {
+@utility dropdown-inline {
   & summary {
     @apply px-0 border-none;
   }
@@ -78,6 +78,18 @@
   & a {
     @apply px-2 rounded-sm text-secondary-800 dark:text-secondary-300 hover:bg-primary-200 dark:hover:bg-primary-800;
   }
+}
+/* dropdown aligned on its start (e.g. next to the logo) */
+@utility dropdown-start {
+  & ul {
+    @apply left-0 right-auto;
+  }
+}
+
+/* tags (links to the terms pages) */
+@utility tag {
+  @apply inline-block px-2 py-0.5 rounded-full text-sm no-underline;
+  @apply bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-800;
 }
 
 @layer base {
