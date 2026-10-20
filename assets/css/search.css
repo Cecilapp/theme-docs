@@ -1,5 +1,33 @@
-/* DocSearch */
-/* should usse variables? https://github.com/algolia/docsearch/blob/df60b8ebe89c80ce3d00b80d94e95b6fd86edd19/packages/docsearch-css/src/_variables.css */
+/* DocSearch (component theme) */
+/* modal colors with the DocSearch variables (https://docsearch.algolia.com/docs/styling) */
+/* `:root.dark` overrides the dark variables of DocSearch (`html[data-theme=dark]`) */
+:root {
+  --docsearch-primary-color: var(--color-primary-800);
+  --docsearch-searchbox-focus-background: var(--color-primary-800);
+  --docsearch-searchbox-shadow: none;
+}
+:root.dark {
+  --docsearch-primary-color: var(--color-primary-400);
+  --docsearch-highlight-color: var(--docsearch-primary-color);
+  --docsearch-searchbox-focus-background: var(--color-primary-800);
+  --docsearch-modal-background: var(--color-primary-950);
+  --docsearch-footer-background: var(--color-primary-900);
+  --docsearch-hit-background: var(--color-primary-900);
+  --docsearch-muted-color: var(--color-secondary-300);
+}
+/* the highlight color is also the background of the selected hit (white text): kept dark */
+.DocSearch-Hit[aria-selected=true] a {
+  @apply bg-primary-800 dark:bg-primary-700;
+}
+/* search box: light text on the dark background (no variable, the text color is used for the whole modal) */
+.DocSearch-Form {
+  @apply text-primary-100;
+}
+.DocSearch-Input,
+.DocSearch-Input::placeholder {
+  @apply text-primary-100 focus-visible:outline-hidden;
+}
+/* search button in the header */
 .DocSearch.DocSearch-Button {
   @apply w-full lg:w-48 m-0 lg:px-4 p-0;
   @apply rounded-sm bg-primary-800 focus:bg-primary-700 focus:outline-hidden shadow-inner cursor-pointer;
@@ -16,27 +44,6 @@
 .DocSearch-Button .DocSearch-Search-Icon,
 .DocSearch-Search-Icon {
   @apply text-primary-100;
-}
-.DocSearch-Form {
-  @apply text-primary-100 bg-primary-800 shadow-none;
-}
-.DocSearch-Input {
-  @apply text-primary-100 focus-visible:outline-hidden;
-}
-.DocSearch-Input::placeholder {
-  @apply text-primary-100;
-}
-.DocSearch-Cancel {
-  @apply text-primary-800;
-}
-.DocSearch-Hit-source {
-  @apply text-primary-800;
-}
-.DocSearch-Hit[aria-selected=true] a {
-  @apply bg-primary-800;
-}
-.DocSearch-Hits mark {
-  @apply text-primary-800;
 }
 
 /* FlexSearch (component theme) */
