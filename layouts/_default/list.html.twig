@@ -30,7 +30,7 @@
                 {%- endif ~%}
                 <a href="{{ url(p) }}" class="hover:no-underline text-inherit dark:text-inherit">
                   <h2 class="font-semibold text-lg mb-2">{{ p.title }}</h2>
-                  {%- if p.description is defined ~%}
+                  {%- if p.description|default ~%}
                   <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ p.description }}</p>
                   {%- endif ~%}
                 </a>

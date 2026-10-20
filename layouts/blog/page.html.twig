@@ -21,7 +21,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
               {%- for author in authors ~%}
                 {%- if author is not iterable ~%}
-                  {%- set author = site.data.authors[author] ~%}
+                  {%- set author = site.data.authors[author] ?? {name: author} ~%}
                 {%- endif ~%}
               <div class="flex flex-row items-center space-x-4 mt-2">
                 {%- if author.image is defined ~%}
