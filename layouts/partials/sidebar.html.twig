@@ -1,6 +1,6 @@
     {#- sidebar ~#}
     <div id="sidebar" data-showlarge="{{ showlarge ? 'true' : 'false' }}" class="flex flex-col fixed z-50 lg:z-0 top-0 lg:top-auto w-80 lg:max-w-72 h-screen overflow-auto bg-primary-100 dark:bg-primary-900 shadow-md lg:shadow-none -translate-x-full {% if showlarge %}lg:translate-x-0{% endif %} transition-all duration-200 ease-out">
-      <div class="lg:hidden flex items-center h-14 pl-4 py-3">
+      <div class="lg:hidden flex items-center h-header pl-4 py-3">
         {#- sidebar mobile button ~#}
         <button id="sidebar-close-button" type="button" class="navbar-item flex lg:hidden items-center mr-3 cursor-pointer" onclick="toggleMenu()" aria-controls="sidebar" aria-label="{% trans %}Close menu{% endtrans %}" title="{% trans %}Close menu{% endtrans %}">
           <svg id="sidebar-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7" aria-hidden="true">
@@ -20,14 +20,10 @@
           </ol>
         </div>
         {#- language selector ~#}
-        <div class="lg:hidden py-2 flex flex-col space-y-1">
-          {{- include('partials/selector-language.html.twig', {'id': 'sidebar', 'label': true}) ~}}
+        <div class="lg:hidden py-2">
+          {{- include('partials/selector-language.html.twig', {'label': true}) ~}}
         </div>
       </nav>
-      <div class="grow lg:grow-0"></div>
-      <footer class="my-4 text-sm text-center text-secondary-800 dark:text-secondary-300 font-thin">
-        {% trans with {'%powered_by%': '<a href="' ~ cecil.url ~ '">Cecil</a>'} %}Powered by %powered_by%{% endtrans ~%}
-      </footer>
     </div>
     <div id="sidebar-cloudywrapper" class="hidden lg:hidden fixed top-0 z-40 w-full h-full bg-black opacity-50" onclick="toggleMenu()"></div>
     <script>{% apply minify_js ~%}

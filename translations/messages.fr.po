@@ -66,8 +66,8 @@ msgid "Language:"
 msgstr "Langue :"
 
 #: partials/selector-theme-icon.html.twig:1
-msgid "Change theme color"
-msgstr "Changer la couleur du thème"
+msgid "Dark theme"
+msgstr "Thème sombre"
 
 #: partials/selector-theme.html.twig:3
 msgid "Theme:"

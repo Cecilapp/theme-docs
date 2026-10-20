@@ -1,15 +1,7 @@
 {#- Recursive documentation navigation built from nested sections ~#}
-{%- set children = [] ~%}
-{%- for s in section.sections ~%}
-  {%- set children = children|merge([s]) ~%}
-{%- endfor ~%}
-{%- for p in section.pages.showable ~%}
-  {%- if p.type != 'section' and p.parent and p.parent.id == section.id ~%}
-  {%- set children = children|merge([p]) ~%}
-  {%- endif ~%}
-{%- endfor ~%}
-{%- set children = children|sort_by_weight ~%}
-{%- set ancestors_ids = page.ancestors|default([])|map(a => a.id) ~%}
+{%- set children = section.sections|merge(section.pages.showable|filter(p => p.type != 'section' and p.parent and p.parent.id == section.id))|sort_by_weight ~%}
+{#- computed once, then inherited by the nested includes ~#}
+{%- set ancestors_ids = ancestors_ids ?? page.ancestors|default([])|map(a => a.id) ~%}
 {%- if children|length > 0 ~%}
 <ol>
   {%- for child in children ~%}

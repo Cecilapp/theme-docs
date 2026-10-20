@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}" class="scroll-pt-[70px] scroll-smooth lg:overflow-y-scroll">
+<html lang="{{ site.language }}" class="scroll-pt-header-offset scroll-smooth lg:overflow-y-scroll">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,18 +15,21 @@
     {{- include('partials/metatags.html.twig') ~}}
     {%- set styles = ['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/' ~ site.highlightjs.version ~ '/styles/github-dark.min.css'] ~%}
     {#- DocSearch component theme (https://github.com/Cecilapp/theme-docsearch) ~#}
-    {%- set docsearch = (site.docsearch.enabled ?? false) and site.docsearch.appId|default ~%}
+    {#- same condition as the component theme partials (`enabled` is set by its config: the component is installed) ~#}
+    {%- set docsearch = (site.docsearch.enabled ?? false) and site.docsearch.appId|default and site.docsearch.apiKey|default and site.docsearch.indexName|default ~%}
     {%- if docsearch ~%}
     {{- include('partials/docsearch/head.html.twig', ignore_missing = true) ~}}
     {%- elseif site.flexsearch.enabled ?? false ~%}
     {#- FlexSearch component theme (https://github.com/Cecilapp/theme-flexsearch) ~#}
     {%- set styles = styles|merge(['flexsearch/flexsearch.css']) ~%}
     {%- endif ~%}
+    {#- additional <head> tags, output before the theme stylesheets (to add a stylesheet to them, use `styles_extra`: a variable set in a block is not visible here) ~#}
     {%- block styles %}{% endblock ~%}
     {%- set styles = styles|merge(['styles.css']) ~%}
     {#- stylesheets added by a child template, kept out of the main bundle (`styles_extra` must be set outside of any block) and loaded before it so the theme can override them ~#}
     {%- set styles_extra = styles_extra ?? [] ~%}
-    {%- if getenv('CECIL_ENV') == 'production' ~%}
+    {#- in production, stylesheets are inlined (no extra request, but not cached across pages), unless `inline_styles` is disabled ~#}
+    {%- if getenv('CECIL_ENV') == 'production' and (site.inline_styles ?? true) ~%}
     {%- for style in styles_extra ~%}
     <style>{{ asset(style)|inline }}</style>
     {%- endfor ~%}
@@ -36,6 +39,14 @@
     {{ html(asset(style)) }}
     {%- endfor ~%}
     {{ html(asset(styles)) }}
+    {%- endif ~%}
+    {#- browser UI color, set by the PWA component theme if installed (it generates the `manifest` page) ~#}
+    {%- set manifest = site.pwa.manifest ?? {} ~%}
+    {%- if (site.page('manifest') ?? null) is null and manifest.theme_color|default ~%}
+    <meta name="theme-color" content="{{ manifest.theme_color }}"{% if manifest.theme_color_dark|default %} media="(prefers-color-scheme: light)"{% endif %}>
+    {%- if manifest.theme_color_dark|default ~%}
+    <meta name="theme-color" content="{{ manifest.theme_color_dark }}" media="(prefers-color-scheme: dark)">
+    {%- endif ~%}
     {%- endif ~%}
     {{- include('partials/pwa.html.twig', {site}, with_context = false, ignore_missing: true) ~}}
   </head>
@@ -53,7 +64,7 @@
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
     {%- endblock sidebar ~%}
-    <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 bg-primary-700 dark:bg-primary-900 shadow-md">
+    <header class="fixed top-0 inset-x-0 z-30 flex items-center h-header bg-primary-700 dark:bg-primary-900 shadow-md">
       <nav class="flex items-center w-full px-4">
         {#- sidebar mobile button ~#}
         <button id="sidebar-open-button" type="button" class="navbar-item flex lg:hidden items-center mr-3 cursor-pointer" onclick="toggleMenu()" aria-controls="sidebar" aria-expanded="false" aria-label="{% trans %}Open menu{% endtrans %}" title="{% trans %}Open menu{% endtrans %}">
@@ -102,7 +113,7 @@
         {%- endif ~%}
       </nav>
     </header>
-    <main id="main" tabindex="-1" class="h-full mt-14 focus:outline-none">
+    <main id="main" tabindex="-1" class="h-full mt-header focus:outline-none">
       {%- block article ~%}
       <div class="container mx-auto px-4 py-6">
         {{- include('partials/breadcrumb.html.twig') ~}}

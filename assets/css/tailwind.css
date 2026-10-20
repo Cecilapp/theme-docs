@@ -27,6 +27,9 @@
   --color-secondary-800: var(--color-slate-800);
   --color-secondary-900: var(--color-slate-900);
   --color-secondary-950: var(--color-slate-950);
+  /* fixed header height, and scroll offset of anchors below it (also read by tocbot) */
+  --spacing-header: 3.5rem;
+  --spacing-header-offset: calc(var(--spacing-header) + 0.875rem);
 }
 
 @plugin '@tailwindcss/typography' {
@@ -38,20 +41,42 @@
 @import './tocbot.css';
 @import './notes.css' layer(utilities);
 
-@utility formselect {
-  @apply p-1 border rounded-xs border-primary-50;
-  #sidebar & {
-    @apply border-none;
+/* language selector (dropdown in the header, inline list in the sidebar) */
+@utility lang-menu {
+  @apply relative;
+  & summary {
+    @apply flex items-center gap-1 px-2 py-1 border rounded-xs border-primary-50 cursor-pointer list-none;
+  }
+  & summary::-webkit-details-marker {
+    @apply hidden;
+  }
+  & .chevron {
+    @apply w-4 h-4 transition-transform duration-150;
+  }
+  &[open] .chevron {
+    @apply rotate-180;
+  }
+  & ul {
+    @apply absolute right-0 z-40 mt-1 min-w-full py-1 rounded-md shadow-md list-none;
+    @apply bg-primary-50 dark:bg-primary-950;
+  }
+  & a {
+    @apply block px-3 py-1 whitespace-nowrap no-underline;
+    @apply text-primary-950 dark:text-secondary-100 hover:bg-primary-100 dark:hover:bg-primary-900;
+  }
+  & a[aria-current] {
+    @apply font-semibold text-primary-700 dark:text-primary-400;
   }
 }
-
-@utility selector {
-  @apply border-0 cursor-pointer bg-inherit text-inherit;
-  &:hover {
-    @apply text-inherit;
+@utility lang-menu-inline {
+  & summary {
+    @apply px-0 border-none;
   }
-  & option {
-    @apply bg-primary-50 dark:bg-primary-950 text-primary-950 dark:text-secondary-100;
+  & ul {
+    @apply static mt-1 shadow-none bg-transparent dark:bg-transparent;
+  }
+  & a {
+    @apply px-2 rounded-sm text-secondary-800 dark:text-secondary-300 hover:bg-primary-200 dark:hover:bg-primary-800;
   }
 }
 
