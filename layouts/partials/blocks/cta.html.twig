@@ -4,10 +4,13 @@
             {%- if block.button is defined ~%}
               {%- set button = {url: block.button.url|default('/'), title: block.button.title|default('Get started'|trans)} ~%}
             {%- else ~%}
+              {#- first page of the documentation, if any ~#}
               {%- set button_page = site.pages.showable|filter(p => p.section == 'docs' and p.type == 'page')|sort_by_weight|first ~%}
-              {%- set button = {url: button_page, title: button_page.title} ~%}
+              {%- set button = button_page ? {url: button_page, title: button_page.title} : null ~%}
             {%- endif ~%}
+            {%- if button ~%}
             <a href="{{ url(button.url) }}" class="button">{{ button.title }}</a>
+            {%- endif ~%}
             <ol class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
             {%- for link in block.links|default([]) ~%}
               <li>

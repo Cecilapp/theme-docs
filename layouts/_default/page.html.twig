@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.language }}" class="scroll-pt-[70px] scroll-smooth lg:overflow-y-scroll">
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {#- apply dark theme before first paint (avoids flash of light theme) ~#}
     <script>{% apply minify_js ~%}
@@ -23,9 +24,17 @@
     {%- endif ~%}
     {%- block styles %}{% endblock ~%}
     {%- set styles = styles|merge(['styles.css']) ~%}
+    {#- stylesheets added by a child template, kept out of the main bundle (`styles_extra` must be set outside of any block) and loaded before it so the theme can override them ~#}
+    {%- set styles_extra = styles_extra ?? [] ~%}
     {%- if getenv('CECIL_ENV') == 'production' ~%}
+    {%- for style in styles_extra ~%}
+    <style>{{ asset(style)|inline }}</style>
+    {%- endfor ~%}
     <style>{{ asset(styles)|inline }}</style>
     {%- else ~%}
+    {%- for style in styles_extra ~%}
+    {{ html(asset(style)) }}
+    {%- endfor ~%}
     {{ html(asset(styles)) }}
     {%- endif ~%}
     {{- include('partials/pwa.html.twig', {site}, with_context = false, ignore_missing: true) ~}}

@@ -23,7 +23,7 @@
                 {%- for child in children|sort_by_weight ~%}
                 <a href="{{ url(child) }}" class="block px-5 py-4 rounded-xl border border-secondary-200 dark:border-secondary-700 shadow-md hover:border-primary-700 dark:hover:border-primary-400 hover:no-underline text-inherit dark:text-inherit">
                   <h2 class="font-semibold text-lg mb-1">{{ child.title }}</h2>
-                  {%- if child.description is defined ~%}
+                  {%- if child.description|default ~%}
                   <p class="text-secondary-600 dark:text-secondary-400 font-normal">{{ child.description }}</p>
                   {%- endif ~%}
                 </a>
