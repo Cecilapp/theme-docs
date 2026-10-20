@@ -15,7 +15,8 @@
     {{- include('partials/metatags.html.twig') ~}}
     {%- set styles = ['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/' ~ site.highlightjs.version ~ '/styles/github-dark.min.css'] ~%}
     {#- DocSearch component theme (https://github.com/Cecilapp/theme-docsearch) ~#}
-    {%- set docsearch = (site.docsearch.enabled ?? false) and site.docsearch.appId|default ~%}
+    {#- same condition as the component theme partials (`enabled` is set by its config: the component is installed) ~#}
+    {%- set docsearch = (site.docsearch.enabled ?? false) and site.docsearch.appId|default and site.docsearch.apiKey|default and site.docsearch.indexName|default ~%}
     {%- if docsearch ~%}
     {{- include('partials/docsearch/head.html.twig', ignore_missing = true) ~}}
     {%- elseif site.flexsearch.enabled ?? false ~%}
