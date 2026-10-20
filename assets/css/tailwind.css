@@ -27,6 +27,9 @@
   --color-secondary-800: var(--color-slate-800);
   --color-secondary-900: var(--color-slate-900);
   --color-secondary-950: var(--color-slate-950);
+  /* fixed header height, and scroll offset of anchors below it (also read by tocbot) */
+  --spacing-header: 3.5rem;
+  --spacing-header-offset: calc(var(--spacing-header) + 0.875rem);
 }
 
 @plugin '@tailwindcss/typography' {

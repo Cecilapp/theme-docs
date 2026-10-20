@@ -44,7 +44,7 @@
             </div>
             {#- "On this page" ToC ~#}
             <div>
-              <aside id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-20">
+              <aside id="on-this-page" class="hidden xl:block py-6 w-64 text-secondary-500 dark:text-secondary-300 sticky top-[calc(var(--spacing-header)+--spacing(6))]">
                 {%- if has_toc ~%}
                 <nav class="pb-4 mb-5 border-b border-secondary-400 dark:border-secondary-500">
                   <div class="flex space-x-2 items-center mb-2 font-semibold text-sm uppercase tracking-wider">
@@ -72,16 +72,19 @@
     {{- parent() ~}}
     {{- html(asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})) ~}}
     <script>{% apply minify_js ~%}
-      {# toc #}
-      if (document.getElementById('on-this-page-toc')) tocbot.init({
-        tocSelector: '#on-this-page-toc',
-        contentSelector: '#content',
-        headingSelector: 'h2, h3',
-        hasInnerContainers: true,
-        scrollSmooth: false,
-        headingsOffset: 70,
-        scrollSmoothOffset: -70,
-      });
+      {# toc (offset: scroll padding of the fixed header) #}
+      if (document.getElementById('on-this-page-toc')) {
+        const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+        tocbot.init({
+          tocSelector: '#on-this-page-toc',
+          contentSelector: '#content',
+          headingSelector: 'h2, h3',
+          hasInnerContainers: true,
+          scrollSmooth: false,
+          headingsOffset: offset,
+          scrollSmoothOffset: -offset,
+        });
+      }
       {# article anchor #}
       window.addEventListener('load', function (e) {
         const allHx = document.querySelectorAll('article h2[id], article h3[id]');

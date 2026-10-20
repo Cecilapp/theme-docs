@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}" class="scroll-pt-[70px] scroll-smooth lg:overflow-y-scroll">
+<html lang="{{ site.language }}" class="scroll-pt-header-offset scroll-smooth lg:overflow-y-scroll">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,7 +54,7 @@
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': false} %}{% endembed ~%}
     {%- endblock sidebar ~%}
-    <header class="fixed top-0 inset-x-0 z-30 flex items-center h-14 bg-primary-700 dark:bg-primary-900 shadow-md">
+    <header class="fixed top-0 inset-x-0 z-30 flex items-center h-header bg-primary-700 dark:bg-primary-900 shadow-md">
       <nav class="flex items-center w-full px-4">
         {#- sidebar mobile button ~#}
         <button id="sidebar-open-button" type="button" class="navbar-item flex lg:hidden items-center mr-3 cursor-pointer" onclick="toggleMenu()" aria-controls="sidebar" aria-expanded="false" aria-label="{% trans %}Open menu{% endtrans %}" title="{% trans %}Open menu{% endtrans %}">
@@ -103,7 +103,7 @@
         {%- endif ~%}
       </nav>
     </header>
-    <main id="main" tabindex="-1" class="h-full mt-14 focus:outline-none">
+    <main id="main" tabindex="-1" class="h-full mt-header focus:outline-none">
       {%- block article ~%}
       <div class="container mx-auto px-4 py-6">
         {{- include('partials/breadcrumb.html.twig') ~}}
