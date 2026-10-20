@@ -40,11 +40,12 @@
     {%- endfor ~%}
     {{ html(asset(styles)) }}
     {%- endif ~%}
-    {#- browser UI color, set by the PWA component theme if installed ~#}
-    {%- if site.pwa is not defined and site.manifest.theme_color|default ~%}
-    <meta name="theme-color" content="{{ site.manifest.theme_color }}"{% if site.manifest.theme_color_dark|default %} media="(prefers-color-scheme: light)"{% endif %}>
-    {%- if site.manifest.theme_color_dark|default ~%}
-    <meta name="theme-color" content="{{ site.manifest.theme_color_dark }}" media="(prefers-color-scheme: dark)">
+    {#- browser UI color, set by the PWA component theme if installed (it generates the `manifest` page) ~#}
+    {%- set manifest = site.pwa.manifest ?? {} ~%}
+    {%- if (site.page('manifest') ?? null) is null and manifest.theme_color|default ~%}
+    <meta name="theme-color" content="{{ manifest.theme_color }}"{% if manifest.theme_color_dark|default %} media="(prefers-color-scheme: light)"{% endif %}>
+    {%- if manifest.theme_color_dark|default ~%}
+    <meta name="theme-color" content="{{ manifest.theme_color_dark }}" media="(prefers-color-scheme: dark)">
     {%- endif ~%}
     {%- endif ~%}
     {{- include('partials/pwa.html.twig', {site}, with_context = false, ignore_missing: true) ~}}
