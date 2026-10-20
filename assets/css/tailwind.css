@@ -39,7 +39,7 @@
 @import './notes.css' layer(utilities);
 
 @utility formselect {
-  @apply p-1 border rounded-xs border-primary-50 border-black/25;
+  @apply p-1 border rounded-xs border-primary-50;
   #sidebar & {
     @apply border-none;
   }
@@ -70,11 +70,11 @@
     @apply text-primary-950;
     @apply dark:text-secondary-100;
   }
-  /* header */
-  header a {
+  /* header (site header only, not the ones of articles) */
+  body > header a {
     @apply hover:no-underline hover:opacity-75
   }
-  header .navbar-item {
+  body > header .navbar-item {
     @apply text-primary-100 hover:text-primary-50;
   }
   /* sidebar */
