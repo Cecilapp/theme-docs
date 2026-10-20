@@ -7,6 +7,7 @@ sidebar:
   collapsed: false # collapse the groups of the navigation, except the current one
 language_cookie: false # name of a cookie storing the language chosen with the selector (e.g. `nf_lang` for Netlify redirects)
 lastupdated: false # display the page date as "Last updated on" (the `updated` front matter variable is always displayed)
+inline_styles: true # inline the stylesheets in production (no extra request, but not cached by the browser across pages)
 manifest:
   background_color: '#1447E6'
   theme_color: '#1447E6'

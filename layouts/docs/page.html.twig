@@ -1,6 +1,7 @@
 {% extends '_default/page.html.twig' %}
 
-{% set styles_extra = ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css'] %}
+{#- merged with the stylesheets of a template extending this one ~#}
+{% set styles_extra = ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css']|merge(styles_extra ?? []) %}
 
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': true} ~%}

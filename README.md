@@ -66,6 +66,7 @@ sidebar:
   collapsed: false|true # collapse the navigation groups, except the current one (default: false)
 lastupdated: false|true # display the page date as "Last updated" date (default: false)
 language_cookie: <name> # cookie storing the language chosen with the selector, e.g. `nf_lang` for Netlify (default: false)
+inline_styles: true|false # inline the stylesheets in production: no extra request, but not cached by the browser across pages (default: true)
 ```
 
 ### Search
@@ -182,6 +183,19 @@ with the `info`, `tip`, `important`, `warning` and `caution` types:
 Posts of the `blog` section display their date, reading time and author(s):
 `author` (or `authors`) front matter variable, as an object (`name`, `title`,
 `url`, `email`, `image`) or as a key of `data/authors.yml`.
+
+### Stylesheets
+
+A template extending the theme layouts can load additional stylesheets with the
+`styles_extra` variable, set **outside of any block** (a variable set in a block
+is not visible in the parent template). They are loaded before the theme stylesheet:
+
+```twig
+{% extends 'docs/page.html.twig' %}
+{% set styles_extra = ['https://cdn.example.com/lib.css', 'css/custom.css'] %}
+```
+
+The `styles` block outputs additional `<head>` tags, before the theme stylesheets.
 
 ## Development
 

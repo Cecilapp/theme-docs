@@ -23,11 +23,13 @@
     {#- FlexSearch component theme (https://github.com/Cecilapp/theme-flexsearch) ~#}
     {%- set styles = styles|merge(['flexsearch/flexsearch.css']) ~%}
     {%- endif ~%}
+    {#- additional <head> tags, output before the theme stylesheets (to add a stylesheet to them, use `styles_extra`: a variable set in a block is not visible here) ~#}
     {%- block styles %}{% endblock ~%}
     {%- set styles = styles|merge(['styles.css']) ~%}
     {#- stylesheets added by a child template, kept out of the main bundle (`styles_extra` must be set outside of any block) and loaded before it so the theme can override them ~#}
     {%- set styles_extra = styles_extra ?? [] ~%}
-    {%- if getenv('CECIL_ENV') == 'production' ~%}
+    {#- in production, stylesheets are inlined (no extra request, but not cached across pages), unless `inline_styles` is disabled ~#}
+    {%- if getenv('CECIL_ENV') == 'production' and (site.inline_styles ?? true) ~%}
     {%- for style in styles_extra ~%}
     <style>{{ asset(style)|inline }}</style>
     {%- endfor ~%}
