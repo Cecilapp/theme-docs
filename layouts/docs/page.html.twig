@@ -1,7 +1,10 @@
 {% extends '_default/page.html.twig' %}
 
-{#- merged with the stylesheets of a template extending this one ~#}
-{% set styles_extra = ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css']|merge(styles_extra ?? []) %}
+{#- "On this page" ToC (set outside of any block to be visible in all of them) ~#}
+{% set toc = page.body|toc %}
+{% set has_toc = toc|striptags|trim is not empty %}
+{#- tocbot is loaded only if the page has a ToC; merged with the stylesheets of a template extending this one ~#}
+{% set styles_extra = (has_toc ? ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css'] : [])|merge(styles_extra ?? []) %}
 
     {%- block sidebar ~%}
       {%- embed 'partials/sidebar.html.twig' with {'showlarge': true} ~%}
@@ -20,8 +23,6 @@
             <div class="grow mx-auto max-w-3xl">
               {{- include('partials/breadcrumb.html.twig') ~}}
               {#- "On this page" ~#}
-              {%- set toc = page.body|toc ~%}
-              {%- set has_toc = toc|striptags|trim is not empty ~%}
               {%- if has_toc ~%}
               <details class="mb-4 xl:hidden rounded-md bg-primary-100 dark:bg-primary-900 px-2 py-1">
                 <summary class="cursor-pointer text-sm uppercase text-secondary-600 dark:text-secondary-300">
@@ -71,10 +72,11 @@
 
     {%- block scripts ~%}
     {{- parent() ~}}
+    {%- if has_toc ~%}
     {{- html(asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})) ~}}
     <script>{% apply minify_js ~%}
       {# toc (offset: scroll padding of the fixed header) #}
-      if (document.getElementById('on-this-page-toc')) {
+      (function () {
         const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
         tocbot.init({
           tocSelector: '#on-this-page-toc',
@@ -85,19 +87,19 @@
           headingsOffset: offset,
           scrollSmoothOffset: -offset,
         });
-      }
-      {# article anchor #}
-      window.addEventListener('load', function (e) {
-        const allHx = document.querySelectorAll('article h2[id], article h3[id]');
-        allHx.forEach((item) => {
-          let anchor = document.createElement('a');
-          anchor.href = '#' + item.getAttribute('id');
-          anchor.innerText = '#';
-          anchor.className = 'anchor-title';
-          anchor.setAttribute('aria-label', '{{ 'Permalink to this section'|trans|e('js') }}');
-          anchor.title = anchor.getAttribute('aria-label');
-          item.append(anchor);
-        });
+      })();
+    {% endapply %}</script>
+    {%- endif ~%}
+    <script>{% apply minify_js ~%}
+      {# article anchors (after the ToC init, so they are not part of its entries; the content is already parsed) #}
+      document.querySelectorAll('article h2[id], article h3[id]').forEach((item) => {
+        const anchor = document.createElement('a');
+        anchor.href = '#' + item.getAttribute('id');
+        anchor.innerText = '#';
+        anchor.className = 'anchor-title';
+        anchor.setAttribute('aria-label', '{{ 'Permalink to this section'|trans|e('js') }}');
+        anchor.title = anchor.getAttribute('aria-label');
+        item.append(anchor);
       });
     {% endapply %}</script>
     {#- mermaid (loaded only if the page contains a diagram) ~#}
