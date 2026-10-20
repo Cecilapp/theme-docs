@@ -20,8 +20,8 @@
           </ol>
         </div>
         {#- language selector ~#}
-        <div class="lg:hidden py-2 flex flex-col space-y-1">
-          {{- include('partials/selector-language.html.twig', {'id': 'sidebar', 'label': true}) ~}}
+        <div class="lg:hidden py-2">
+          {{- include('partials/selector-language.html.twig', {'label': true}) ~}}
         </div>
       </nav>
       <div class="grow lg:grow-0"></div>
