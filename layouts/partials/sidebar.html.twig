@@ -24,10 +24,6 @@
           {{- include('partials/selector-language.html.twig', {'label': true}) ~}}
         </div>
       </nav>
-      <div class="grow lg:grow-0"></div>
-      <footer class="my-4 text-sm text-center text-secondary-800 dark:text-secondary-300 font-thin">
-        {% trans with {'%powered_by%': '<a href="' ~ cecil.url ~ '">Cecil</a>'} %}Powered by %powered_by%{% endtrans ~%}
-      </footer>
     </div>
     <div id="sidebar-cloudywrapper" class="hidden lg:hidden fixed top-0 z-40 w-full h-full bg-black opacity-50" onclick="toggleMenu()"></div>
     <script>{% apply minify_js ~%}
