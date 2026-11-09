@@ -7,7 +7,8 @@
 {% set styles_extra = (has_toc ? ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css'] : [])|merge(styles_extra ?? []) %}
 
     {%- block sidebar ~%}
-      {%- embed 'partials/sidebar.html.twig' with {'showlarge': true} ~%}
+      {#- the main menu entry of the documentation home page is skipped in the sidebar: it is already the first link of the navigation ~#}
+      {%- embed 'partials/sidebar.html.twig' with {'showlarge': true, 'menu_exclude': [url(site.page('docs'))]} ~%}
         {%- block navigation ~%}
         {%- set docs = site.page('docs') ~%}
         <div class="py-2 mt-2">

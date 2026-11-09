@@ -1,4 +1,4 @@
-          {#- main menu ~#}
-          {%- for entry in site.menus.main|sort_by_weight ~%}
+          {#- main menu (`menu_exclude`: URLs of the entries to skip, e.g. already displayed in the navigation) ~#}
+          {%- for entry in site.menus.main|sort_by_weight|filter(e => url(e.url) not in (menu_exclude ?? [])) ~%}
             <li><a href="{{ url(entry.url) }}" data-weight="{{ entry.weight }}" class="navbar-item flex{% if url(entry) == url(page) %} active{% endif %}"{% if url(entry) == url(page) %} aria-current="page"{% endif %}>{{ entry.name }}</a></li>
           {%- endfor -%}
