@@ -153,6 +153,19 @@ logo:
   dark: logo-dark.png
 ```
 
+### Browser UI color
+
+The color of the browser UI (`theme-color` meta tag) is not set by default. It
+is taken from the [PWA component theme](https://github.com/Cecilapp/theme-pwa)
+options, also used without it:
+
+```yaml
+pwa:
+  manifest:
+    theme_color: '#1447E6'
+    theme_color_dark: '#1C398E' # optional, for the dark color scheme
+```
+
 ### Menus
 
 The `main` menu is displayed in the header (and in the sidebar on mobile), the

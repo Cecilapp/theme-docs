@@ -18,6 +18,11 @@ docs:
     repo: https://github.com/Cecilapp/theme-docs
     branch: main
     path: demo/pages
+# browser UI color
+pwa:
+  manifest:
+    theme_color: '#1447E6'
+    theme_color_dark: '#1C398E'
 # `themes/docs` links to the root of this repository (see `link.php`)
 theme:
   - docs

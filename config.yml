@@ -23,11 +23,7 @@ docs:
     version: '4.36.8'
   mermaid:
     version: '11.17.2'
-pwa: # PWA component theme options (`theme_color` and `theme_color_dark` are also used without it)
-  manifest:
-    background_color: '#1447E6'
-    theme_color: '#1447E6'
-    theme_color_dark: '#1C398E'
+pwa: # PWA component theme options (`manifest.theme_color` and `manifest.theme_color_dark` are also used without it)
   serviceworker:
     enabled: false
 
