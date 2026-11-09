@@ -40,14 +40,9 @@ pages:
       enabled: true
     images:
       class: "dark:brightness-90"
-      resize:
-        enabled: true
-      webp:
-        enabled: true
-      responsive:
-        enabled: true
-      caption:
-        enabled: true
+      formats: [webp]
+      responsive: true
+      caption: true
     links:
       embed:
         enabled: true
