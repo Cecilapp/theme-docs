@@ -31,17 +31,14 @@ pwa: # PWA component theme options (`manifest.theme_color` and `manifest.theme_c
 taxonomies:
   tags: tag # `tags` front matter variable (e.g. blog posts), listed in `/tags/`
 pages:
-  pagination:
-    enabled: false # enable it in the front matter of a list page (e.g. the blog): `pagination: {enabled: true}`
+  pagination: false # enable it in the front matter of a list page (e.g. the blog): `pagination: {enabled: true}`
   sortby: weight
   body:
-    highlight:
-      enabled: true
+    highlight: true
     images:
       class: "dark:brightness-90"
       formats: [webp]
       responsive: true
       caption: true
     links:
-      embed:
-        enabled: true
+      embed: true
