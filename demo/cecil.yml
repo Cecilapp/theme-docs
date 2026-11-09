@@ -6,12 +6,18 @@ baseurl: http://localhost:8000/
 author:
   name: Cecil
   url: https://cecil.app
-# documentation versions (selector in the header)
-versions:
-  - name: main
-    url: /
-  - name: '5.0'
-    url: https://github.com/Cecilapp/theme-docs/tree/5.0.0
+# Docs theme options
+docs:
+  versions:
+    - name: main
+      url: /
+    - name: '5.0'
+      url: https://github.com/Cecilapp/theme-docs/tree/5.0.0
+  github:
+    url: https://github.com/Cecilapp/theme-docs
+    repo: https://github.com/Cecilapp/theme-docs
+    branch: main
+    path: demo/pages
 # `themes/docs` links to the root of this repository (see `link.php`)
 theme:
   - docs
@@ -47,8 +53,3 @@ menus:
       name: Cecil
       url: https://cecil.app
       weight: 10
-github:
-  url: https://github.com/Cecilapp/theme-docs
-  repo: https://github.com/Cecilapp/theme-docs
-  branch: main
-  path: demo/pages

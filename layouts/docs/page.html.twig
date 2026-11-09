@@ -4,7 +4,7 @@
 {% set toc = page.body|toc %}
 {% set has_toc = toc|striptags|trim is not empty %}
 {#- tocbot is loaded only if the page has a ToC; merged with the stylesheets of a template extending this one ~#}
-{% set styles_extra = (has_toc ? ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.css'] : [])|merge(styles_extra ?? []) %}
+{% set styles_extra = (has_toc ? ['https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.docs.tocbot.version ~ '/tocbot.min.css'] : [])|merge(styles_extra ?? []) %}
 
     {%- block sidebar ~%}
       {#- the main menu entry of the documentation home page is skipped in the sidebar: it is already the first link of the navigation ~#}
@@ -79,7 +79,7 @@
     {%- block scripts ~%}
     {{- parent() ~}}
     {%- if has_toc ~%}
-    {{- html(asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.tocbot.version ~ '/tocbot.min.js', {minify: false})) ~}}
+    {{- html(asset('https://cdnjs.cloudflare.com/ajax/libs/tocbot/' ~ site.docs.tocbot.version ~ '/tocbot.min.js', {minify: false})) ~}}
     <script>{% apply minify_js ~%}
       {# toc (offset: scroll padding of the fixed header) #}
       (function () {
@@ -111,7 +111,7 @@
     {% endapply %}</script>
     {#- mermaid (loaded only if the page contains a diagram) ~#}
     {%- if 'language-mermaid' in page.content ~%}
-    {{- html(asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.mermaid.version ~ '/dist/mermaid.min.js', {minify: false}), {id: 'mermaid', defer: 'true'}) ~}}
+    {{- html(asset('https://cdn.jsdelivr.net/npm/mermaid@' ~ site.docs.mermaid.version ~ '/dist/mermaid.min.js', {minify: false}), {id: 'mermaid', defer: 'true'}) ~}}
     <script>{% apply minify_js ~%}
       mermaid.addEventListener('load', function () {
         const sheet = new CSSStyleSheet();

@@ -13,7 +13,7 @@
             {%- endfor ~%}
             </ul>
           </details>
-          {%- if site.language_cookie ?? false ~%}
+          {%- if site.docs.language_cookie ?? false ~%}
           <script>{% apply minify_js ~%}
             (function () {
               if (window.languageCookieInit) return;
@@ -22,7 +22,7 @@
               document.addEventListener('click', function (e) {
                 const link = e.target.closest('.dropdown a[data-language]');
                 if (link) {
-                  document.cookie = '{{ site.language_cookie|e('js') }}=' + link.dataset.language + '; path=/; max-age=31536000; SameSite=Lax';
+                  document.cookie = '{{ site.docs.language_cookie|e('js') }}=' + link.dataset.language + '; path=/; max-age=31536000; SameSite=Lax';
                 }
               });
             })();

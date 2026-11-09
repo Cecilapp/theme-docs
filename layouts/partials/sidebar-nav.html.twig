@@ -8,7 +8,7 @@
   <li>
     {%- if child.type == 'section' ~%}
     {#- groups are open, unless collapsed (`collapsed` front matter variable or `sidebar.collapsed` option), except the one of the current page ~#}
-    {%- set group_open = child.id == page.id or child.id in ancestors_ids or not (child.collapsed ?? site.sidebar.collapsed ?? false) ~%}
+    {%- set group_open = child.id == page.id or child.id in ancestors_ids or not (child.collapsed ?? site.docs.sidebar.collapsed ?? false) ~%}
     <details{% if group_open %} open{% endif %}>
       <summary class="group-title">
         <a href="{{ url(child) }}"{% if url(child) == url(page) %} class="active" aria-current="page"{% endif %}>{{ child.title|trans }}</a>

@@ -20,7 +20,7 @@
           </ol>
         </div>
         {#- version selector ~#}
-        {%- if site.versions|default ~%}
+        {%- if site.docs.versions|default ~%}
         <div class="lg:hidden py-2">
           {{- include('partials/selector-version.html.twig', {'label': true}) ~}}
         </div>

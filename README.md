@@ -50,39 +50,53 @@ any depth. Ordering is based on pages `weight` (e.g. a `1-` filename prefix or a
 > otherwise be kept in its URL).
 
 Groups are open by default. Set `collapsed: true` in the front matter of a section
-(`index.md`) to collapse it, or `sidebar.collapsed: true` in the configuration to
-collapse all of them: the group of the current page is always open.
+(`index.md`) to collapse it, or `docs.sidebar.collapsed: true` in the configuration
+to collapse all of them: the group of the current page is always open.
 
 The `updated` front matter variable of a page is displayed as its "Last updated"
-date (enable `lastupdated` to display the page date otherwise).
+date (enable `docs.lastupdated` to display the page date otherwise).
+
+The theme options are grouped under the `docs` key:
 
 ```yaml
-footer: Copyright © %author%
-github:
-  url: https://github.com/<org>/<repo> # GitHub link in header
-  repo: https://github.com/<org>/<repo> # "Edit this page" link
-  branch: <main|master>
-  path: pages # pages directory path in the repository (default: pages)
-sidebar:
-  collapsed: false|true # collapse the navigation groups, except the current one (default: false)
-lastupdated: false|true # display the page date as "Last updated" date (default: false)
-language_cookie: <name> # cookie storing the language chosen with the selector, e.g. `nf_lang` for Netlify (default: false)
-inline_styles: true|false # inline the stylesheets in production: no extra request, but not cached by the browser across pages (default: true)
+docs:
+  footer: Copyright © %author%
+  github:
+    url: https://github.com/<org>/<repo> # GitHub link in header
+    repo: https://github.com/<org>/<repo> # "Edit this page" link
+    branch: <main|master>
+    path: pages # pages directory path in the repository (default: pages)
+  sidebar:
+    collapsed: false|true # collapse the navigation groups, except the current one (default: false)
+  lastupdated: false|true # display the page date as "Last updated" date (default: false)
+  language_cookie: <name> # cookie storing the language chosen with the selector, e.g. `nf_lang` for Netlify (default: false)
+  inline_styles: true|false # inline the stylesheets in production: no extra request, but not cached by the browser across pages (default: true)
+  highlightjs:
+    version: '11.12.0' # highlight.js version, loaded from cdnjs
+  tocbot:
+    version: '4.36.8' # Tocbot version, loaded from cdnjs
+  mermaid:
+    version: '11.17.2' # Mermaid version, loaded from jsDelivr
 ```
+
+> [!IMPORTANT]
+> Breaking change: these options used to be at the root of the configuration
+> (e.g. `sidebar.collapsed`). Move them under the `docs` key.
 
 ### Versions
 
 To publish several versions of the documentation (e.g. one deployment per
-version), list them in the `versions` option: they are displayed in a selector,
+version), list them in the `docs.versions` option: they are displayed in a selector,
 next to the site title.
 
 ```yaml
-versions:
-  - name: '2.x'
-    url: https://docs.example.com/
-  - name: '1.x'
-    url: https://v1.docs.example.com/
-version: '2.x' # name of the current version (default: the first one)
+docs:
+  versions:
+    - name: '2.x'
+      url: https://docs.example.com/
+    - name: '1.x'
+      url: https://v1.docs.example.com/
+  version: '2.x' # name of the current version (default: the first one)
 ```
 
 ### Search

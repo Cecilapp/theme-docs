@@ -1,19 +1,28 @@
-# Docs default config
-github:
-  branch: main
-  path: pages
-footer: Copyright © %author%
-sidebar:
-  collapsed: false # collapse the groups of the navigation, except the current one
-language_cookie: false # name of a cookie storing the language chosen with the selector (e.g. `nf_lang` for Netlify redirects)
-lastupdated: false # display the page date as "Last updated on" (the `updated` front matter variable is always displayed)
-inline_styles: true # inline the stylesheets in production (no extra request, but not cached by the browser across pages)
-#versions: # documentation versions, displayed in a selector of the header (e.g. other deployments)
-#  - name: '2.x'
-#    url: https://example.com/
-#  - name: '1.x'
-#    url: https://v1.example.com/
-#version: '2.x' # name of the current version (default: the first one)
+# Theme options
+docs:
+  footer: Copyright © %author%
+  github:
+    #url: https://github.com/<org>/<repo> # GitHub link in header
+    #repo: https://github.com/<org>/<repo> # "Edit this page" link
+    branch: main
+    path: pages
+  sidebar:
+    collapsed: false # collapse the groups of the navigation, except the current one
+  language_cookie: false # name of a cookie storing the language chosen with the selector (e.g. `nf_lang` for Netlify redirects)
+  lastupdated: false # display the page date as "Last updated on" (the `updated` front matter variable is always displayed)
+  inline_styles: true # inline the stylesheets in production (no extra request, but not cached by the browser across pages)
+  #versions: # documentation versions, displayed in a selector of the header (e.g. other deployments)
+  #  - name: '2.x'
+  #    url: https://example.com/
+  #  - name: '1.x'
+  #    url: https://v1.example.com/
+  #version: '2.x' # name of the current version (default: the first one)
+  highlightjs:
+    version: '11.12.0'
+  tocbot:
+    version: '4.36.8'
+  mermaid:
+    version: '11.17.2'
 pwa: # PWA component theme options (`theme_color` and `theme_color_dark` are also used without it)
   manifest:
     background_color: '#1447E6'
@@ -21,12 +30,6 @@ pwa: # PWA component theme options (`theme_color` and `theme_color_dark` are als
     theme_color_dark: '#1C398E'
   serviceworker:
     enabled: false
-highlightjs:
-  version: '11.12.0'
-tocbot:
-  version: '4.36.8'
-mermaid:
-  version: '11.17.2'
 
 # Cecil config for Docs
 taxonomies:

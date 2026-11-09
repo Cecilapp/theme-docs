@@ -1,5 +1,5 @@
           {#- last updated date: `updated` front matter variable, or page date if `lastupdated` is enabled ~#}
-          {%- set last_updated = page.updated ?? ((site.lastupdated ?? false) ? page.date : null) ~%}
+          {%- set last_updated = page.updated ?? ((site.docs.lastupdated ?? false) ? page.date : null) ~%}
           {%- if last_updated ~%}
           <div class="text-sm text-secondary-600 dark:text-secondary-300">
             {% trans %}Last updated on{% endtrans %} <time datetime="{{ last_updated|date('c') }}">{{ last_updated|format_date('long') }}</time>
